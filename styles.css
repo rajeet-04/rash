@@ -1,0 +1,113 @@
+/* Universal styling for body with blue-black-golden gradient */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #ffd700); /* Blue to Black to Golden */
+    color: #333;
+    animation: fadeIn 1s ease-in-out;
+}
+
+/* Header styling with a matching gradient */
+header {
+    background: linear-gradient(135deg, #002171, #1e3c72, #ffd700); /* Blue to Golden */
+    color: white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    animation: slideDown 1s ease-in-out;
+}
+
+/* Navigation styling with flexbox */
+nav {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Allows wrapping when space is limited */
+    gap: 15px; /* Adds space between each link */
+    margin: 20px 0;
+}
+
+/* Matching blue-black-golden buttons */
+nav a {
+    margin: 10px;
+    text-decoration: none;
+    color: #ffd700; /* Golden text */
+    padding: 10px 20px;
+    border-radius: 25px;
+    background: linear-gradient(135deg, #1e3c72, #002171); /* Blue-black gradient */
+    transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    white-space: nowrap; /* Prevents text from breaking into multiple lines */
+    border: 2px solid #ffd700; /* Golden border */
+}
+
+/* Hover effects with motion blur */
+nav a:hover {
+    background-color: #ffd700; /* Golden background on hover */
+    color: #002171; /* Blue text on hover */
+    transform: scale(1.05);
+    filter: blur(2px); /* Adds blur effect */
+}
+
+/* Section styling with a blue-black-golden gradient and soft edges */
+section {
+    padding: 20px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298, #ffd700); /* Blue to Black to Golden */
+    border-radius: 20px;
+    margin: 20px;
+    color: white;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    animation: fadeUp 1s ease;
+}
+
+/* Soft animation keyframes */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        transform: translateY(30px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Footer styling with matching gradient */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, #002171, #1e3c72, #ffd700); /* Blue to Golden gradient */
+    color: white;
+    border-radius: 20px 20px 0 0;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 40px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Add soft transition to all buttons and links */
+button, a {
+    transition: all 0.3s ease;
+}

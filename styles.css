@@ -5,18 +5,27 @@ body {
     padding: 0;
     background-color: #000000; /* Pure black background */
     color: #ffffff; /* White text for readability */
-    animation: fadeIn 1.069s ease-in-out;
+    animation: fadeIn 1s ease-in-out;
 }
 
 /* Header styling with black background and neon-red text */
 header {
-    background-color: #00000F; /* Black background */
+    background-color: #000000; /* Black background */
     color: #ff073a; /* Neon red text */
-    text-align: center;
+    text-align: left; /* Align text to the left */
     padding: 20px;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
     border-radius: 0 0 20px 20px;
     box-shadow: 0 0 15px rgba(255, 7, 58, 0.75); /* Soft glowing red edges */
     animation: slideDown 1s ease-in-out;
+}
+
+/* Logo styling */
+.logo {
+    width: 50px; /* Set the width of the logo */
+    height: 50px; /* Set the height of the logo */
+    margin-right: 15px; /* Space between logo and title */
 }
 
 /* Navigation styling with flexbox */

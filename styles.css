@@ -5,12 +5,12 @@ body {
     padding: 0;
     background-color: #000000; /* Pure black background */
     color: #ffffff; /* White text for readability */
-    animation: fadeIn 1s ease-in-out;
+    animation: fadeIn 1.069s ease-in-out;
 }
 
 /* Header styling with black background and neon-red text */
 header {
-    background-color: #000000; /* Black background */
+    background-color: #00000F; /* Black background */
     color: #ff073a; /* Neon red text */
     text-align: center;
     padding: 20px;

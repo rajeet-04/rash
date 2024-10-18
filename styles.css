@@ -1,21 +1,21 @@
-/* Universal styling for body with blue-black-golden gradient */
+/* Universal styling for body with black background */
 body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background: linear-gradient(135deg, #1e3c72, #2a5298, #ffd700); /* Blue to Black to Golden */
-    color: #333;
+    background-color: #000000; /* Pure black background */
+    color: #ffffff; /* White text for readability */
     animation: fadeIn 1s ease-in-out;
 }
 
-/* Header styling with a matching gradient */
+/* Header styling with black background and neon-red text */
 header {
-    background: linear-gradient(135deg, #002171, #1e3c72, #ffd700); /* Blue to Golden */
-    color: white;
+    background-color: #000000; /* Black background */
+    color: #ff073a; /* Neon red text */
     text-align: center;
     padding: 20px;
     border-radius: 0 0 20px 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(255, 7, 58, 0.75); /* Soft glowing red edges */
     animation: slideDown 1s ease-in-out;
 }
 
@@ -28,35 +28,35 @@ nav {
     margin: 20px 0;
 }
 
-/* Matching blue-black-golden buttons */
+/* Neon-red buttons with glowing edges */
 nav a {
     margin: 10px;
     text-decoration: none;
-    color: #ffd700; /* Golden text */
+    color: #000000; /* Black text inside button */
     padding: 10px 20px;
     border-radius: 25px;
-    background: linear-gradient(135deg, #1e3c72, #002171); /* Blue-black gradient */
-    transition: background-color 0.3s ease, transform 0.3s ease, filter 0.3s ease;
+    background-color: #ff073a; /* Neon red background */
+    box-shadow: 0 0 10px rgba(255, 7, 58, 0.75), 0 0 20px rgba(255, 7, 58, 0.5); /* Glowing effect */
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
     white-space: nowrap; /* Prevents text from breaking into multiple lines */
-    border: 2px solid #ffd700; /* Golden border */
 }
 
-/* Hover effects with motion blur */
+/* Hover effect for buttons with increased glow */
 nav a:hover {
-    background-color: #ffd700; /* Golden background on hover */
-    color: #002171; /* Blue text on hover */
+    background-color: #ff3b5b; /* Slightly lighter neon-red */
+    color: #000000; /* Keep text black */
     transform: scale(1.05);
-    filter: blur(2px); /* Adds blur effect */
+    box-shadow: 0 0 20px rgba(255, 7, 58, 0.9), 0 0 30px rgba(255, 7, 58, 0.6); /* Stronger glow on hover */
 }
 
-/* Section styling with a blue-black-golden gradient and soft edges */
+/* Section styling with black background and neon-red soft-glow edges */
 section {
     padding: 20px;
-    background: linear-gradient(135deg, #1e3c72, #2a5298, #ffd700); /* Blue to Black to Golden */
+    background-color: #000000; /* Black background */
     border-radius: 20px;
     margin: 20px;
-    color: white;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    color: #ffffff; /* White text */
+    box-shadow: 0 0 20px rgba(255, 7, 58, 0.5); /* Glowing edges for sections */
     animation: fadeUp 1s ease;
 }
 
@@ -92,14 +92,14 @@ section {
     }
 }
 
-/* Footer styling with matching gradient */
+/* Footer styling with black background and neon-red glow */
 footer {
     text-align: center;
     padding: 20px;
-    background: linear-gradient(135deg, #002171, #1e3c72, #ffd700); /* Blue to Golden gradient */
-    color: white;
+    background-color: #000000; /* Black background */
+    color: #ff073a; /* Neon-red text */
     border-radius: 20px 20px 0 0;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(255, 7, 58, 0.75); /* Soft glowing red edges */
     position: relative;
     bottom: 0;
     width: 100%;

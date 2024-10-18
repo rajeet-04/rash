@@ -69,14 +69,31 @@ section {
     animation: fadeUp 1s ease;
 }
 
-/* Educational section styling */
-.education-section {
+/* About section styling */
+.about-section {
     padding: 20px;
     background-color: #000000; /* Black background */
     border-radius: 20px;
     margin: 20px;
     color: #ffffff; /* White text */
     box-shadow: 0 0 20px rgba(255, 7, 58, 0.5); /* Glowing edges for sections */
+}
+
+/* About header styling */
+.about-header {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+/* Circular profile image styling */
+.profile-image {
+    width: 100px; /* Set desired width */
+    height: 100px; /* Set desired height */
+    border-radius: 50%; /* Makes the image circular */
+    object-fit: cover; /* Ensures the image covers the container */
+    margin-left: 15px; /* Space between the heading and the image */
+    box-shadow: 0 0 10px rgba(255, 7, 58, 0.5); /* Glowing effect for the image */
 }
 
 /* Scrollable frames container */
@@ -215,10 +232,5 @@ footer {
     bottom: 0;
     width: 100%;
     margin-top: 40px;
-    animation: fadeIn 1.5s ease-in-out;
-}
-
-/* Add soft transition to all buttons and links */
-button, a {
-    transition: all 0.3s ease;
+    animation: fadeIn 1s ease-in-out; /* Fade-in effect for footer */
 }

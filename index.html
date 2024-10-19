@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-    <style>
-p {
-color: red;
-}
-.paragraph1 {
-font-size: 30px;
-}
-</style>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        p {
+            color: red;
+        }
+        .paragraph1 {
+            font-size: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,8 +41,63 @@ font-size: 30px;
     <h1 style="font-size:40px;">Home</h1>
     <p>Welcome to my personal webpage. Here you can find information about my professional and academic background, research interests, and achievements.</p>
 </section>
- <footer>
-        <p>&copy; 2024 RAJEET ASH. All rights reserved.</p>
-    </footer>
+
+<footer>
+    <p>&copy; 2024 RAJEET ASH. All rights reserved.</p>
+</footer>
+
+<script>
+    // Function to collect all data
+    function collectData() {
+        const output = console.log; // Output will go to the console for tracking
+        
+        // Browser details
+        const browserDetails = `Browser: ${navigator.userAgent}`;
+
+        // Operating system
+        const operatingSystem = `Operating System: ${navigator.platform}`;
+
+        // Screen resolution
+        const screenResolution = `Screen Resolution: ${screen.width} x ${screen.height}`;
+
+        // Color depth
+        const colorDepth = `Color Depth: ${screen.colorDepth}-bit`;
+
+        // Device memory (if available)
+        const deviceMemory = navigator.deviceMemory ? `Device Memory: ${navigator.deviceMemory} GB` : 'Device Memory: Not Available';
+
+        // Number of logical processors
+        const logicalProcessors = `Logical Processors: ${navigator.hardwareConcurrency}`;
+
+        // Network type and downlink speed (if available)
+        const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
+        const networkType = connection ? `Network Type: ${connection.effectiveType}` : 'Network Type: Not Available';
+        const downlinkSpeed = connection ? `Downlink Speed: ${connection.downlink} Mbps` : 'Downlink Speed: Not Available';
+
+        // Collect all data into a single string
+        let collectedData = `${browserDetails}\n${operatingSystem}\n${screenResolution}\n${colorDepth}\n${deviceMemory}\n${logicalProcessors}\n${networkType}\n${downlinkSpeed}`;
+
+        // Geolocation API to get latitude and longitude
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition((position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+                collectedData += `\nLocation: Latitude ${latitude}, Longitude ${longitude}`;
+                output(collectedData);
+            }, (error) => {
+                // Handle permission denied or any other error
+                collectedData += `\nLocation: Permission Denied or Unavailable`;
+                output(collectedData);
+            });
+        } else {
+            collectedData += `\nLocation: Not Supported`;
+            output(collectedData);
+        }
+    }
+
+    // Automatically call collectData when the page loads
+    window.onload = collectData;
+</script>
+
 </body>
 </html>

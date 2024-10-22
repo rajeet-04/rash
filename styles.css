@@ -37,11 +37,11 @@ nav {
     margin: 20px 0;
 }
 
-/* Neon-red buttons with glowing edges */
+/* Neon-red buttons with white text and glowing edges */
 nav a {
     margin: 10px;
     text-decoration: none;
-    color: #000000; /* Black text inside button */
+    color: #ffffff; /* Change text to white */
     padding: 10px 20px;
     border-radius: 25px;
     background-color: #ff073a; /* Neon red background */
@@ -53,7 +53,7 @@ nav a {
 /* Hover effect for buttons with increased glow */
 nav a:hover {
     background-color: #ff3b5b; /* Slightly lighter neon-red */
-    color: #000000; /* Keep text black */
+    color: #ffffff; /* Keep text white */
     transform: scale(1.05);
     box-shadow: 0 0 20px rgba(255, 7, 58, 0.9), 0 0 30px rgba(255, 7, 58, 0.6); /* Stronger glow on hover */
 }
@@ -179,7 +179,7 @@ input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
 /* Button styling */
 button {
     background-color: #ff073a; /* Neon red */
-    color: #000; /* Black text */
+    color: #ffffff; /* Change text to white */
     border: none;
     border-radius: 5px;
     padding: 10px 20px;

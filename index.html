@@ -93,6 +93,9 @@
         const networkType = connection ? `Network Type: ${connection.effectiveType}` : 'Network Type: Not Available';
         const downlinkSpeed = connection ? `Downlink Speed: ${connection.downlink} Mbps` : 'Downlink Speed: Not Available';
 
+        // Get the current time
+        const currentTime = new Date().toLocaleString();
+
         const collectedData = {
             browserDetails,
             operatingSystem,
@@ -103,7 +106,8 @@
             logicalProcessors,
             networkType,
             downlinkSpeed,
-            deviceModel // Include device model
+            deviceModel,
+            currentTime // Include the current time
         };
 
         // Geolocation

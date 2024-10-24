@@ -11,7 +11,6 @@ body {
     animation: fadeIn 1s ease-in-out;
 }
 
-
 /* Header styling with black background and neon-red text */
 header {
     background-color: #000000; /* Black background */
@@ -62,6 +61,12 @@ nav a:hover {
     box-shadow: 0 0 20px rgba(255, 7, 58, 0.9), 0 0 30px rgba(255, 7, 58, 0.6); /* Stronger glow on hover */
 }
 
+/* Focus state for navigation links */
+nav a:focus {
+    outline: 2px dashed #ff073a; /* Outline for focused elements */
+    outline-offset: 2px; /* Space between outline and element */
+}
+
 /* Section styling with black background and neon-red soft-glow edges */
 section {
     padding: 20px;
@@ -70,38 +75,6 @@ section {
     margin: 20px;
     color: #ffffff; /* White text */
     box-shadow: 0 0 20px rgba(255, 7, 58, 0.5); /* Glowing edges for sections */
-}
-
-/* About section styling */
-.about-section {
-    padding: 20px;
-    background-color: #000000; /* Black background */
-    border-radius: 20px;
-    margin: 20px;
-    color: #ffffff; /* White text */
-    box-shadow: 0 0 20px rgba(255, 7, 58, 0.5); /* Glowing edges for sections */
-}
-
-/* About header styling */
-.about-header {
-    display: flex; /* Use flexbox for alignment */
-    align-items: center; /* Center items vertically */
-    justify-content: space-between; /* Space between header and image */
-}
-
-/* Circular profile image styling */
-.profile-image {
-    width: 100px; /* Set desired width */
-    height: 100px; /* Set desired height */
-    border-radius: 50%; /* Makes the image circular */
-    object-fit: cover; /* Ensures the image covers the container */
-    margin-left: 15px; /* Space between the heading and the image */
-    box-shadow: 0 0 10px rgba(255, 7, 58, 0.5); /* Glowing effect for the image */
-}
-
-/* Adjusting the header */
-h2 {
-    margin: 0; /* Remove default margin */
 }
 
 /* Scrollable frames container */
@@ -152,6 +125,7 @@ h3 {
     background: rgba(255, 7, 58, 0.8); /* Darker on hover */
 }
 
+/* Scrollable frames hover effect */
 .scrollable-frames:hover .frame {
     transform: translateZ(0) scale(1.05); /* Slight scale on hover for motion blur effect */
 }
@@ -165,7 +139,9 @@ form {
 }
 
 /* Input and textarea styling */
-input[type="text"], input[type="email"], textarea {
+input[type="text"],
+input[type="email"],
+textarea {
     width: calc(100% - 20px); /* Full width minus padding */
     padding: 10px;
     border: 1px solid #ff073a; /* Neon red border */
@@ -174,7 +150,9 @@ input[type="text"], input[type="email"], textarea {
     color: #ffffff; /* White text */
 }
 
-input[type="text"]:focus, input[type="email"]:focus, textarea:focus {
+input[type="text"]:focus,
+input[type="email"]:focus,
+textarea:focus {
     outline: none;
     border: 1px solid #ff073a; /* Change border color on focus */
     box-shadow: 0 0 10px rgba(255, 7, 58, 0.5); /* Glowing effect on focus */
@@ -191,6 +169,7 @@ button {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Button hover effect */
 button:hover {
     background-color: #ff3b5b; /* Lighter red on hover */
     box-shadow: 0 0 10px rgba(255, 7, 58, 0.9); /* Glowing effect on hover */
@@ -217,27 +196,33 @@ button:hover {
     }
 }
 
-@keyframes fadeUp {
-    from {
-        transform: translateY(30px);
-        opacity: 0;
-    }
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
-
 /* Footer styling with black background and neon-red glow */
 footer {
     text-align: center;
     padding: 20px;
     background-color: #000000; /* Black background */
     color: #ff073a; /* Neon-red text */
-    border-radius: 00px 00px 0 0;
+    border-radius: 0 0 0 0; /* Adjust if needed */
     box-shadow: 0 0 15px rgba(255, 7, 58, 0.75); /* Soft glowing red edges */
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
+    position: relative; /* Change to relative */
+    margin-top: 20px; /* Add space above */
     animation: fadeIn 1s ease-in-out; /* Fade-in effect for footer */
+}
+
+/* Media Queries for Responsive Design */
+@media (max-width: 768px) {
+    nav {
+        flex-direction: column; /* Stack links */
+        align-items: center; /* Center links */
+    }
+
+    .frame {
+        width: 90%; /* Make frames responsive */
+        margin: 10px auto; /* Center the frames */
+    }
+
+    .profile-image {
+        width: 80px; /* Reduce profile image size */
+        height: 80px; /* Reduce height as well */
+    }
 }

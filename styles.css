@@ -3,10 +3,14 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000; /* Pure black background */
+    background-image: url('bg.jpeg'); /* Set background image */
+    background-size: cover; /* Ensure the image covers the entire background */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
     color: #ffffff; /* White text for readability */
     animation: fadeIn 1s ease-in-out;
 }
+
 
 /* Header styling with black background and neon-red text */
 header {

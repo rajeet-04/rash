@@ -230,11 +230,10 @@ footer {
     padding: 20px;
     background-color: #000000; /* Black background */
     color: #ff073a; /* Neon-red text */
-    border-radius: 20px 20px 0 0;
+    border-radius: 00px 00px 0 0;
     box-shadow: 0 0 15px rgba(255, 7, 58, 0.75); /* Soft glowing red edges */
-    position: relative;
-    bottom: 10px;
+    position: absolute;
+    bottom: 0px;
     width: 100%;
-    border: 3px solid #8AC007;
     animation: fadeIn 1s ease-in-out; /* Fade-in effect for footer */
 }

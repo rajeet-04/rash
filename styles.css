@@ -6,7 +6,7 @@ body {
     background-image: url('bg.jpg'); /* Set background image */
     background-size: cover; /* Ensure the image covers the entire background */
     background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent the image from repeating */
+    background-repeat: repeat-x; /* Prevent the image from repeating */
     color: #ffffff; /* White text for readability */
     animation: fadeIn 1s ease-in-out;
     height: 100vh; /* Ensure the body takes the full height of the viewport */

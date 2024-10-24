@@ -233,8 +233,8 @@ footer {
     border-radius: 20px 20px 0 0;
     box-shadow: 0 0 15px rgba(255, 7, 58, 0.75); /* Soft glowing red edges */
     position: relative;
-    bottom: 0;
+    bottom: 10px;
     width: 100%;
-    margin-top: 40px;
+    border: 3px solid #8AC007;
     animation: fadeIn 1s ease-in-out; /* Fade-in effect for footer */
 }

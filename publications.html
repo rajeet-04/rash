@@ -12,7 +12,6 @@
 <header>
     <img src="r.jpeg" alt="Logo" class="logo">
     <h1>Paper/Patent Publications</h1>
-<h2>Explore My Published Works</h2>
 </header>
 
 <nav>
@@ -31,12 +30,31 @@
 </nav>
 
 <section>
-    <h2>Paper/Patent Publications</h2>
+    <h1>Paper/Patent Publications</h2>
+    <h2>Explore My Published Works</h2>
     <p>This section will feature my published papers and patents in various fields of research. Stay tuned for updates!</p>
 
 </section>
  <footer>
         <p>&copy; 2024 RAJEET ASH. All rights reserved.</p>
     </footer>
+<script>
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 200); // Random red
+    const g = Math.floor(Math.random() * 156 -r); // Random green
+    const b = Math.floor(Math.random() * 169 ); // Random blue
+    const a = Math.floor(Math.random() * 10); // Opacity (change as needed)
+    return `rgba(${r}, ${g}, ${b}, ${a})`; // Return a random RGBA color
+}
+
+function changeBackgroundColor() {
+    document.body.style.transition = 'background-color 7s ease'; // Smooth transition for background color
+    document.body.style.backgroundColor = getRandomColor(); // Set random background color
+}
+
+// Change background color every second
+setInterval(changeBackgroundColor, 1500);
+</script>
+
 </body>
 </html>

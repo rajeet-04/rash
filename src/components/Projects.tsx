@@ -19,57 +19,18 @@ export default function Projects() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Force intersection observer recalculation when filter changes
+  // Gentle intersection observer recalculation when filter changes
   useEffect(() => {
-    const recalculateIntersections = () => {
-      // Trigger scroll and resize events
+    // Simple, non-aggressive approach to trigger scroll events
+    const timer = setTimeout(() => {
+      // Only dispatch a single scroll event to help intersection observers recalculate
       window.dispatchEvent(new Event('scroll', { bubbles: true }))
-      window.dispatchEvent(new Event('resize', { bubbles: true }))
-      
-      if (isMobile) {
-        // More aggressive mobile fix
-        const currentScroll = window.scrollY
-        
-        // Multiple micro-scrolls to ensure intersection recalculation
-        setTimeout(() => {
-          window.scrollTo({ top: currentScroll + 2, behavior: 'instant' })
-          setTimeout(() => {
-            window.scrollTo({ top: currentScroll - 1, behavior: 'instant' })
-            setTimeout(() => {
-              window.scrollTo({ top: currentScroll, behavior: 'instant' })
-              
-              // Force a final recalculation by triggering scroll event directly
-              window.dispatchEvent(new CustomEvent('scroll', { 
-                bubbles: true, 
-                detail: { forced: true } 
-              }))
-            }, 20)
-          }, 20)
-        }, 100)
-        
-        // Also try to manually trigger intersection observer callbacks
-        setTimeout(() => {
-          const sections = document.querySelectorAll('section[id]')
-          sections.forEach(section => {
-            const rect = section.getBoundingClientRect()
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-              section.dispatchEvent(new Event('intersect'))
-            }
-          })
-        }, 400)
-      }
-    }
-    
-    // Initial delay to allow animations to settle
-    const timer = setTimeout(recalculateIntersections, 200)
-    // Additional delayed attempt for stubborn cases
-    const timer2 = setTimeout(recalculateIntersections, 600)
+    }, 300)
     
     return () => {
       clearTimeout(timer)
-      clearTimeout(timer2)
     }
-  }, [selectedCategory, isMobile])
+  }, [selectedCategory])
 
   const projects = [
     {
@@ -243,7 +204,6 @@ export default function Projects() {
     <section id="projects" className="py-12 md:py-20 px-4 md:px-6 bg-background min-h-screen w-full overflow-hidden transition-all duration-500 ease-out">
       <div className="container mx-auto max-w-7xl w-full">
         <motion.div
-          key={`projects-wrapper-${selectedCategory}`}
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"

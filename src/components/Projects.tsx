@@ -19,57 +19,30 @@ export default function Projects() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Force intersection observer recalculation when filter changes
+  // Manually force re-render after filtering to ensure proper layout calculation
+  const [forceUpdate, setForceUpdate] = useState(0)
+  
   useEffect(() => {
-    const recalculateIntersections = () => {
-      // Trigger scroll and resize events
-      window.dispatchEvent(new Event('scroll', { bubbles: true }))
+    // Force a re-render after filter changes to ensure proper layout
+    setForceUpdate(prev => prev + 1)
+    
+    // Dispatch events to help other components know that layout has changed
+    const notifyLayoutChange = () => {
+      // Use resize event as it's commonly listened to for layout changes
       window.dispatchEvent(new Event('resize', { bubbles: true }))
-      
-      if (isMobile) {
-        // More aggressive mobile fix
-        const currentScroll = window.scrollY
-        
-        // Multiple micro-scrolls to ensure intersection recalculation
-        setTimeout(() => {
-          window.scrollTo({ top: currentScroll + 2, behavior: 'instant' })
-          setTimeout(() => {
-            window.scrollTo({ top: currentScroll - 1, behavior: 'instant' })
-            setTimeout(() => {
-              window.scrollTo({ top: currentScroll, behavior: 'instant' })
-              
-              // Force a final recalculation by triggering scroll event directly
-              window.dispatchEvent(new CustomEvent('scroll', { 
-                bubbles: true, 
-                detail: { forced: true } 
-              }))
-            }, 20)
-          }, 20)
-        }, 100)
-        
-        // Also try to manually trigger intersection observer callbacks
-        setTimeout(() => {
-          const sections = document.querySelectorAll('section[id]')
-          sections.forEach(section => {
-            const rect = section.getBoundingClientRect()
-            if (rect.top < window.innerHeight && rect.bottom > 0) {
-              section.dispatchEvent(new Event('intersect'))
-            }
-          })
-        }, 400)
-      }
     }
     
-    // Initial delay to allow animations to settle
-    const timer = setTimeout(recalculateIntersections, 200)
-    // Additional delayed attempt for stubborn cases
-    const timer2 = setTimeout(recalculateIntersections, 600)
+    // Schedule notifications at different intervals to catch all layout changes
+    const timer1 = setTimeout(notifyLayoutChange, 50)
+    const timer2 = setTimeout(notifyLayoutChange, 300) 
+    const timer3 = setTimeout(notifyLayoutChange, 600)
     
     return () => {
-      clearTimeout(timer)
+      clearTimeout(timer1)
       clearTimeout(timer2)
+      clearTimeout(timer3)
     }
-  }, [selectedCategory, isMobile])
+  }, [selectedCategory])
 
   const projects = [
     {
@@ -243,11 +216,11 @@ export default function Projects() {
     <section id="projects" className="py-12 md:py-20 px-4 md:px-6 bg-background min-h-screen w-full overflow-hidden transition-all duration-500 ease-out">
       <div className="container mx-auto max-w-7xl w-full">
         <motion.div
-          key={`projects-wrapper-${selectedCategory}`}
+          key={`projects-wrapper-${selectedCategory}-${forceUpdate}`}
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "100px" }}
+          animate="visible" // Use animate instead of whileInView to ensure visibility
+          transition={{ staggerChildren: 0.1, delayChildren: 0.05 }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
             <motion.div 
@@ -306,16 +279,17 @@ export default function Projects() {
           </motion.div>
 
           <div
-            key={`grid-${selectedCategory}`}
+            key={`grid-${selectedCategory}-${forceUpdate}`}
             className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 min-h-[420px] sm:min-h-[500px] md:min-h-[600px] transition-all duration-500"
           >
             <AnimatePresence mode="wait">
               {filteredProjects.map((project, index) => (
                 <motion.div
-                  key={`${selectedCategory}-${project.id}`}
+                  key={`${selectedCategory}-${project.id}-${forceUpdate}`}
                   variants={itemVariants}
-                  initial="hidden"
-                  animate="visible"
+                  // Use direct animation props that will always work
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.8, y: -20 }}
                   transition={{ 
                     duration: isMobile ? 0.3 : 0.5,

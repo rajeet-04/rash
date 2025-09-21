@@ -8,9 +8,9 @@ export const metadata: Metadata = {
   keywords: ['portfolio', 'developer', 'designer', 'creative', 'technology', 'computer science'],
   authors: [{ name: 'Rajeet Ash' }],
   icons: {
-    icon: '/r.png',
-    shortcut: '/r.png',
-    apple: '/r.png',
+    icon: './r.png',
+    shortcut: './r.png',
+    apple: './r.png',
   },
   openGraph: {
     title: 'RASH | Portfolio',
@@ -36,9 +36,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="/r.png" type="image/png" />
-        <link rel="shortcut icon" href="/r.png" type="image/png" />
-        <link rel="apple-touch-icon" href="/r.png" />
+        <link rel="icon" href="./r.png" type="image/png" />
+        <link rel="shortcut icon" href="./r.png" type="image/png" />
+        <link rel="apple-touch-icon" href="./r.png" />
       </head>
       <body className="antialiased">
         <ThemeProvider>

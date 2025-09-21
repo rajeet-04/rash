@@ -111,15 +111,16 @@ export default function Experience() {
   }
 
   return (
-  <section id="experience" className="fade-in-section py-20 px-6 min-h-[60vh] mt-6 sm:mt-0">
+    <section id="experience" className="py-20 px-6 min-h-[60vh] mt-6 sm:mt-0">
       <div className="container mx-auto max-w-6xl">
         <motion.div
-          variants={isMobile ? undefined : containerVariants}
-          initial={isMobile ? false : 'hidden'}
-          whileInView={isMobile ? undefined : 'visible'}
-          viewport={isMobile ? undefined : { once: true, amount: 0.2, margin: '0px 0px -10% 0px' }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          // Use consistent viewport settings that work well on all devices
+          viewport={{ once: true, amount: 0.05, margin: "100px" }}
         >
-          <motion.div variants={isMobile ? undefined : itemVariants} className="text-center mb-16">
+          <motion.div variants={itemVariants} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-dynapuff font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-4">
               Experience & Education
             </h2>
@@ -136,8 +137,16 @@ export default function Experience() {
               {experiences.map((exp, index) => (
                 <motion.div
                   key={exp.id}
-                  variants={isMobile ? undefined : itemVariants}
+                  variants={itemVariants}
                   className="relative flex items-start space-x-6"
+                  // Add explicit animations for mobile to ensure visibility
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.1 }}
+                  transition={{ 
+                    duration: isMobile ? 0.5 : 0.8, 
+                    delay: isMobile ? index * 0.1 : index * 0.2 
+                  }}
                 >
                   <div className="relative z-10">
                     <div className={`w-16 h-16 ${getTypeColor(exp.type)} rounded-full flex items-center justify-center text-white shadow-lg`}>

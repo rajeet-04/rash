@@ -10,52 +10,61 @@ import Experience from './Experience'
 import Contact from './Contact'
 import Footer from './Footer'
 
+// Custom hook to ensure section visibility when needed
+function useSectionVisibility() {
+  useEffect(() => {
+    // Function to ensure all sections are visible
+    const ensureSectionsVisible = () => {
+      // Find all section elements that might be affected by animations
+      const sections = document.querySelectorAll('section');
+      
+      // Loop through sections and ensure they're visible
+      sections.forEach(section => {
+        // If a section is not visible, make it visible
+        if (section.style.opacity === '0' || 
+            section.style.visibility === 'hidden' || 
+            section.style.display === 'none') {
+          section.style.opacity = '1';
+          section.style.visibility = 'visible';
+          section.style.display = 'block';
+        }
+      });
+    };
+    
+    // Set up event listeners for common events that might trigger layout changes
+    window.addEventListener('scroll', ensureSectionsVisible, { passive: true });
+    window.addEventListener('resize', ensureSectionsVisible);
+    
+    // Create a MutationObserver to detect DOM changes (like filtering)
+    const observer = new MutationObserver(() => {
+      ensureSectionsVisible();
+    });
+    
+    // Start observing the body for changes
+    observer.observe(document.body, { 
+      childList: true, 
+      subtree: true,
+      attributes: true,
+      attributeFilter: ['style', 'class']
+    });
+    
+    // Run once on mount
+    ensureSectionsVisible();
+    
+    // Clean up
+    return () => {
+      window.removeEventListener('scroll', ensureSectionsVisible);
+      window.removeEventListener('resize', ensureSectionsVisible);
+      observer.disconnect();
+    };
+  }, []);
+}
+
 export default function MainPortfolio() {
   const containerRef = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const { gsap } = require('gsap')
-      const { ScrollTrigger } = require('gsap/ScrollTrigger')
-      gsap.registerPlugin(ScrollTrigger)
-      
-      const ctx = gsap.context(() => {
-        gsap.utils.toArray('.fade-in-section').forEach((section: any) => {
-          gsap.fromTo(
-            section,
-            {
-              opacity: 0,
-              y: 100,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              duration: 1,
-              ease: 'power2.out',
-              scrollTrigger: {
-                trigger: section,
-                start: 'top 80%',
-                end: 'bottom 20%',
-                toggleActions: 'play none none reverse',
-              },
-            }
-          )
-        })
-
-        gsap.utils.toArray('.float-element').forEach((element: Element, index: number) => {
-          gsap.to(element, {
-            y: -20,
-            duration: 2 + index * 0.1,
-            ease: 'power1.inOut',
-            yoyo: true,
-            repeat: -1,
-          } as gsap.TweenVars)
-        })
-      }, containerRef)
-
-      return () => ctx.revert()
-    }
-  }, [])
+  
+  // Use the custom hook to ensure sections are always visible
+  useSectionVisibility()
 
   return (
     <motion.div

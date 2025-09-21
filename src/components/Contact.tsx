@@ -116,15 +116,16 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="fade-in-section py-20 px-6 min-h-[60vh]">
+    <section id="contact" className="py-20 px-6 min-h-[60vh]">
       <div className="container mx-auto max-w-6xl">
         <motion.div
-          variants={isMobile ? undefined : containerVariants}
-          initial={isMobile ? false : 'hidden'}
-          whileInView={isMobile ? undefined : 'visible'}
-          viewport={isMobile ? undefined : { once: true, amount: 0.2, margin: '0px 0px -10% 0px' }}
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          // Use consistent viewport settings that work well on all devices
+          viewport={{ once: true, amount: 0.05, margin: "100px" }}
         >
-          <motion.div variants={isMobile ? undefined : itemVariants} className="text-center mb-16">
+          <motion.div variants={itemVariants} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-dynapuff font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-4">
               Let's Connect
             </h2>
@@ -135,7 +136,12 @@ export default function Contact() {
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <motion.div variants={isMobile ? undefined : itemVariants}>
+            <motion.div 
+              variants={itemVariants}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+            >
               <div className="glass-effect rounded-2xl p-8 neon-border">
                 <h3 className="text-2xl font-dynapuff font-semibold text-primary-400 mb-6">
                   Send me a message
@@ -208,7 +214,13 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            <motion.div variants={isMobile ? undefined : itemVariants} className="space-y-8">
+            <motion.div 
+              variants={itemVariants} 
+              className="space-y-8"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.1 }}
+            >
               <div className="glass-effect rounded-2xl p-8 neon-border">
                 <h3 className="text-2xl font-dynapuff font-semibold text-primary-400 mb-6">
                   Get in touch

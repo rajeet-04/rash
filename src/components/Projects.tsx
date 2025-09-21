@@ -19,16 +19,28 @@ export default function Projects() {
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Gentle intersection observer recalculation when filter changes
+  // Manually force re-render after filtering to ensure proper layout calculation
+  const [forceUpdate, setForceUpdate] = useState(0)
+  
   useEffect(() => {
-    // Simple, non-aggressive approach to trigger scroll events
-    const timer = setTimeout(() => {
-      // Only dispatch a single scroll event to help intersection observers recalculate
-      window.dispatchEvent(new Event('scroll', { bubbles: true }))
-    }, 300)
+    // Force a re-render after filter changes to ensure proper layout
+    setForceUpdate(prev => prev + 1)
+    
+    // Dispatch events to help other components know that layout has changed
+    const notifyLayoutChange = () => {
+      // Use resize event as it's commonly listened to for layout changes
+      window.dispatchEvent(new Event('resize', { bubbles: true }))
+    }
+    
+    // Schedule notifications at different intervals to catch all layout changes
+    const timer1 = setTimeout(notifyLayoutChange, 50)
+    const timer2 = setTimeout(notifyLayoutChange, 300) 
+    const timer3 = setTimeout(notifyLayoutChange, 600)
     
     return () => {
-      clearTimeout(timer)
+      clearTimeout(timer1)
+      clearTimeout(timer2)
+      clearTimeout(timer3)
     }
   }, [selectedCategory])
 
@@ -204,10 +216,11 @@ export default function Projects() {
     <section id="projects" className="py-12 md:py-20 px-4 md:px-6 bg-background min-h-screen w-full overflow-hidden transition-all duration-500 ease-out">
       <div className="container mx-auto max-w-7xl w-full">
         <motion.div
+          key={`projects-wrapper-${selectedCategory}-${forceUpdate}`}
           variants={containerVariants}
           initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.1, margin: "100px" }}
+          animate="visible" // Use animate instead of whileInView to ensure visibility
+          transition={{ staggerChildren: 0.1, delayChildren: 0.05 }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
             <motion.div 
@@ -266,16 +279,17 @@ export default function Projects() {
           </motion.div>
 
           <div
-            key={`grid-${selectedCategory}`}
+            key={`grid-${selectedCategory}-${forceUpdate}`}
             className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 min-h-[420px] sm:min-h-[500px] md:min-h-[600px] transition-all duration-500"
           >
             <AnimatePresence mode="wait">
               {filteredProjects.map((project, index) => (
                 <motion.div
-                  key={`${selectedCategory}-${project.id}`}
+                  key={`${selectedCategory}-${project.id}-${forceUpdate}`}
                   variants={itemVariants}
-                  initial="hidden"
-                  animate="visible"
+                  // Use direct animation props that will always work
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.8, y: -20 }}
                   transition={{ 
                     duration: isMobile ? 0.3 : 0.5,

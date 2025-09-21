@@ -2,11 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
+import emailjs from '@emailjs/browser'
 import { 
   EnvelopeIcon, 
   PhoneIcon, 
   MapPinIcon, 
-  PaperAirplaneIcon 
+  PaperAirplaneIcon,
+  CheckCircleIcon,
+  XCircleIcon
 } from '@heroicons/react/24/outline'
 
 export default function Contact() {
@@ -17,6 +20,7 @@ export default function Contact() {
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
@@ -37,18 +41,65 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    
-    await new Promise(resolve => setTimeout(resolve, 2000))
-    
-    setFormData({
-      name: '',
-      email: '',
-      subject: '',
-      message: '',
-    })
-    setIsSubmitting(false)
-    
-    console.log('Form submitted:', formData)
+    setSubmitStatus('idle')
+
+    try {
+      // For development/demo purposes, show a fallback method
+      if (!process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID || 
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID === 'your_service_id') {
+        
+        // Fallback: Create a mailto link with pre-filled data
+        const subject = encodeURIComponent(formData.subject || 'Contact from Portfolio')
+        const body = encodeURIComponent(
+          `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`
+        )
+        const mailtoLink = `mailto:rajeetash@hotmail.com?subject=${subject}&body=${body}`
+        
+        window.open(mailtoLink, '_blank')
+        setSubmitStatus('success')
+        
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        })
+      } else {
+        // Use EmailJS when properly configured
+        const templateParams = {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'rajeetash@hotmail.com',
+        }
+
+        await emailjs.send(
+          process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
+          process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID!,
+          templateParams,
+          process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY!
+        )
+
+        setSubmitStatus('success')
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        })
+      }
+    } catch (error) {
+      console.error('Email sending failed:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+      
+      // Reset status after 5 seconds
+      setTimeout(() => {
+        setSubmitStatus('idle')
+      }, 5000)
+    }
   }
 
   const contactInfo = [
@@ -193,7 +244,13 @@ export default function Contact() {
                   <motion.button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full px-8 py-4 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg font-semibold text-lg hover-glow disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                    className={`w-full px-8 py-4 rounded-lg font-semibold text-lg flex items-center justify-center space-x-2 transition-all duration-300 ${
+                      submitStatus === 'success' 
+                        ? 'bg-green-500 hover:bg-green-600' 
+                        : submitStatus === 'error'
+                        ? 'bg-red-500 hover:bg-red-600'
+                        : 'bg-gradient-to-r from-primary-500 to-primary-600 hover-glow'
+                    } text-white disabled:opacity-50 disabled:cursor-not-allowed`}
                     whileHover={{ scale: 1.02, y: -2 }}
                     whileTap={{ scale: 0.98 }}
                     transition={{ type: 'spring', stiffness: 400, damping: 17 }}
@@ -203,6 +260,16 @@ export default function Contact() {
                         <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white" />
                         <span>Sending...</span>
                       </>
+                    ) : submitStatus === 'success' ? (
+                      <>
+                        <CheckCircleIcon className="w-5 h-5" />
+                        <span>Message Sent!</span>
+                      </>
+                    ) : submitStatus === 'error' ? (
+                      <>
+                        <XCircleIcon className="w-5 h-5" />
+                        <span>Failed - Try Email</span>
+                      </>
                     ) : (
                       <>
                         <PaperAirplaneIcon className="w-5 h-5" />
@@ -210,6 +277,32 @@ export default function Contact() {
                       </>
                     )}
                   </motion.button>
+
+                  {submitStatus === 'success' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-green-500 text-sm text-center"
+                    >
+                      Thank you! Your message has been sent successfully.
+                    </motion.div>
+                  )}
+
+                  {submitStatus === 'error' && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="text-red-500 text-sm text-center"
+                    >
+                      Failed to send message. Please try emailing directly at{' '}
+                      <a 
+                        href="mailto:rajeetash@hotmail.com" 
+                        className="underline hover:text-red-400"
+                      >
+                        rajeetash@hotmail.com
+                      </a>
+                    </motion.div>
+                  )}
                 </form>
               </div>
             </motion.div>
@@ -244,6 +337,22 @@ export default function Contact() {
                       </div>
                     </motion.a>
                   ))}
+                </div>
+
+                <div className="mt-8 pt-6 border-t border-border">
+                  <motion.button
+                    onClick={() => {
+                      const subject = encodeURIComponent('Portfolio Inquiry')
+                      const body = encodeURIComponent('Hi Rajeet,\n\nI found your portfolio and would like to connect.\n\nBest regards,')
+                      window.open(`mailto:rajeetash@hotmail.com?subject=${subject}&body=${body}`, '_blank')
+                    }}
+                    className="w-full px-6 py-3 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-lg font-medium hover-glow transition-all duration-300 flex items-center justify-center space-x-2"
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
+                    <EnvelopeIcon className="w-5 h-5" />
+                    <span>Quick Email</span>
+                  </motion.button>
                 </div>
               </div>
 

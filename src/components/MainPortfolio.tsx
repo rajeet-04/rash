@@ -4,6 +4,10 @@ import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Header from './Header'
 import Hero from './Hero'
+import About from './About'
+import Projects from './Projects'
+import Experience from './Experience'
+import Contact from './Contact'
 
 export default function MainPortfolio() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -92,17 +96,10 @@ export default function MainPortfolio() {
         
         <main>
           <Hero />
-          
-          <div className="fade-in-section py-20 px-6 text-center">
-            <div className="container mx-auto">
-              <h2 className="text-4xl md:text-5xl font-dynapuff font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-8">
-                More Sections Coming Soon!
-              </h2>
-              <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-                The portfolio is being built in parts. About, Projects, Experience, and Contact sections will be added next.
-              </p>
-            </div>
-          </div>
+          <About />
+          <Projects />
+          <Experience />
+          <Contact />
         </main>
 
         <footer className="fade-in-section bg-dark-800/50 backdrop-blur-lg border-t border-primary-500/20 py-8">

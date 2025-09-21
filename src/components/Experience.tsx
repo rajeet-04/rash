@@ -1,9 +1,18 @@
 'use client'
 
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { CalendarIcon, MapPinIcon, AcademicCapIcon } from '@heroicons/react/24/outline'
 
 export default function Experience() {
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 768)
+    onResize()
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
   const experiences = [
     {
       id: 1,
@@ -33,6 +42,21 @@ export default function Experience() {
         'Innovative AI applications in genomics',
       ],
     },
+    // {
+    //   id: 4,
+    //   title: 'IEEE Conference Publication',
+    //   company: 'IEEE Research Publication',
+    //   period: '2024',
+    //   location: 'International',
+    //   type: 'publication',
+    //   description: 'Published research paper in IEEE conference proceedings, contributing to the academic research community in computer science and engineering.',
+    //   achievements: [
+    //     'Peer-reviewed IEEE conference paper',
+    //     'Contributed to academic research',
+    //     'International conference publication',
+    //     'Research methodology and documentation',
+    //   ],
+    // },
     {
       id: 3,
       title: 'Web Development Projects',
@@ -77,6 +101,8 @@ export default function Experience() {
         return 'bg-blue-500'
       case 'research':
         return 'bg-green-500'
+      case 'publication':
+        return 'bg-purple-500'
       case 'work':
         return 'bg-primary-500'
       default:
@@ -85,20 +111,20 @@ export default function Experience() {
   }
 
   return (
-    <section id="experience" className="fade-in-section py-20 px-6">
+  <section id="experience" className="fade-in-section py-20 px-6 min-h-[60vh] mt-6 sm:mt-0">
       <div className="container mx-auto max-w-6xl">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          variants={isMobile ? undefined : containerVariants}
+          initial={isMobile ? false : 'hidden'}
+          whileInView={isMobile ? undefined : 'visible'}
+          viewport={isMobile ? undefined : { once: true, amount: 0.2, margin: '0px 0px -10% 0px' }}
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
+          <motion.div variants={isMobile ? undefined : itemVariants} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-dynapuff font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-4">
               Experience & Education
             </h2>
             <div className="w-24 h-1 bg-primary-500 mx-auto rounded-full mb-6" />
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+            <p className="text-text-tertiary text-lg max-w-2xl mx-auto">
               My academic journey and professional experiences shaping my growth as a developer
             </p>
           </motion.div>
@@ -110,7 +136,7 @@ export default function Experience() {
               {experiences.map((exp, index) => (
                 <motion.div
                   key={exp.id}
-                  variants={itemVariants}
+                  variants={isMobile ? undefined : itemVariants}
                   className="relative flex items-start space-x-6"
                 >
                   <div className="relative z-10">
@@ -132,18 +158,18 @@ export default function Experience() {
                         <p className="text-primary-400 font-medium">{exp.company}</p>
                       </div>
                       <div className="mt-2 md:mt-0 text-right">
-                        <div className="flex items-center text-gray-400 text-sm mb-1">
+                        <div className="flex items-center text-text-tertiary text-sm mb-1">
                           <CalendarIcon className="w-4 h-4 mr-1" />
                           {exp.period}
                         </div>
-                        <div className="flex items-center text-gray-400 text-sm">
+                        <div className="flex items-center text-text-tertiary text-sm">
                           <MapPinIcon className="w-4 h-4 mr-1" />
                           {exp.location}
                         </div>
                       </div>
                     </div>
 
-                    <p className="text-gray-300 mb-4 leading-relaxed">
+                    <p className="text-text-tertiary mb-4 leading-relaxed">
                       {exp.description}
                     </p>
 
@@ -153,7 +179,7 @@ export default function Experience() {
                       </h5>
                       <ul className="space-y-1">
                         {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="text-gray-300 text-sm flex items-start">
+                          <li key={i} className="text-text-tertiary text-sm flex items-start">
                             <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0" />
                             {achievement}
                           </li>

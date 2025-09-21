@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   description: 'Rajeet Ash - 19-year-old innovator blending creativity with technology. B.Tech Computer Science student at IEM Newtown.',
   keywords: ['portfolio', 'developer', 'designer', 'creative', 'technology', 'computer science'],
   authors: [{ name: 'Rajeet Ash' }],
+  icons: {
+    icon: '/r.png',
+    shortcut: '/r.png',
+    apple: '/r.png',
+  },
   openGraph: {
     title: 'RASH | Portfolio',
     description: 'Creative Developer & Designer - Blending creativity with technology',
@@ -31,15 +36,12 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="/r.jpeg" />
+        <link rel="icon" href="/r.png" type="image/png" />
+        <link rel="shortcut icon" href="/r.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/r.png" />
       </head>
       <body className="antialiased">
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          enableSystem
-          disableTransitionOnChange={false}
-        >
+        <ThemeProvider>
           {children}
         </ThemeProvider>
       </body>

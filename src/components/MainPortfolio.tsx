@@ -8,6 +8,7 @@ import About from './About'
 import Projects from './Projects'
 import Experience from './Experience'
 import Contact from './Contact'
+import Footer from './Footer'
 
 export default function MainPortfolio() {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -41,14 +42,14 @@ export default function MainPortfolio() {
           )
         })
 
-        gsap.utils.toArray('.float-element').forEach((element: any, index) => {
+        gsap.utils.toArray('.float-element').forEach((element: Element, index: number) => {
           gsap.to(element, {
             y: -20,
             duration: 2 + index * 0.1,
             ease: 'power1.inOut',
             yoyo: true,
             repeat: -1,
-          })
+          } as gsap.TweenVars)
         })
       }, containerRef)
 
@@ -59,33 +60,33 @@ export default function MainPortfolio() {
   return (
     <motion.div
       ref={containerRef}
-      className="relative min-h-screen bg-dark-900"
+      className="relative min-h-screen bg-background transition-colors duration-300"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900" />
-        <div className="absolute inset-0 grid-bg opacity-10" />
-        <div className="absolute inset-0 noise-overlay" />
+        <div className="absolute inset-0 bg-gradient-to-br from-background via-bg-secondary to-primary/5" />
+        <div className="absolute inset-0 grid-bg opacity-[0.02] dark:opacity-[0.08]" />
         
-        {[...Array(20)].map((_, i) => (
+        {[...Array(15)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute w-2 h-2 bg-primary-500 rounded-full opacity-30"
+            className="absolute w-1 h-1 bg-primary rounded-full opacity-20"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
             }}
             animate={{
-              y: [0, -30, 0],
-              opacity: [0.3, 0.8, 0.3],
-              scale: [1, 1.5, 1],
+              y: [0, -20, 0],
+              opacity: [0.2, 0.6, 0.2],
+              scale: [1, 1.2, 1],
             }}
             transition={{
               duration: 4 + Math.random() * 2,
               repeat: Infinity,
               delay: Math.random() * 2,
+              ease: "easeInOut"
             }}
           />
         ))}
@@ -102,17 +103,7 @@ export default function MainPortfolio() {
           <Contact />
         </main>
 
-        <footer className="fade-in-section bg-dark-800/50 backdrop-blur-lg border-t border-primary-500/20 py-8">
-          <div className="container mx-auto px-6 text-center">
-            <motion.p
-              className="text-gray-400 text-sm"
-              whileHover={{ color: '#ff3333' }}
-              transition={{ duration: 0.3 }}
-            >
-              &copy; 2024 RAJEET ASH. All rights reserved. Built with passion and creativity.
-            </motion.p>
-          </div>
-        </footer>
+        <Footer />
       </div>
 
       <motion.div
@@ -122,19 +113,19 @@ export default function MainPortfolio() {
         transition={{ delay: 2, duration: 0.8 }}
       >
         <div className="flex flex-col items-center space-y-2">
-          <div className="w-px h-16 bg-gradient-to-b from-transparent via-primary-500 to-transparent" />
+          <div className="w-px h-16 bg-gradient-to-b from-transparent via-primary to-transparent" />
           <motion.div
-            className="w-2 h-8 border border-primary-500 rounded-full flex justify-center"
+            className="w-2 h-8 border border-primary rounded-full flex justify-center bg-background"
             animate={{ opacity: [1, 0.3, 1] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
             <motion.div
-              className="w-1 h-1 bg-primary-500 rounded-full mt-1"
+              className="w-1 h-1 bg-primary rounded-full mt-1"
               animate={{ y: [0, 16, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
           </motion.div>
-          <div className="w-px h-16 bg-gradient-to-b from-transparent via-primary-500 to-transparent" />
+          <div className="w-px h-16 bg-gradient-to-b from-transparent via-primary to-transparent" />
         </div>
       </motion.div>
     </motion.div>

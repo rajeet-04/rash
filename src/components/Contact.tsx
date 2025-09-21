@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import { 
   EnvelopeIcon, 
@@ -17,6 +17,14 @@ export default function Contact() {
     message: '',
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const onResize = () => setIsMobile(window.innerWidth < 768)
+    onResize()
+    window.addEventListener('resize', onResize)
+    return () => window.removeEventListener('resize', onResize)
+  }, [])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
@@ -47,14 +55,14 @@ export default function Contact() {
     {
       icon: <EnvelopeIcon className="w-6 h-6" />,
       label: 'Email',
-      value: 'rajeet@example.com',
-      href: 'mailto:rajeet@example.com',
+      value: 'rajeetash@hotmail.com',
+      href: 'mailto:rajeetash@hotmail.com',
     },
     {
       icon: <PhoneIcon className="w-6 h-6" />,
       label: 'Phone',
-      value: '+91 XXXXX XXXXX',
-      href: 'tel:+91XXXXXXXXX',
+      value: '+91 93305 15069',
+      href: 'tel:+919330515069',
     },
     {
       icon: <MapPinIcon className="w-6 h-6" />,
@@ -108,26 +116,26 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="fade-in-section py-20 px-6">
+    <section id="contact" className="fade-in-section py-20 px-6 min-h-[60vh]">
       <div className="container mx-auto max-w-6xl">
         <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          variants={isMobile ? undefined : containerVariants}
+          initial={isMobile ? false : 'hidden'}
+          whileInView={isMobile ? undefined : 'visible'}
+          viewport={isMobile ? undefined : { once: true, amount: 0.2, margin: '0px 0px -10% 0px' }}
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
+          <motion.div variants={isMobile ? undefined : itemVariants} className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-dynapuff font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-4">
               Let's Connect
             </h2>
             <div className="w-24 h-1 bg-primary-500 mx-auto rounded-full mb-6" />
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                            <p className="text-text-tertiary text-lg max-w-2xl mx-auto">
               Have a project in mind or want to collaborate? I'd love to hear from you!
             </p>
           </motion.div>
 
           <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <motion.div variants={itemVariants}>
+            <motion.div variants={isMobile ? undefined : itemVariants}>
               <div className="glass-effect rounded-2xl p-8 neon-border">
                 <h3 className="text-2xl font-dynapuff font-semibold text-primary-400 mb-6">
                   Send me a message
@@ -142,7 +150,7 @@ export default function Contact() {
                       onChange={handleInputChange}
                       placeholder="Your Name"
                       required
-                      className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary-500 focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 bg-bg-secondary border border-border rounded-lg text-foreground placeholder-text-tertiary focus:border-primary focus:outline-none transition-colors"
                     />
 
                     <input
@@ -152,7 +160,7 @@ export default function Contact() {
                       onChange={handleInputChange}
                       placeholder="Your Email"
                       required
-                      className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary-500 focus:outline-none transition-colors"
+                      className="w-full px-4 py-3 bg-bg-secondary border border-border rounded-lg text-foreground placeholder-text-tertiary focus:border-primary focus:outline-none transition-colors"
                     />
                   </div>
 
@@ -163,7 +171,7 @@ export default function Contact() {
                     onChange={handleInputChange}
                     placeholder="Subject"
                     required
-                    className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary-500 focus:outline-none transition-colors"
+                    className="w-full px-4 py-3 bg-bg-secondary border border-border rounded-lg text-foreground placeholder-text-tertiary focus:border-primary focus:outline-none transition-colors"
                   />
 
                   <textarea
@@ -173,7 +181,7 @@ export default function Contact() {
                     placeholder="Your Message"
                     rows={6}
                     required
-                    className="w-full px-4 py-3 bg-dark-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-primary-500 focus:outline-none transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-bg-secondary border border-border rounded-lg text-foreground placeholder-text-tertiary focus:border-primary focus:outline-none transition-colors resize-none"
                   />
 
                   <motion.button
@@ -200,7 +208,7 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="space-y-8">
+            <motion.div variants={isMobile ? undefined : itemVariants} className="space-y-8">
               <div className="glass-effect rounded-2xl p-8 neon-border">
                 <h3 className="text-2xl font-dynapuff font-semibold text-primary-400 mb-6">
                   Get in touch
@@ -211,15 +219,15 @@ export default function Contact() {
                     <motion.a
                       key={info.label}
                       href={info.href}
-                      className="flex items-center space-x-4 text-gray-300 hover:text-primary-400 transition-colors group"
+                      className="flex items-center space-x-4 text-text-secondary hover:text-primary transition-colors group"
                       whileHover={{ x: 10 }}
                       transition={{ type: 'spring', stiffness: 400, damping: 17 }}
                     >
-                      <div className="w-12 h-12 bg-dark-700 rounded-full flex items-center justify-center text-primary-400 group-hover:bg-primary-500 group-hover:text-white transition-colors">
+                      <div className="w-12 h-12 bg-bg-tertiary rounded-full flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                         {info.icon}
                       </div>
                       <div>
-                        <p className="text-sm text-gray-400">{info.label}</p>
+                        <p className="text-sm text-text-tertiary">{info.label}</p>
                         <p className="text-lg font-medium">{info.value}</p>
                       </div>
                     </motion.a>
@@ -239,7 +247,7 @@ export default function Contact() {
                       href={social.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-12 h-12 bg-dark-700 rounded-full flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-500 transition-colors"
+                      className="w-12 h-12 bg-bg-tertiary rounded-full flex items-center justify-center text-text-tertiary hover:text-primary-foreground hover:bg-primary transition-colors"
                       whileHover={{ scale: 1.1, y: -2 }}
                       whileTap={{ scale: 0.95 }}
                       transition={{ type: 'spring', stiffness: 400, damping: 17 }}

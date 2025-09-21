@@ -133,7 +133,7 @@ export default function EntryScreen({ onComplete }: EntryScreenProps) {
         </motion.div>
 
         <motion.p
-          className="mt-8 text-xl md:text-2xl text-gray-400 font-arima tracking-wide"
+          className="mt-8 text-xl md:text-2xl text-text-tertiary font-arima tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}

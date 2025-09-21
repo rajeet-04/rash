@@ -2,16 +2,24 @@
 
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { useTheme } from 'next-themes'
-import { SunIcon, MoonIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import AdvancedThemeToggle from './AdvancedThemeToggle'
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false)
   const [mounted, setMounted] = useState(false)
-  const { theme, setTheme } = useTheme()
+  const [scrolled, setScrolled] = useState(false)
 
   useEffect(() => {
     setMounted(true)
+    
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 20
+      setScrolled(isScrolled)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   const navigation = [
@@ -32,7 +40,11 @@ export default function Header() {
 
   return (
     <motion.header
-      className="fixed top-0 left-0 right-0 z-50 backdrop-blur-xl bg-dark-900/80 border-b border-primary-500/20"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled 
+          ? 'backdrop-blur-xl bg-white/80 dark:bg-bg-primary/80 border-b border-border shadow-lg' 
+          : 'backdrop-blur-md bg-white/60 dark:bg-bg-primary/60'
+      }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}
@@ -41,18 +53,18 @@ export default function Header() {
         <div className="flex items-center justify-between">
           <motion.div
             className="flex items-center space-x-3"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.02 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}
           >
-            <div className="relative">
+            {/* <div className="relative">
               <img
-                src="/r.jpeg"
+                src="/header.png"
                 alt="RASH Logo"
-                className="w-12 h-12 rounded-full border-2 border-primary-500 shadow-lg"
+                className="w-10 h-10 rounded-xl border-2 border-primary-500 shadow-lg"
               />
-              <div className="absolute inset-0 rounded-full bg-primary-500/20 animate-pulse" />
-            </div>
-            <span className="text-2xl font-dynapuff font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600">
+              <div className="absolute inset-0 rounded-xl bg-primary-500/20 animate-pulse" />
+            </div> */}
+            <span className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-800">
               RASH
             </span>
           </motion.div>
@@ -62,42 +74,26 @@ export default function Header() {
               <motion.button
                 key={item.name}
                 onClick={() => scrollToSection(item.href)}
-                className="relative text-gray-300 hover:text-primary-400 transition-colors duration-300 font-arima"
-                whileHover={{ y: -2 }}
+                className="relative text-text-secondary hover:text-primary transition-colors duration-300 font-medium"
+                whileHover={{ y: -1 }}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.5 }}
               >
                 {item.name}
                 <motion.div
-                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary-500"
+                  className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary rounded-full"
                   whileHover={{ width: '100%' }}
                   transition={{ duration: 0.3 }}
                 />
               </motion.button>
             ))}
 
-            {mounted && (
-              <motion.button
-                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="p-2 rounded-full bg-dark-700 hover:bg-primary-500/20 transition-colors duration-300 border border-primary-500/20"
-                whileHover={{ scale: 1.1, rotate: 180 }}
-                whileTap={{ scale: 0.95 }}
-                initial={{ opacity: 0, scale: 0 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 1 }}
-              >
-                {theme === 'dark' ? (
-                  <SunIcon className="w-5 h-5 text-yellow-400" />
-                ) : (
-                  <MoonIcon className="w-5 h-5 text-blue-400" />
-                )}
-              </motion.button>
-            )}
+            {mounted && <AdvancedThemeToggle />}
           </div>
 
           <motion.button
-            className="md:hidden p-2 rounded-lg bg-dark-700 hover:bg-primary-500/20 transition-colors duration-300"
+            className="md:hidden p-2.5 rounded-xl bg-secondary hover:bg-muted transition-colors duration-300 border border-border"
             onClick={() => setIsOpen(!isOpen)}
             whileTap={{ scale: 0.95 }}
           >
@@ -110,7 +106,7 @@ export default function Header() {
                   exit={{ rotate: 90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <XMarkIcon className="w-6 h-6 text-primary-400" />
+                  <XMarkIcon className="w-6 h-6 text-text-secondary" />
                 </motion.div>
               ) : (
                 <motion.div
@@ -120,7 +116,7 @@ export default function Header() {
                   exit={{ rotate: -90, opacity: 0 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Bars3Icon className="w-6 h-6 text-primary-400" />
+                  <Bars3Icon className="w-6 h-6 text-text-secondary" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -130,7 +126,7 @@ export default function Header() {
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              className="md:hidden mt-4 py-4 border-t border-primary-500/20"
+              className="md:hidden mt-4 py-4 border-t border-border"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
@@ -141,33 +137,19 @@ export default function Header() {
                   <motion.button
                     key={item.name}
                     onClick={() => scrollToSection(item.href)}
-                    className="text-left text-gray-300 hover:text-primary-400 transition-colors duration-300 font-arima py-2"
+                    className="text-left text-text-secondary hover:text-primary transition-colors duration-300 font-medium py-2 px-2 rounded-lg hover:bg-muted"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
-                    whileHover={{ x: 10 }}
+                    whileHover={{ x: 4 }}
                   >
                     {item.name}
                   </motion.button>
                 ))}
 
-                {mounted && (
-                  <motion.button
-                    onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                    className="flex items-center space-x-3 text-gray-300 hover:text-primary-400 transition-colors duration-300 py-2"
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: navigation.length * 0.1 }}
-                    whileHover={{ x: 10 }}
-                  >
-                    {theme === 'dark' ? (
-                      <SunIcon className="w-5 h-5 text-yellow-400" />
-                    ) : (
-                      <MoonIcon className="w-5 h-5 text-blue-400" />
-                    )}
-                    <span>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</span>
-                  </motion.button>
-                )}
+                <div className="pt-2 mt-2 border-t border-border">
+                  <AdvancedThemeToggle />
+                </div>
               </div>
             </motion.div>
           )}

@@ -35,7 +35,7 @@ export default function About() {
   }
 
   return (
-    <section id="about" className="fade-in-section py-20 px-6">
+    <section id="about" className="fade-in-section py-20 px-6 bg-background">
       <div className="container mx-auto max-w-6xl">
         <motion.div
           variants={containerVariants}
@@ -60,11 +60,11 @@ export default function About() {
                 <h3 className="text-2xl font-dynapuff font-semibold mb-4 text-primary-400">
                   Creative Innovator
                 </h3>
-                <p className="text-gray-300 leading-relaxed mb-4">
-                  I'm a 19-year-old B.Tech student majoring in Computer Science Engineering at IEM Newtown, 
+                <p className="text-text-tertiary leading-relaxed mb-4">
+                  I'm a 20-year-old B.Tech student majoring in Computer Science Engineering at IEM Newtown, 
                   under UEM Kolkata. I'm an aspiring innovator with a passion for blending creativity with technology.
                 </p>
-                <p className="text-gray-300 leading-relaxed">
+                <p className="text-text-tertiary leading-relaxed">
                   My journey involves exploring the intersection of design and development, creating digital 
                   experiences that not only function flawlessly but also captivate and inspire users.
                 </p>
@@ -78,7 +78,7 @@ export default function About() {
                 <h3 className="text-2xl font-dynapuff font-semibold mb-4 text-primary-400">
                   What I Do
                 </h3>
-                <ul className="space-y-2 text-gray-300">
+                <ul className="space-y-2 text-text-tertiary">
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-primary-500 rounded-full mr-3" />
                     Full-stack web development
@@ -89,12 +89,16 @@ export default function About() {
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-primary-500 rounded-full mr-3" />
-                    Research in AI and synthetic genomics
+                    Research in Algoritms for Better Data Handling
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-primary-500 rounded-full mr-3" />
                     Modern web animations
                   </li>
+                  <li className="flex items-center">
+                    <span className="w-2 h-2 bg-primary-500 rounded-full mr-3" />
+                    Build Native and Hybris Apps 
+                  </li> 
                 </ul>
               </motion.div>
             </motion.div>
@@ -114,10 +118,10 @@ export default function About() {
                       viewport={{ once: true }}
                     >
                       <div className="flex justify-between mb-2">
-                        <span className="text-white font-medium">{skill.name}</span>
+                        <span className="text-foreground font-medium">{skill.name}</span>
                         <span className="text-primary-400">{skill.level}%</span>
                       </div>
-                      <div className="w-full bg-dark-700 rounded-full h-2">
+                      <div className="w-full bg-secondary rounded-full h-2">
                         <motion.div
                           className="bg-gradient-to-r from-primary-500 to-primary-400 h-2 rounded-full"
                           initial={{ width: 0 }}
@@ -158,7 +162,7 @@ export default function About() {
                 >
                   {stat.number}
                 </motion.div>
-                <div className="text-gray-400 text-sm font-arima">{stat.label}</div>
+                <div className="text-text-tertiary text-sm font-arima">{stat.label}</div>
               </motion.div>
             ))}
           </motion.div>

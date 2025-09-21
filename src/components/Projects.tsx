@@ -1,52 +1,215 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { EyeIcon, CodeBracketIcon, ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
+import { EyeIcon, CodeBracketIcon, ArrowTopRightOnSquareIcon, StarIcon } from '@heroicons/react/24/outline'
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('all')
+  const [isMobile, setIsMobile] = useState(false)
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768)
+    }
+    
+    checkMobile()
+    window.addEventListener('resize', checkMobile)
+    
+    return () => window.removeEventListener('resize', checkMobile)
+  }, [])
+
+  // Force intersection observer recalculation when filter changes
+  useEffect(() => {
+    const recalculateIntersections = () => {
+      // Trigger scroll and resize events
+      window.dispatchEvent(new Event('scroll', { bubbles: true }))
+      window.dispatchEvent(new Event('resize', { bubbles: true }))
+      
+      if (isMobile) {
+        // More aggressive mobile fix
+        const currentScroll = window.scrollY
+        
+        // Multiple micro-scrolls to ensure intersection recalculation
+        setTimeout(() => {
+          window.scrollTo({ top: currentScroll + 2, behavior: 'instant' })
+          setTimeout(() => {
+            window.scrollTo({ top: currentScroll - 1, behavior: 'instant' })
+            setTimeout(() => {
+              window.scrollTo({ top: currentScroll, behavior: 'instant' })
+              
+              // Force a final recalculation by triggering scroll event directly
+              window.dispatchEvent(new CustomEvent('scroll', { 
+                bubbles: true, 
+                detail: { forced: true } 
+              }))
+            }, 20)
+          }, 20)
+        }, 100)
+        
+        // Also try to manually trigger intersection observer callbacks
+        setTimeout(() => {
+          const sections = document.querySelectorAll('section[id]')
+          sections.forEach(section => {
+            const rect = section.getBoundingClientRect()
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+              section.dispatchEvent(new Event('intersect'))
+            }
+          })
+        }, 400)
+      }
+    }
+    
+    // Initial delay to allow animations to settle
+    const timer = setTimeout(recalculateIntersections, 200)
+    // Additional delayed attempt for stubborn cases
+    const timer2 = setTimeout(recalculateIntersections, 600)
+    
+    return () => {
+      clearTimeout(timer)
+      clearTimeout(timer2)
+    }
+  }, [selectedCategory, isMobile])
 
   const projects = [
     {
-      id: 1,
-      title: 'AI in Synthetic Genomics',
-      description: 'Research poster on applications of artificial intelligence in synthetic genomics that won first place at UEMK.',
-      image: '/UEM-Logo.png',
-      category: 'research',
-      technologies: ['AI', 'Genomics', 'Research', 'Python'],
+      id: 'classroom-management',
+      title: 'Classroom Management System',
+      description: 'A comprehensive full-stack web application for managing university courses, assignments, and student submissions. Built with React frontend and Flask backend.',
+      image: '/classroom-preview.jpg',
+      category: 'fullstack',
+      technologies: ['React', 'Flask', 'SQLite', 'TailwindCSS', 'JWT', 'Celery'],
       liveUrl: '#',
       codeUrl: '#',
       featured: true,
+      stars: 0,
+      forks: 0,
+      language: 'Python',
+      status: 'Private Repository',
+      isPublic: false
     },
     {
-      id: 2,
-      title: 'Portfolio Website',
-      description: 'Modern portfolio website with stunning animations, GSAP effects, and smooth interactions.',
-      image: '/r.jpeg',
-      category: 'web',
-      technologies: ['Next.js', 'GSAP', 'Anime.js', 'TypeScript'],
-      liveUrl: '#',
-      codeUrl: '#',
+      id: 'musox',
+      title: 'Musox',
+      description: 'Advanced music application with real-time features and modern UI design.',
+      image: '/musox-preview.jpg',
+      category: 'web', 
+      technologies: ['Python', 'Flask', 'JavaScript'],
+      liveUrl: 'https://github.com/rajeet-04/musox',
+      codeUrl: 'https://github.com/rajeet-04/musox',
       featured: true,
+      stars: 2,
+      forks: 1,
+      language: 'Python',
+      status: 'Active',
+      isPublic: true
     },
     {
-      id: 3,
-      title: 'Interactive Dashboard',
-      description: 'Data visualization dashboard with real-time analytics and interactive charts.',
-      image: '/git.png',
-      category: 'web',
-      technologies: ['React', 'D3.js', 'Node.js', 'MongoDB'],
-      liveUrl: '#',
-      codeUrl: '#',
+      id: 'e2eclipse',
+      title: 'E2Eclipse',
+      description: 'Modern Android application built with Kotlin for enhanced user experience.',
+      image: '/e2eclipse-preview.jpg',
+      category: 'mobile',
+      technologies: ['Kotlin', 'Android'],
+      liveUrl: 'https://github.com/rajeet-04/E2Eclipse',
+      codeUrl: 'https://github.com/rajeet-04/E2Eclipse',
+      featured: true,
+      stars: 3,
+      forks: 0,
+      language: 'Kotlin',
+      status: 'Active',
+      isPublic: true
+    },
+    {
+      id: 'gistify',
+      title: 'Gistify',
+      description: 'An AI powered webpage summarizer that helps users quickly understand web content.',
+      image: '/gistify-preview.jpg',
+      category: 'ai',
+      technologies: ['JavaScript', 'AI', 'Web APIs'],
+      liveUrl: 'https://gistify-psi.vercel.app',
+      codeUrl: 'https://github.com/rajeet-04/gistify',
       featured: false,
+      stars: 0,
+      forks: 0,
+      language: 'JavaScript',
+      status: 'Live',
+      isPublic: true
     },
+    {
+      id: 'rag',
+      title: 'RAG System',
+      description: 'Retrieval-Augmented Generation system for enhanced AI responses with context.',
+      image: '/rag-preview.jpg',
+      category: 'ai',
+      technologies: ['Python', 'AI', 'Machine Learning'],
+      liveUrl: 'https://github.com/rajeet-04/rag',
+      codeUrl: 'https://github.com/rajeet-04/rag',
+      featured: false,
+      stars: 1,
+      forks: 1,
+      language: 'Python',
+      status: 'Active',
+      isPublic: true
+    },
+    {
+      id: 'offline-file-transfer',
+      title: 'Offline File Transfer',
+      description: 'Peer-to-peer file transfer application for local network sharing.',
+      image: '/file-transfer-preview.jpg',
+      category: 'utility',
+      technologies: ['JavaScript', 'Node.js', 'WebRTC'],
+      liveUrl: 'https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER',
+      codeUrl: 'https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER',
+      featured: false,
+      stars: 1,
+      forks: 2,
+      language: 'JavaScript',
+      status: 'Active',
+      isPublic: true
+    },
+    {
+      id: 'sync-video',
+      title: 'Sync Video Platform',
+      description: 'Real-time video synchronization platform for watching content together.',
+      image: '/sync-video-preview.jpg',
+      category: 'web',
+      technologies: ['JavaScript', 'React', 'Socket.io', 'Node.js'],
+      liveUrl: 'https://github.com/rajeet-04/sync-video-frontend',
+      codeUrl: 'https://github.com/rajeet-04/sync-video-frontend',
+      featured: false,
+      stars: 0,
+      forks: 0,
+      language: 'JavaScript',
+      status: 'Live',
+      isPublic: true
+    },
+    {
+      id: 'dti',
+      title: 'DTI Analysis',
+      description: 'Data analysis and visualization tool for DTI research applications.',
+      image: '/dti-preview.jpg',
+      category: 'research',
+      technologies: ['Python', 'Data Science', 'Analysis'],
+      liveUrl: 'https://github.com/rajeet-04/dti',
+      codeUrl: 'https://github.com/rajeet-04/dti',
+      featured: false,
+      stars: 0,
+      forks: 0,
+      language: 'Python',
+      status: 'Research',
+      isPublic: true
+    }
   ]
 
   const categories = [
-    { id: 'all', name: 'All Projects' },
-    { id: 'web', name: 'Web Dev' },
-    { id: 'research', name: 'Research' },
+    { id: 'all', name: 'All Projects', count: projects.length },
+    { id: 'fullstack', name: 'Full Stack', count: projects.filter(p => p.category === 'fullstack').length },
+    { id: 'web', name: 'Web Apps', count: projects.filter(p => p.category === 'web').length },
+    { id: 'ai', name: 'AI & ML', count: projects.filter(p => p.category === 'ai').length },
+    { id: 'mobile', name: 'Mobile', count: projects.filter(p => p.category === 'mobile').length },
+    { id: 'utility', name: 'Utilities', count: projects.filter(p => p.category === 'utility').length },
+    { id: 'research', name: 'Research', count: projects.filter(p => p.category === 'research').length },
   ]
 
   const filteredProjects = selectedCategory === 'all' 
@@ -58,152 +221,231 @@ export default function Projects() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: isMobile ? 0.1 : 0.2,
+        delayChildren: 0.1,
       },
     },
   }
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: isMobile ? 20 : 50 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: isMobile ? 0.5 : 0.8,
         ease: 'easeOut',
       },
     },
   }
 
   return (
-    <section id="projects" className="fade-in-section py-20 px-6">
-      <div className="container mx-auto max-w-7xl">
+    <section id="projects" className="py-12 md:py-20 px-4 md:px-6 bg-background min-h-screen w-full overflow-hidden transition-all duration-500 ease-out">
+      <div className="container mx-auto max-w-7xl w-full">
         <motion.div
+          key={`projects-wrapper-${selectedCategory}`}
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
+          viewport={{ once: true, amount: 0.1, margin: "100px" }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-dynapuff font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-4">
+            <motion.div 
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6"
+              whileHover={{ scale: 1.05 }}
+            >
+              <CodeBracketIcon className="w-4 h-4" />
+              Featured Work
+            </motion.div>
+            <h2 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80 mb-6">
               My Projects
             </h2>
-            <div className="w-24 h-1 bg-primary-500 mx-auto rounded-full mb-6" />
-            <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-              A collection of my work showcasing creativity, technical skills, and innovation
+            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/80 mx-auto rounded-full mb-8" />
+            <p className="text-text-secondary text-lg max-w-3xl mx-auto leading-relaxed">
+              A curated collection of projects that demonstrate my expertise in full-stack development, 
+              AI/ML, mobile applications, and innovative solutions to real-world problems.
             </p>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="flex justify-center mb-12">
-            <div className="glass-effect rounded-full p-2 neon-border">
-              <div className="flex space-x-2">
+          <motion.div variants={itemVariants} className="flex justify-center mb-16">
+            <div className="glass-effect-strong rounded-2xl p-2 md:p-3 border border-border w-full max-w-4xl">
+              <div className="flex flex-wrap justify-center gap-2 md:gap-3">
                 {categories.map((category) => (
                   <motion.button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+                    className={`group relative px-3 md:px-6 py-2 md:py-3 rounded-xl font-medium transition-all duration-300 text-sm md:text-base ${
                       selectedCategory === category.id
-                        ? 'bg-primary-500 text-white'
-                        : 'text-gray-400 hover:text-primary-400'
+                        ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25'
+                        : 'text-text-secondary hover:text-primary hover:bg-muted'
                     }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    {category.name}
+                    <span className="relative z-10">{category.name}</span>
+                    {category.count > 0 && (
+                      <span className={`ml-1 md:ml-2 px-1.5 md:px-2 py-0.5 md:py-1 rounded-full text-xs ${
+                        selectedCategory === category.id
+                          ? 'bg-primary-foreground/20 text-primary-foreground'
+                          : 'bg-muted text-text-tertiary'
+                      }`}>
+                        {category.count}
+                      </span>
+                    )}
+                    {selectedCategory === category.id && (
+                      <motion.div
+                        layoutId="categoryBackground"
+                        className="absolute inset-0 bg-primary rounded-xl -z-10"
+                        transition={{ type: 'spring', bounce: 0.15, duration: 0.4 }}
+                      />
+                    )}
                   </motion.button>
                 ))}
               </div>
             </div>
           </motion.div>
 
-          <motion.div
-            layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          <div
+            key={`grid-${selectedCategory}`}
+            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 min-h-[420px] sm:min-h-[500px] md:min-h-[600px] transition-all duration-500"
           >
             <AnimatePresence mode="wait">
-              {filteredProjects.map((project) => (
+              {filteredProjects.map((project, index) => (
                 <motion.div
-                  key={project.id}
-                  layout
+                  key={`${selectedCategory}-${project.id}`}
                   variants={itemVariants}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  exit={{ opacity: 0, scale: 0.9 }}
-                  transition={{ duration: 0.5 }}
-                  className="group relative glass-effect rounded-2xl overflow-hidden neon-border hover-glow"
-                  whileHover={{ y: -10 }}
+                  initial="hidden"
+                  animate="visible"
+                  exit={{ opacity: 0, scale: 0.8, y: -20 }}
+                  transition={{ 
+                    duration: isMobile ? 0.3 : 0.5,
+                    delay: isMobile ? index * 0.02 : index * 0.05,
+                    ease: "easeOut"
+                  }}
+                  className="group relative glass-effect rounded-2xl overflow-hidden border border-border hover-lift hover:border-primary/50 w-full"
+                  whileHover={!isMobile ? { y: -4 } : {}}
                 >
-                  <div className="relative h-48 md:h-56 overflow-hidden">
-                    <motion.img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover"
-                      whileHover={{ scale: 1.1 }}
-                      transition={{ duration: 0.6 }}
-                    />
-                    
-                    <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
-                    <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      <motion.a
-                        href={project.liveUrl}
-                        className="p-2 bg-primary-500 rounded-full text-white hover:bg-primary-600 transition-colors"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <EyeIcon className="w-4 h-4" />
-                      </motion.a>
-                      <motion.a
-                        href={project.codeUrl}
-                        className="p-2 bg-dark-700 rounded-full text-white hover:bg-dark-600 transition-colors"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.9 }}
-                      >
-                        <CodeBracketIcon className="w-4 h-4" />
-                      </motion.a>
+                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
+                    {/* Project Preview Placeholder */}
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="text-6xl font-bold text-primary/20 opacity-50">
+                        {project.title.charAt(0)}
+                      </div>
                     </div>
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    
+                    {/* Action Buttons */}
+                    {project.isPublic !== false && (
+                      <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                        <motion.a
+                          href={project.liveUrl}
+                          className="p-2.5 bg-background/90 backdrop-blur-sm rounded-lg text-text-secondary hover:bg-primary hover:text-primary-foreground transition-colors shadow-lg"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          title="View Live"
+                        >
+                          <EyeIcon className="w-4 h-4" />
+                        </motion.a>
+                        <motion.a
+                          href={project.codeUrl}
+                          className="p-2.5 bg-background/90 backdrop-blur-sm rounded-lg text-text-secondary hover:bg-secondary hover:text-foreground transition-colors shadow-lg"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.9 }}
+                          title="View Code"
+                        >
+                          <CodeBracketIcon className="w-4 h-4" />
+                        </motion.a>
+                      </div>
+                    )}
 
+                    {/* Featured Badge */}
                     {project.featured && (
                       <div className="absolute top-4 left-4">
-                        <span className="px-3 py-1 bg-primary-500 text-white text-xs font-semibold rounded-full">
+                        <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-primary-600 to-primary-700 text-white text-xs font-semibold rounded-full shadow-lg">
+                          <StarIcon className="w-3 h-3 fill-current" />
                           Featured
                         </span>
                       </div>
                     )}
+
+                    {/* Status Badge */}
+                    <div className="absolute bottom-4 left-4">
+                      <span className="px-2.5 py-1 bg-background/90 backdrop-blur-sm text-text-secondary text-xs font-medium rounded-md">
+                        {project.status}
+                      </span>
+                    </div>
                   </div>
 
-                  <div className="p-6">
-                    <h3 className="text-xl font-dynapuff font-semibold text-white mb-2 group-hover:text-primary-400 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+                  <div className="p-4 md:p-6">
+                    {/* Header */}
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-3 gap-2">
+                      <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
+                        {project.title}
+                      </h3>
+                      <div className="flex items-center gap-3 text-text-tertiary text-sm flex-shrink-0">
+                        {project.stars > 0 && (
+                          <div className="flex items-center gap-1">
+                            <StarIcon className="w-3 h-3" />
+                            <span>{project.stars}</span>
+                          </div>
+                        )}
+                        {project.language && (
+                          <div className="flex items-center gap-1">
+                            <div className="w-2 h-2 bg-primary rounded-full"></div>
+                            <span className="text-xs">{project.language}</span>
+                          </div>
+                        )}
+                      </div>
+                    </div>
+
+                    <p className="text-text-secondary text-sm mb-4 leading-relaxed line-clamp-3">
                       {project.description}
                     </p>
 
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {project.technologies.map((tech, index) => (
+                    {/* Technologies */}
+                    <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-5">
+                      {project.technologies.slice(0, 4).map((tech, index) => (
                         <span
                           key={index}
-                          className="px-3 py-1 bg-dark-700 text-primary-400 text-xs rounded-full border border-primary-500/20"
+                          className="px-2 md:px-2.5 py-1 bg-muted text-text-secondary text-xs font-medium rounded-md border border-border"
                         >
                           {tech}
                         </span>
                       ))}
+                      {project.technologies.length > 4 && (
+                        <span className="px-2 md:px-2.5 py-1 text-text-tertiary text-xs">
+                          +{project.technologies.length - 4} more
+                        </span>
+                      )}
                     </div>
 
-                    <motion.a
-                      href={project.liveUrl}
-                      className="inline-flex items-center text-primary-400 hover:text-primary-300 transition-colors font-medium"
-                      whileHover={{ x: 5 }}
-                    >
-                      View Project
-                      <ArrowTopRightOnSquareIcon className="w-4 h-4 ml-1" />
-                    </motion.a>
+                    {/* Footer */}
+                    <div className="flex items-center justify-between">
+                      {project.isPublic !== false ? (
+                        <motion.a
+                          href={project.liveUrl}
+                          className="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-medium text-sm"
+                          whileHover={{ x: 2 }}
+                        >
+                          View Project
+                          <ArrowTopRightOnSquareIcon className="w-4 h-4 ml-1" />
+                        </motion.a>
+                      ) : (
+                        <div className="text-text-tertiary text-sm italic">Private Project</div>
+                      )}
+
+                      {project.forks > 0 && (
+                        <div className="text-text-tertiary text-xs">
+                          {project.forks} fork{project.forks !== 1 ? 's' : ''}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </motion.div>
               ))}
             </AnimatePresence>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

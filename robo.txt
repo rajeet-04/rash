@@ -1,0 +1,122 @@
+Assignment 1: Basic World and Robot Creation
+
+Objective: Create a custom Gazebo world and insert a mobile robot.
+
+Tasks:
+
+Build a simple environment (ground plane, walls, lights).
+
+Spawn a TurtleBot or Pioneer robot.
+
+Use ROS launch files to load the world.
+
+Evaluation: World realism (30%), correct robot configuration (40%), documentation (30%).
+
+Assignment 2: Differential Drive Robot Control
+
+Objective: Implement motion control using velocity commands.
+
+Taska: Control robot using/cmd vel topic.
+
+Implement forward, backward, and turn movements. Demonstrate trajectory following (square or circle).
+
+Evaluation: Accuracy (40%), smoothness (40%), code quality (20%)
+
+Assignment 3: Sensor Integration
+
+Objective: Add sensors and visualize their data.
+
+Tasks
+
+Attach LiDAR, camera, and IMU.
+
+Visualize data in RViz -Record readings using rosbag
+
+Evaluation: Sensor configuration (40%), data visualization (40%), data analysis (20%).
+
+Assignment 4: Obstacle Avoidance
+
+Objective: Implement autonomous navigation with obstacle avoidance.
+
+Tasks
+
+Use LIDAR data to detect obstacles
+
+Stop or reroute robot dynamically.
+
+Test in a world with random obstacles
+
+Evaluation. Avoidance efficiency (50%), code robustness (30%), explanation (20%).
+
+Assignment 5: SLAM (Simultaneous Localization and Mapping)
+
+Objective: Implement SLAM using gmapping or hector_slam.
+
+Tasks: -Launch SLAM node and build map of environment
+Save map and display in RViz
+
+Evaluation: Map accuracy (50%), configuration (30%), reproducibility (20%).
+
+Assignment 6: Path Planning and Navigation
+
+Objective: Implement autonomous navigation between waypoints.
+
+Tasks
+
+Use move base package or implement A" algorithm Visualize planned and executed paths.
+
+Evaluation: Path efficiency (50%), algorithm implementation (30%), visualization (20%)
+
+Assignment 7: Multi-Robot Coordination
+
+Objective: Simulate two robots coordinating in shared world
+
+Tasks:
+
+Spawn multiple robots using namespaces.
+
+Coordinate movements to avoid collisions.
+
+Demonstrate area coverage
+
+Evaluation: Synchronization (40%), communication (40%), complexity (20%)
+
+Assignment 8: Pick-and-Place with Robotic Arm
+
+Objective: Simulate robotic arm performing object manipulation
+
+Tasks:
+
+Add UR5 or similar manipulator Pick an object and place it in a container.
+
+Use joint control or Movelt
+
+Evaluation: Task success (50%), realism (30%), control logic (20%)
+
+Assignment 9: Drone Simulation
+
+Objective: Implement UAV model with autonomous flight.
+
+Tasks
+
+Use PX4 or ArduPilot plugin
+
+Takeoff, hover, and land autonomously.
+
+Record flight telemetry.
+
+Evaluation: Flight stability (40%), automation (40%), presentation (20%).
+
+Assignment 10: Al-Based Navigation using Reinforcement Learning
+
+Objective: Train an agent to navigate a maze using reinforcement learning.
+
+Tasks:
+
+- Connect Gazebo with OpenAI Gym or ROS RL framework.
+
+Reward robot for reaching goal, penalize collisions.
+
+-Demonstrate learning curve.
+
+Evaluation: Model performance (50%), training setup (30%), analysis (20%).

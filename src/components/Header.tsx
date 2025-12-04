@@ -33,7 +33,15 @@ export default function Header() {
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href)
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
+      // Get header height for offset (fixed header)
+      const headerHeight = 80 // approximate header height
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY
+      const offsetPosition = elementPosition - headerHeight
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
       setIsOpen(false)
     }
   }

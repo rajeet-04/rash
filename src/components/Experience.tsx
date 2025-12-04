@@ -121,7 +121,7 @@ export default function Experience() {
           viewport={{ once: true, amount: 0.05, margin: "100px" }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-dynapuff font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-4">
+            <h2 className="text-4xl md:text-5xl font-departure font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-4">
               Experience & Education
             </h2>
             <div className="w-24 h-1 bg-primary-500 mx-auto rounded-full mb-6" />
@@ -161,10 +161,10 @@ export default function Experience() {
                   >
                     <div className="flex flex-col md:flex-row md:items-start md:justify-between mb-4">
                       <div>
-                        <h4 className="text-xl font-dynapuff font-semibold text-white mb-1">
+                        <h4 className="text-xl font-space font-semibold text-foreground mb-1">
                           {exp.title}
                         </h4>
-                        <p className="text-primary-400 font-medium">{exp.company}</p>
+                        <p className="text-primary-600 dark:text-primary-400 font-medium">{exp.company}</p>
                       </div>
                       <div className="mt-2 md:mt-0 text-right">
                         <div className="flex items-center text-text-tertiary text-sm mb-1">
@@ -178,17 +178,17 @@ export default function Experience() {
                       </div>
                     </div>
 
-                    <p className="text-text-tertiary mb-4 leading-relaxed">
+                    <p className="text-text-secondary mb-4 leading-relaxed">
                       {exp.description}
                     </p>
 
                     <div className="space-y-2">
-                      <h5 className="text-sm font-semibold text-primary-400 uppercase tracking-wide">
+                      <h5 className="text-sm font-semibold text-primary-600 dark:text-primary-400 uppercase tracking-wide">
                         Key Achievements:
                       </h5>
                       <ul className="space-y-1">
                         {exp.achievements.map((achievement, i) => (
-                          <li key={i} className="text-text-tertiary text-sm flex items-start">
+                          <li key={i} className="text-text-secondary text-sm flex items-start">
                             <span className="w-1.5 h-1.5 bg-primary-500 rounded-full mt-2 mr-3 flex-shrink-0" />
                             {achievement}
                           </li>

@@ -120,20 +120,20 @@ export default function EntryScreen({ onComplete }: EntryScreenProps) {
           animate={{ scale: 1 }}
           transition={{ duration: 0.5 }}
         >
-          <h1 className="text-8xl md:text-9xl font-dynapuff font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 tracking-wider">
+          <h1 className="text-8xl md:text-9xl font-departure font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 via-primary-500 to-primary-600 tracking-wider">
             {currentText}
             {showCursor && (
               <span className="animate-blink text-primary-500">|</span>
             )}
           </h1>
           
-          <div className="absolute inset-0 text-8xl md:text-9xl font-dynapuff font-bold text-primary-500 opacity-30 blur-sm -z-10">
+          <div className="absolute inset-0 text-8xl md:text-9xl font-departure font-bold text-primary-500 opacity-30 blur-sm -z-10">
             {currentText}
           </div>
         </motion.div>
 
         <motion.p
-          className="mt-8 text-xl md:text-2xl text-text-tertiary font-arima tracking-wide"
+          className="mt-8 text-xl md:text-2xl text-text-tertiary font-space tracking-wide"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 2, duration: 0.8 }}

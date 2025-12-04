@@ -173,8 +173,8 @@ export default function Hero() {
         </motion.div>
 
         <div className="mb-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-tight">
-            <div className="text-foreground mb-4 md:mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-space font-bold leading-tight">
+            <div className="text-foreground mb-4 md:mb-6 font-space">
               {mainTitle.split('').map((char: string, index: number) => (
                 <span
                   key={index}
@@ -219,12 +219,12 @@ export default function Hero() {
                 >
                   <div className="relative text-center w-full max-w-4xl">
                     {/* Background glow */}
-                    <div className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 dark:from-blue-400 dark:via-purple-400 dark:to-indigo-300 font-extrabold blur-sm opacity-50 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight break-words">
+                    <div className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 dark:from-blue-400 dark:via-purple-400 dark:to-indigo-300 font-space font-extrabold blur-sm opacity-50 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight break-words">
                       &amp; {titles[currentTitleIndex]}
                     </div>
                     
                     {/* Main text */}
-                    <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 dark:from-blue-400 dark:via-purple-400 dark:to-indigo-300 font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight break-words">
+                    <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 dark:from-blue-400 dark:via-purple-400 dark:to-indigo-300 font-space font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight break-words">
                       &amp; {titles[currentTitleIndex]}
                     </span>
                   </div>

@@ -76,8 +76,11 @@ module.exports = {
         }
       },
       fontFamily: {
-        'dynapuff': ['DynaPuff', 'cursive'],
-        'arima': ['Arima', 'sans-serif'],
+        'sans': ['Inter', 'system-ui', 'sans-serif'],
+        'mono': ['JetBrains Mono', 'monospace'],
+        'departure': ['Departure Mono', 'monospace'],
+        'space': ['Space Grotesk', 'sans-serif'],
+        'dynapuff': ['DynaPuff', 'cursive'], // Keep for backward compatibility
       },
       animation: {
         'fade-in': 'fadeIn 1s ease-in-out',

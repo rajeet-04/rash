@@ -177,7 +177,7 @@ export default function Contact() {
           viewport={{ once: true, amount: 0.05, margin: "100px" }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-dynapuff font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-4">
+            <h2 className="text-4xl md:text-5xl font-departure font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary-400 to-primary-600 mb-4">
               Let's Connect
             </h2>
             <div className="w-24 h-1 bg-primary-500 mx-auto rounded-full mb-6" />
@@ -194,7 +194,7 @@ export default function Contact() {
               viewport={{ once: true, amount: 0.1 }}
             >
               <div className="glass-effect rounded-2xl p-8 neon-border">
-                <h3 className="text-2xl font-dynapuff font-semibold text-primary-400 mb-6">
+                <h3 className="text-2xl font-space font-semibold text-primary-400 mb-6">
                   Send me a message
                 </h3>
 
@@ -315,7 +315,7 @@ export default function Contact() {
               viewport={{ once: true, amount: 0.1 }}
             >
               <div className="glass-effect rounded-2xl p-8 neon-border">
-                <h3 className="text-2xl font-dynapuff font-semibold text-primary-400 mb-6">
+                <h3 className="text-2xl font-space font-semibold text-primary-400 mb-6">
                   Get in touch
                 </h3>
                 
@@ -357,7 +357,7 @@ export default function Contact() {
               </div>
 
               <div className="glass-effect rounded-2xl p-8 neon-border">
-                <h3 className="text-2xl font-dynapuff font-semibold text-primary-400 mb-6">
+                <h3 className="text-2xl font-space font-semibold text-primary-400 mb-6">
                   Follow me
                 </h3>
                 

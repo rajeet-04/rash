@@ -7,7 +7,7 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="relative py-16 px-6 bg-gradient-to-br from-secondary-50 to-primary-50 dark:from-dark-950 dark:to-dark-900 border-t border-secondary-200 dark:border-secondary-800">
+    <footer className="relative py-16 px-6 bg-gradient-to-br from-slate-100 to-blue-50 dark:from-dark-950 dark:to-dark-900 border-t border-slate-300 dark:border-secondary-800">
       <div className="container mx-auto max-w-7xl">
         {/* ASCII Art Section */}
         <motion.div
@@ -19,7 +19,7 @@ export default function Footer() {
         >
           <div className="text-center font-mono text-xs leading-tight">
             <motion.div
-              className="text-primary-600 dark:text-primary-400 mb-4"
+              className="text-primary-700 dark:text-primary-400 mb-4"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -36,7 +36,7 @@ export default function Footer() {
             </motion.div>
             
             <motion.div
-              className="text-secondary-600 dark:text-secondary-400 flex flex-wrap items-center justify-center gap-6 text-sm"
+              className="text-slate-600 dark:text-secondary-400 flex flex-wrap items-center justify-center gap-6 text-sm"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
@@ -76,10 +76,10 @@ export default function Footer() {
         >
           {/* About Section */}
           <div>
-            <h3 className="text-xl font-bold text-secondary-900 dark:text-secondary-100 mb-4">
+            <h3 className="text-xl font-bold text-slate-800 dark:text-secondary-100 mb-4">
               About RASH
             </h3>
-            <p className="text-secondary-600 dark:text-secondary-400 leading-relaxed text-sm">
+            <p className="text-slate-600 dark:text-secondary-400 leading-relaxed text-sm">
               A passionate developer crafting innovative digital experiences with modern web technologies. 
               Specializing in full-stack development, AI/ML integration, and user-centric design.
             </p>
@@ -87,7 +87,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-xl font-bold text-secondary-900 dark:text-secondary-100 mb-4">
+            <h3 className="text-xl font-bold text-slate-800 dark:text-secondary-100 mb-4">
               Quick Links
             </h3>
             <ul className="space-y-3">
@@ -100,7 +100,7 @@ export default function Footer() {
                 <li key={link.name}>
                   <motion.a
                     href={link.href}
-                    className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200 text-sm"
+                    className="text-slate-600 dark:text-secondary-400 hover:text-primary-700 dark:hover:text-primary-400 transition-colors duration-200 text-sm"
                     whileHover={{ x: 4 }}
                     onClick={(e) => {
                       e.preventDefault()
@@ -116,7 +116,7 @@ export default function Footer() {
 
           {/* Tech Stack */}
           <div>
-            <h3 className="text-xl font-bold text-secondary-900 dark:text-secondary-100 mb-4">
+            <h3 className="text-xl font-bold text-slate-800 dark:text-secondary-100 mb-4">
               Tech Stack
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -137,14 +137,14 @@ export default function Footer() {
 
         {/* Bottom Section */}
         <motion.div
-          className="pt-8 border-t border-secondary-200 dark:border-secondary-800"
+          className="pt-8 border-t border-slate-300 dark:border-secondary-800"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-secondary-600 dark:text-secondary-400 text-sm">
+            <div className="text-slate-600 dark:text-secondary-400 text-sm">
               © {currentYear} RASH Portfolio. All rights reserved.
             </div>
             
@@ -153,7 +153,7 @@ export default function Footer() {
                 href="https://github.com/rajeet-04"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                className="text-slate-600 dark:text-secondary-400 hover:text-primary-700 dark:hover:text-primary-400 transition-colors duration-200"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -166,7 +166,7 @@ export default function Footer() {
                 href="https://linkedin.com/in/rajeet-ash"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                className="text-slate-600 dark:text-secondary-400 hover:text-primary-700 dark:hover:text-primary-400 transition-colors duration-200"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -177,7 +177,7 @@ export default function Footer() {
               
               <motion.a
                 href="mailto:rajeet@example.com"
-                className="text-secondary-600 dark:text-secondary-400 hover:text-primary-600 dark:hover:text-primary-400 transition-colors duration-200"
+                className="text-slate-600 dark:text-secondary-400 hover:text-primary-700 dark:hover:text-primary-400 transition-colors duration-200"
                 whileHover={{ scale: 1.1 }}
                 whileTap={{ scale: 0.95 }}
               >
@@ -190,13 +190,13 @@ export default function Footer() {
 
           {/* Attribution */}
           <motion.div
-            className="mt-6 pt-6 border-t border-secondary-200 dark:border-secondary-800 text-center"
+            className="mt-6 pt-6 border-t border-slate-300 dark:border-secondary-800 text-center"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <p className="text-xs text-secondary-500 dark:text-secondary-500">
+            <p className="text-xs text-slate-500 dark:text-secondary-500">
               Designed & built with modern web technologies • Next.js • TypeScript • TailwindCSS
             </p>
           </motion.div>

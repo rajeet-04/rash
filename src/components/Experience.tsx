@@ -44,19 +44,19 @@ export default function Experience() {
     },
      {
      id: 4,
-     title: 'IEEE Conference Publication',
-      company: 'IEEE Research Publication',
-     period: '2025',
-      location: 'International',
-      type: 'publication',
-      description: 'Published research paper on BE-PS sorting algorithm in IEEE conference proceedings, contributing to the academic research community in computer science and engineering.',
-     achievements: [
-       'Peer-reviewed IEEE conference paper',
-        'Contributed to academic research',
-       'International conference publication',
-       'Research methodology and documentation',
-      ],
-    },
+  title: 'Real-Time Power System Monitoring (BE-PS Algorithm)',
+  company: 'IEEE AICARE 2025 Conference',
+  period: 'Nov 2025',
+  location: 'Kolkata, India',
+  type: 'publication',
+  description: 'Authored and presented a research paper introducing the BE-PS (Binary Entropy-Poly Split) algorithm. This entropy-guided sorting method is designed to optimize data processing for renewable energy grids, significantly outperforming traditional algorithms like Quicksort and std::sort.',
+  achievements: [
+    'Developed the BE-PS algorithm, achieving 2x-3x faster execution than optimized C++ libraries on clustered datasets.',
+    'Presented at the 1st International Conference on AI for Computing, Astronomy, and Renewable Energy (AICARE 2025).',
+    'Applied information-theoretic principles (Shannon Entropy) to optimize real-time harmonic distortion (THD) monitoring.',
+    'Benchmarked performance against standard algorithms using real-world solar generation data.'
+  ],
+},
     {
       id: 3,
       title: 'Web Development Projects',

@@ -42,21 +42,21 @@ export default function Experience() {
         'Innovative AI applications in genomics',
       ],
     },
-     {
-     id: 4,
-  title: 'Real-Time Power System Monitoring (BE-PS Algorithm)',
-  company: 'IEEE AICARE 2025 Conference',
-  period: 'Nov 2025',
-  location: 'Kolkata, India',
-  type: 'publication',
-  description: 'Authored and presented a research paper introducing the BE-PS (Binary Entropy-Poly Split) algorithm. This entropy-guided sorting method is designed to optimize data processing for renewable energy grids, significantly outperforming traditional algorithms like Quicksort and std::sort.',
-  achievements: [
-    'Developed the BE-PS algorithm, achieving 2x-3x faster execution than optimized C++ libraries on clustered datasets.',
-    'Presented at the 1st International Conference on AI for Computing, Astronomy, and Renewable Energy (AICARE 2025).',
-    'Applied information-theoretic principles (Shannon Entropy) to optimize real-time harmonic distortion (THD) monitoring.',
-    'Benchmarked performance against standard algorithms using real-world solar generation data.'
-  ],
-},
+    {
+      id: 4,
+      title: 'Real-Time Power System Monitoring (BE-PS Algorithm)',
+      company: 'IEEE AICARE 2025 Conference',
+      period: 'Nov 2025',
+      location: 'Kolkata, India',
+      type: 'publication',
+      description: 'Authored and presented a research paper introducing the BE-PS (Binary Entropy-Poly Split) algorithm. This entropy-guided sorting method is designed to optimize data processing for renewable energy grids, significantly outperforming traditional algorithms like Quicksort and std::sort.',
+      achievements: [
+        'Developed the BE-PS algorithm, achieving 2x-3x faster execution than optimized C++ libraries on clustered datasets.',
+        'Presented at the 1st International Conference on AI for Computing, Astronomy, and Renewable Energy (AICARE 2025).',
+        'Applied information-theoretic principles (Shannon Entropy) to optimize real-time harmonic distortion (THD) monitoring.',
+        'Benchmarked performance against standard algorithms using real-world solar generation data.'
+      ],
+    },
     {
       id: 3,
       title: 'Web Development Projects',
@@ -143,9 +143,9 @@ export default function Experience() {
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, amount: 0.1 }}
-                  transition={{ 
-                    duration: isMobile ? 0.5 : 0.8, 
-                    delay: isMobile ? index * 0.1 : index * 0.2 
+                  transition={{
+                    duration: isMobile ? 0.5 : 0.8,
+                    delay: isMobile ? index * 0.1 : index * 0.2
                   }}
                 >
                   <div className="relative z-10">
@@ -155,7 +155,7 @@ export default function Experience() {
                   </div>
 
                   <motion.div
-                    className="flex-1 glass-effect rounded-2xl p-6 neon-border"
+                    className="flex-1 liquid-glass p-6 neon-border"
                     whileHover={{ scale: 1.02, x: 10 }}
                     transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                   >

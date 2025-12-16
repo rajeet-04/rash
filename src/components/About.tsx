@@ -53,7 +53,7 @@ export default function About() {
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <motion.div variants={itemVariants} className="space-y-6">
               <motion.div
-                className="glass-effect rounded-2xl p-8 neon-border"
+                className="liquid-glass p-8"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
@@ -61,17 +61,17 @@ export default function About() {
                   Creative Innovator
                 </h3>
                 <p className="text-text-secondary leading-relaxed mb-4">
-                  I'm a 20-year-old B.Tech student majoring in Computer Science Engineering at IEM Newtown, 
+                  I'm a 20-year-old B.Tech student majoring in Computer Science Engineering at IEM Newtown,
                   under UEM Kolkata. I'm an aspiring innovator with a passion for blending creativity with technology.
                 </p>
                 <p className="text-text-secondary leading-relaxed">
-                  My journey involves exploring the intersection of design and development, creating digital 
+                  My journey involves exploring the intersection of design and development, creating digital
                   experiences that not only function flawlessly but also captivate and inspire users.
                 </p>
               </motion.div>
 
               <motion.div
-                className="glass-effect rounded-2xl p-8 neon-border"
+                className="liquid-glass p-8"
                 whileHover={{ scale: 1.02 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >
@@ -97,14 +97,14 @@ export default function About() {
                   </li>
                   <li className="flex items-center">
                     <span className="w-2 h-2 bg-primary-500 rounded-full mr-3" />
-                    Build Native and Hybris Apps 
-                  </li> 
+                    Build Native and Hybris Apps
+                  </li>
                 </ul>
               </motion.div>
             </motion.div>
 
             <motion.div variants={itemVariants}>
-              <div className="glass-effect rounded-2xl p-8 neon-border">
+              <div className="liquid-glass p-8">
                 <h3 className="text-2xl font-departure font-semibold mb-8 text-primary-600 dark:text-primary-400">
                   Technical Skills
                 </h3>
@@ -145,11 +145,11 @@ export default function About() {
               { number: '2+', label: 'Years Coding' },
               { number: '10+', label: 'Projects' },
               { number: '5+', label: 'Technologies' },
-              { number: '1', label: 'Award Won' },
+              { number: '4', label: 'Award Won' },
             ].map((stat, index) => (
               <motion.div
                 key={stat.label}
-                className="text-center glass-effect rounded-2xl p-6 hover-glow"
+                className="text-center liquid-glass p-6 hover-glow"
                 whileHover={{ y: -5 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 20 }}
               >

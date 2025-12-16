@@ -12,31 +12,31 @@ export default function Projects() {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768)
     }
-    
+
     checkMobile()
     window.addEventListener('resize', checkMobile)
-    
+
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
   // Manually force re-render after filtering to ensure proper layout calculation
   const [forceUpdate, setForceUpdate] = useState(0)
-  
+
   useEffect(() => {
     // Force a re-render after filter changes to ensure proper layout
     setForceUpdate(prev => prev + 1)
-    
+
     // Dispatch events to help other components know that layout has changed
     const notifyLayoutChange = () => {
       // Use resize event as it's commonly listened to for layout changes
       window.dispatchEvent(new Event('resize', { bubbles: true }))
     }
-    
+
     // Schedule notifications at different intervals to catch all layout changes
     const timer1 = setTimeout(notifyLayoutChange, 50)
-    const timer2 = setTimeout(notifyLayoutChange, 300) 
+    const timer2 = setTimeout(notifyLayoutChange, 300)
     const timer3 = setTimeout(notifyLayoutChange, 600)
-    
+
     return () => {
       clearTimeout(timer1)
       clearTimeout(timer2)
@@ -66,7 +66,7 @@ export default function Projects() {
       title: 'Musox',
       description: 'Advanced music application with real-time features and modern UI design.',
       image: '/musox-preview.jpg',
-      category: 'web', 
+      category: 'web',
       technologies: ['Python', 'Flask', 'JavaScript'],
       liveUrl: 'https://github.com/rajeet-04/musox',
       codeUrl: 'https://github.com/rajeet-04/musox',
@@ -185,8 +185,8 @@ export default function Projects() {
     { id: 'research', name: 'Research', count: projects.filter(p => p.category === 'research').length },
   ]
 
-  const filteredProjects = selectedCategory === 'all' 
-    ? projects 
+  const filteredProjects = selectedCategory === 'all'
+    ? projects
     : projects.filter(project => project.category === selectedCategory)
 
   const containerVariants = {
@@ -223,7 +223,7 @@ export default function Projects() {
           transition={{ staggerChildren: 0.1, delayChildren: 0.05 }}
         >
           <motion.div variants={itemVariants} className="text-center mb-16">
-            <motion.div 
+            <motion.div
               className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6"
               whileHover={{ scale: 1.05 }}
             >
@@ -235,33 +235,31 @@ export default function Projects() {
             </h2>
             <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/80 mx-auto rounded-full mb-8" />
             <p className="text-text-secondary text-lg max-w-3xl mx-auto leading-relaxed">
-              A curated collection of projects that demonstrate my expertise in full-stack development, 
+              A curated collection of projects that demonstrate my expertise in full-stack development,
               AI/ML, mobile applications, and innovative solutions to real-world problems.
             </p>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex justify-center mb-16">
-            <div className="glass-effect-strong rounded-2xl p-2 md:p-3 border border-border w-full max-w-4xl">
+            <div className="liquid-glass p-2 md:p-3 w-full max-w-4xl">
               <div className="flex flex-wrap justify-center gap-2 md:gap-3">
                 {categories.map((category) => (
                   <motion.button
                     key={category.id}
                     onClick={() => setSelectedCategory(category.id)}
-                    className={`group relative px-3 md:px-6 py-2 md:py-3 rounded-xl font-medium transition-all duration-300 text-sm md:text-base ${
-                      selectedCategory === category.id
-                        ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25'
-                        : 'text-text-secondary hover:text-primary hover:bg-muted'
-                    }`}
+                    className={`group relative px-3 md:px-6 py-2 md:py-3 rounded-xl font-medium transition-all duration-300 text-sm md:text-base ${selectedCategory === category.id
+                      ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25'
+                      : 'text-text-secondary hover:text-primary hover:bg-muted'
+                      }`}
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
                     <span className="relative z-10">{category.name}</span>
                     {category.count > 0 && (
-                      <span className={`ml-1 md:ml-2 px-1.5 md:px-2 py-0.5 md:py-1 rounded-full text-xs ${
-                        selectedCategory === category.id
-                          ? 'bg-primary-foreground/20 text-primary-foreground'
-                          : 'bg-muted text-text-tertiary'
-                      }`}>
+                      <span className={`ml-1 md:ml-2 px-1.5 md:px-2 py-0.5 md:py-1 rounded-full text-xs ${selectedCategory === category.id
+                        ? 'bg-primary-foreground/20 text-primary-foreground'
+                        : 'bg-muted text-text-tertiary'
+                        }`}>
                         {category.count}
                       </span>
                     )}
@@ -291,12 +289,11 @@ export default function Projects() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, scale: 0.8, y: -20 }}
-                  transition={{ 
-                    duration: isMobile ? 0.3 : 0.5,
+                  transition={{
                     delay: isMobile ? index * 0.02 : index * 0.05,
                     ease: "easeOut"
                   }}
-                  className="group relative glass-effect rounded-2xl overflow-hidden border border-border hover-lift hover:border-primary/50 w-full"
+                  className="group relative liquid-glass overflow-hidden hover-lift hover:border-primary/50 w-full"
                   whileHover={!isMobile ? { y: -4 } : {}}
                 >
                   <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
@@ -306,9 +303,9 @@ export default function Projects() {
                         {project.title.charAt(0)}
                       </div>
                     </div>
-                    
+
                     <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
+
                     {/* Action Buttons */}
                     {project.isPublic !== false && (
                       <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">

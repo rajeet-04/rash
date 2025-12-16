@@ -4,19 +4,52 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
   title: 'RASH | Portfolio - Creative Developer & Designer',
-  description: 'Rajeet Ash - 19-year-old innovator blending creativity with technology. B.Tech Computer Science student at IEM Newtown.',
-  keywords: ['portfolio', 'developer', 'designer', 'creative', 'technology', 'computer science'],
+  description: 'Portfolio of Rajeet Ash — creative developer and designer crafting full-stack web, AI/ML, mobile, and cloud experiences with TypeScript, Next.js, and modern UI/UX.',
+  keywords: [
+    'Rajeet Ash', 'RASH', 'portfolio', 'software engineer', 'full stack developer', 'AI engineer',
+    'Next.js', 'TypeScript', 'React', 'UI designer', 'UX designer', 'cloud', 'mobile', 'web',
+  ],
   authors: [{ name: 'Rajeet Ash' }],
+  creator: 'Rajeet Ash',
+  publisher: 'Rajeet Ash',
+  category: 'technology',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-snippet': -1,
+      'max-image-preview': 'large',
+      'max-video-preview': -1,
+    },
+  },
+  alternates: { canonical: '/' },
   icons: {
     icon: './r.png',
     shortcut: './r.png',
     apple: './r.png',
   },
   openGraph: {
-    title: 'RASH | Portfolio',
-    description: 'Creative Developer & Designer - Blending creativity with technology',
+    title: 'RASH | Portfolio - Creative Developer & Designer',
+    description: 'Creative developer blending design, AI/ML, and full-stack engineering to ship bold digital products.',
     type: 'website',
     locale: 'en_US',
+    siteName: 'RASH Portfolio',
+    images: [
+      {
+        url: '/r.png',
+        width: 512,
+        height: 512,
+        alt: 'RASH logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'RASH | Creative Developer & Designer',
+    description: 'Explore the work of Rajeet Ash: full-stack, AI/ML, mobile, and thoughtful UX.',
+    images: ['/r.png'],
   },
 }
 

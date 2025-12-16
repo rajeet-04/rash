@@ -10,7 +10,7 @@ export default function Hero() {
 
   const titles = [
     "Full Stack Developer",
-    "AI/ML Engineer", 
+    "AI/ML Engineer",
     "Mobile App Developer",
     "UI/UX Designer",
     "Cloud Architect",
@@ -22,7 +22,7 @@ export default function Hero() {
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const { gsap } = require('gsap')
-      
+
       const ctx = gsap.context(() => {
         gsap.fromTo(
           '.hero-title-char',
@@ -80,7 +80,7 @@ export default function Hero() {
           `,
           backgroundSize: '60px 60px'
         }} />
-        
+
         {/* Animated geometric elements */}
         {[...Array(8)].map((_, i) => (
           <motion.div
@@ -107,7 +107,7 @@ export default function Hero() {
             <div className="w-full h-full border-2 border-blue-500/10 dark:border-blue-400/20 transform rotate-45 rounded-lg" />
           </motion.div>
         ))}
-        
+
         {/* High contrast gradient orbs */}
         <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 dark:bg-blue-400/10 rounded-full blur-3xl" />
         <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple-500/5 dark:bg-purple-400/10 rounded-full blur-3xl" />
@@ -122,7 +122,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
         >
           <div className="text-center">
-            <motion.h3 
+            <motion.h3
               className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-text-secondary mb-2"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -134,8 +134,8 @@ export default function Hero() {
                   className="inline-block"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ 
-                    duration: 0.5, 
+                  transition={{
+                    duration: 0.5,
                     delay: 0.6 + index * 0.05,
                     ease: 'easeOut'
                   }}
@@ -147,8 +147,8 @@ export default function Hero() {
                 className="inline-block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 font-semibold"
                 initial={{ opacity: 0, scale: 0.8, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ 
-                  duration: 0.8, 
+                transition={{
+                  duration: 0.8,
                   delay: 1.2,
                   type: 'spring',
                   stiffness: 200
@@ -185,32 +185,32 @@ export default function Hero() {
                 </span>
               ))}
             </div>
-            
+
             {/* Animated Cycling Subtitle with Enhanced Effects */}
             <div className="relative h-28 sm:h-32 md:h-36 lg:h-40 xl:h-44 overflow-hidden flex items-center justify-center">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={currentTitleIndex}
                   className="absolute inset-0 flex items-center justify-center px-4 sm:px-6 md:px-8"
-                  initial={{ 
-                    y: 120, 
-                    opacity: 0, 
+                  initial={{
+                    y: 120,
+                    opacity: 0,
                     rotateX: 90,
                     scale: 0.8
                   }}
-                  animate={{ 
-                    y: 0, 
-                    opacity: 1, 
+                  animate={{
+                    y: 0,
+                    opacity: 1,
                     rotateX: 0,
                     scale: 1
                   }}
-                  exit={{ 
-                    y: -120, 
-                    opacity: 0, 
+                  exit={{
+                    y: -120,
+                    opacity: 0,
                     rotateX: -90,
                     scale: 0.8
                   }}
-                  transition={{ 
+                  transition={{
                     type: "spring",
                     stiffness: 180,
                     damping: 25,
@@ -222,7 +222,7 @@ export default function Hero() {
                     <div className="absolute inset-0 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 dark:from-blue-400 dark:via-purple-400 dark:to-indigo-300 font-space font-extrabold blur-sm opacity-50 text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight break-words">
                       &amp; {titles[currentTitleIndex]}
                     </div>
-                    
+
                     {/* Main text */}
                     <span className="relative text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-700 dark:from-blue-400 dark:via-purple-400 dark:to-indigo-300 font-space font-extrabold text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl leading-tight break-words">
                       &amp; {titles[currentTitleIndex]}
@@ -230,14 +230,14 @@ export default function Hero() {
                   </div>
                 </motion.div>
               </AnimatePresence>
-              
+
               {/* Enhanced typing indicators - positioned responsively */}
               <div className="absolute right-1 sm:right-2 md:right-4 lg:right-8 top-1/2 transform -translate-y-1/2 flex flex-col space-y-1">
                 {[...Array(3)].map((_, i) => (
                   <motion.div
                     key={i}
                     className="w-0.5 sm:w-1 h-2 sm:h-3 bg-gradient-to-t from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400 rounded-full"
-                    animate={{ 
+                    animate={{
                       opacity: [0, 1, 0],
                       scale: [0.6, 1.4, 0.6],
                       y: [0, -2, 0]
@@ -277,8 +277,8 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          A passionate 20-year-old B.Tech student majoring in Computer Science Engineering at IEM Newtown, 
-          specializing in full-stack development, AI/ML, and creating innovative digital solutions that bridge 
+          A passionate 20-year-old B.Tech student majoring in Computer Science Engineering at IEM Newtown,
+          specializing in full-stack development, AI/ML, and creating innovative digital solutions that bridge
           creativity with cutting-edge technology.
         </motion.p>
 
@@ -305,7 +305,7 @@ export default function Hero() {
                 →
               </motion.span>
             </span>
-            
+
             {/* Animated background */}
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-blue-700 to-purple-700 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -323,6 +323,7 @@ export default function Hero() {
           <motion.button
             onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="group px-6 md:px-8 py-3 md:py-4 border-2 border-foreground text-foreground rounded-xl font-bold text-base md:text-lg hover:bg-foreground hover:text-background transition-all duration-300 backdrop-blur-sm bg-background/80 shadow-xl w-full sm:w-auto"
+            style={{ isolation: 'isolate' }}
             whileHover={{ scale: 1.02, y: -3 }}
             whileTap={{ scale: 0.98 }}
             transition={{ type: 'spring', stiffness: 400, damping: 17 }}

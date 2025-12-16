@@ -1,79 +1,62 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { useTheme } from 'next-themes'
 import { motion } from 'framer-motion'
-import { SunIcon, MoonIcon, EyeIcon, ComputerDesktopIcon } from '@heroicons/react/24/outline'
+import { MoonIcon, EyeIcon } from '@heroicons/react/24/outline'
 
-// Simplified toggle: cycles through System -> Light -> Dark -> Dark (High Contrast)
 export default function AdvancedThemeToggle() {
   const [mounted, setMounted] = useState(false)
-  const { setTheme } = useTheme()
-  const [mode, setMode] = useState<'system' | 'light' | 'dark' | 'dark-contrast'>('system')
+  const [isDarkContrast, setIsDarkContrast] = useState(false)
 
   useEffect(() => {
     setMounted(true)
 
-    // Load saved combined mode if present; default to 'system'
-    const saved = localStorage.getItem('theme-mode') as
-      | 'system'
-      | 'light'
-      | 'dark'
-      | 'dark-contrast'
-      | null
+    // Check if high contrast is enabled
+    const hasContrast = document.documentElement.classList.contains('contrast-high')
+    setIsDarkContrast(hasContrast)
 
-    const initial = saved ?? 'system'
-    setMode(initial)
-    applyMode(initial)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
+    // Load from localStorage
+    const saved = localStorage.getItem('theme-mode')
+    if (saved === 'dark-contrast') {
+      document.documentElement.classList.add('contrast-high')
+      setIsDarkContrast(true)
+    } else {
+      document.documentElement.classList.remove('contrast-high')
+      setIsDarkContrast(false)
+    }
   }, [])
 
-  const applyMode = (m: 'system' | 'light' | 'dark' | 'dark-contrast') => {
-    if (m === 'system') {
-      setTheme('system')
-      document.documentElement.classList.remove('contrast-high')
-    } else if (m === 'light') {
-      setTheme('light')
-      document.documentElement.classList.remove('contrast-high')
-    } else if (m === 'dark') {
-      setTheme('dark')
-      document.documentElement.classList.remove('contrast-high')
-    } else if (m === 'dark-contrast') {
-      setTheme('dark')
-      document.documentElement.classList.add('contrast-high')
-    }
-  }
+  const toggle = () => {
+    const newContrast = !isDarkContrast
+    setIsDarkContrast(newContrast)
 
-  const cycle = () => {
-    // order: system -> light -> dark -> dark-contrast -> system
-    const next: typeof mode =
-      mode === 'system' ? 'light' : mode === 'light' ? 'dark' : mode === 'dark' ? 'dark-contrast' : 'system'
-    setMode(next)
-    localStorage.setItem('theme-mode', next)
-    applyMode(next)
+    if (newContrast) {
+      document.documentElement.classList.add('contrast-high')
+      localStorage.setItem('theme-mode', 'dark-contrast')
+    } else {
+      document.documentElement.classList.remove('contrast-high')
+      localStorage.setItem('theme-mode', 'dark')
+    }
   }
 
   if (!mounted) {
     return <div className="w-10 h-10 rounded-xl bg-muted animate-pulse" />
   }
 
-  const iconProps = 'w-5 h-5 text-text-primary'
-  const label =
-    mode === 'system' ? 'System' : mode === 'light' ? 'Light' : mode === 'dark' ? 'Dark' : 'Dark (High Contrast)'
-
   return (
     <motion.button
-      onClick={cycle}
+      onClick={toggle}
       className="p-2.5 rounded-xl bg-background border-2 border-border hover:border-primary transition-all duration-200 shadow-lg hover:shadow-xl"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
-      aria-label={`Toggle theme: ${label}`}
-      title={label}
+      aria-label={`Toggle theme: ${isDarkContrast ? 'Dark High Contrast' : 'Dark'}`}
+      title={isDarkContrast ? 'Dark High Contrast' : 'Dark'}
     >
-      {mode === 'system' && <ComputerDesktopIcon className={iconProps} />}
-      {mode === 'light' && <SunIcon className={iconProps} />}
-      {mode === 'dark' && <MoonIcon className={iconProps} />}
-      {mode === 'dark-contrast' && <EyeIcon className={iconProps} />}
+      {isDarkContrast ? (
+        <EyeIcon className="w-5 h-5 text-text-primary" />
+      ) : (
+        <MoonIcon className="w-5 h-5 text-text-primary" />
+      )}
     </motion.button>
   )
 }

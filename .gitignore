@@ -5,5 +5,3 @@ backup
 ./out/*
 
 .env.*
-
-*lock*

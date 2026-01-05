@@ -1,18 +1,38 @@
 /**
  * Fetch GitHub repositories and score them for portfolio display
  * Run with: node scripts/fetch-repos.mjs
+ * 
+ * Strategy: Pick top repos from each category for wider tech representation
  */
 
-import { writeFileSync } from 'fs';
+import { writeFileSync, readFileSync, existsSync } from 'fs';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = join(__dirname, '..', 'public', 'repos.json');
+const ENV_PATH = join(__dirname, '..', '.env.local');
 
-const GH_TOKEN = process.env.GH_TOKEN;
+// Try to load GH_PAT or GH_TOKEN from .env.local if not in environment
+if (existsSync(ENV_PATH)) {
+    const envContent = readFileSync(ENV_PATH, 'utf8');
+    const lines = envContent.split('\n');
+    lines.forEach(line => {
+        const [key, ...valueParts] = line.split('=');
+        if (key && valueParts.length > 0) {
+            const value = valueParts.join('=').trim().replace(/^["']|["']$/g, '');
+            if (!process.env[key.trim()]) {
+                process.env[key.trim()] = value;
+            }
+        }
+    });
+}
+
+const GH_TOKEN = process.env.GH_TOKEN || process.env.GH_PAT;
 const GH_USERNAME = process.env.GH_USERNAME || 'rajeet-04';
-const MAX_REPOS = 8;
+
+// How many repos to pick from each category (for diversity)
+const REPOS_PER_CATEGORY = 2;
 
 // Category mapping based on language and topics
 const CATEGORY_MAP = {
@@ -25,7 +45,14 @@ const CATEGORY_MAP = {
     'JavaScript': 'web',
     'HTML': 'web',
     'CSS': 'web',
+    'C++': 'systems',
+    'C': 'systems',
+    'Rust': 'systems',
+    'Go': 'backend',
 };
+
+// Category display order (priority)
+const CATEGORY_ORDER = ['web', 'mobile', 'ai', 'fullstack', 'backend', 'systems', 'utility', 'research'];
 
 // Pinned repos that should always appear (if they exist)
 const PINNED_REPOS = [];
@@ -46,6 +73,10 @@ async function fetchWithAuth(url) {
     const response = await fetch(url, { headers });
 
     if (!response.ok) {
+        if (response.status === 403 && response.headers.get('x-ratelimit-remaining') === '0') {
+            const resetTime = new Date(response.headers.get('x-ratelimit-reset') * 1000).toLocaleTimeString();
+            throw new Error(`GitHub API rate limit exceeded. It will reset at ${resetTime}. Please provide a GH_PAT in .env.local for higher limits.`);
+        }
         throw new Error(`GitHub API error: ${response.status} ${response.statusText}`);
     }
 
@@ -53,8 +84,6 @@ async function fetchWithAuth(url) {
 }
 
 async function getRepos() {
-    console.log(`Fetching repositories for ${GH_USERNAME}...`);
-
     // Fetch all repos (paginated)
     let allRepos = [];
     let page = 1;
@@ -75,12 +104,10 @@ async function getRepos() {
 
 async function getCommitCount(repo) {
     try {
-        // Get commit count using the contributors endpoint (faster than fetching all commits)
         const contributors = await fetchWithAuth(
             `https://api.github.com/repos/${GH_USERNAME}/${repo.name}/contributors?per_page=1`
         );
 
-        // Sum up contributions
         let totalCommits = 0;
         if (Array.isArray(contributors)) {
             totalCommits = contributors.reduce((sum, c) => sum + (c.contributions || 0), 0);
@@ -109,9 +136,10 @@ function calculateScore(repo, commitCount) {
     const stars = repo.stargazers_count || 0;
     const forks = repo.forks_count || 0;
     const recencyBonus = calculateRecencyBonus(repo.pushed_at);
+    const ownershipBonus = !repo.fork ? 7 : 0;
 
-    // Score formula: stars(3x) + forks(2x) + commits(0.1x) + recency
-    const score = (stars * 3) + (forks * 2) + (commitCount * 0.1) + recencyBonus;
+    // Score formula: stars(3x) + forks(2x) + commits(0.1x) + recency + ownership
+    const score = (stars * 3) + (forks * 2) + (commitCount * 0.1) + recencyBonus + ownershipBonus;
 
     return score;
 }
@@ -119,19 +147,16 @@ function calculateScore(repo, commitCount) {
 function shouldExclude(repo, commitCount) {
     // Exclude by name
     if (EXCLUDED_REPOS.includes(repo.name)) {
-        console.log(`Excluding ${repo.name}: in exclusion list`);
         return true;
     }
 
     // Exclude forks (unless they have significant modifications)
     if (repo.fork && commitCount < 10) {
-        console.log(`Excluding ${repo.name}: fork with few commits`);
         return true;
     }
 
     // Exclude repos with very few commits (abandoned/tests)
     if (commitCount < 3) {
-        console.log(`Excluding ${repo.name}: < 3 commits`);
         return true;
     }
 
@@ -141,7 +166,6 @@ function shouldExclude(repo, commitCount) {
     );
 
     if (daysSinceUpdate > 365 && commitCount < 10) {
-        console.log(`Excluding ${repo.name}: stale (${daysSinceUpdate} days, ${commitCount} commits)`);
         return true;
     }
 
@@ -154,17 +178,20 @@ function inferCategory(repo) {
     if (topics.includes('android') || topics.includes('mobile') || topics.includes('ios')) {
         return 'mobile';
     }
-    if (topics.includes('ai') || topics.includes('machine-learning') || topics.includes('ml')) {
+    if (topics.includes('ai') || topics.includes('machine-learning') || topics.includes('ml') || topics.includes('deep-learning')) {
         return 'ai';
     }
     if (topics.includes('fullstack') || topics.includes('full-stack')) {
         return 'fullstack';
     }
-    if (topics.includes('research') || topics.includes('analysis')) {
+    if (topics.includes('research') || topics.includes('analysis') || topics.includes('paper')) {
         return 'research';
     }
     if (topics.includes('utility') || topics.includes('tool') || topics.includes('cli')) {
         return 'utility';
+    }
+    if (topics.includes('backend') || topics.includes('api') || topics.includes('server')) {
+        return 'backend';
     }
 
     // Fall back to language
@@ -182,7 +209,8 @@ function inferTechnologies(repo) {
     const techTopics = (repo.topics || []).filter(t =>
         ['react', 'nextjs', 'flask', 'django', 'nodejs', 'typescript', 'tailwindcss',
             'firebase', 'supabase', 'postgresql', 'mongodb', 'redis', 'docker',
-            'kotlin', 'android', 'ios', 'swift', 'flutter'].includes(t.toLowerCase())
+            'kotlin', 'android', 'ios', 'swift', 'flutter', 'python', 'tensorflow',
+            'pytorch', 'vercel', 'aws', 'gcp', 'azure'].includes(t.toLowerCase())
     );
 
     techs.push(...techTopics.map(t => t.charAt(0).toUpperCase() + t.slice(1)));
@@ -231,23 +259,75 @@ async function main() {
             });
         }
 
-        // Sort: pinned first, then by score
-        processedRepos.sort((a, b) => {
+        // Sort by score within each category, then pick top N from each
+        const reposByCategory = {};
+
+        for (const repo of processedRepos) {
+            if (!reposByCategory[repo.category]) {
+                reposByCategory[repo.category] = [];
+            }
+            reposByCategory[repo.category].push(repo);
+        }
+
+        // Sort each category by score
+        for (const category in reposByCategory) {
+            reposByCategory[category].sort((a, b) => {
+                if (a._pinned && !b._pinned) return -1;
+                if (!a._pinned && b._pinned) return 1;
+                return b._score - a._score;
+            });
+        }
+
+        // Pick top repos from each category for diversity
+        const selectedRepos = [];
+        const seenIds = new Set();
+
+        // First pass: pick REPOS_PER_CATEGORY from each category in order
+        for (const category of CATEGORY_ORDER) {
+            const categoryRepos = reposByCategory[category] || [];
+            let count = 0;
+
+            for (const repo of categoryRepos) {
+                if (count >= REPOS_PER_CATEGORY) break;
+                if (seenIds.has(repo.id)) continue;
+
+                selectedRepos.push(repo);
+                seenIds.add(repo.id);
+                count++;
+            }
+        }
+
+        // Second pass: add any remaining high-scoring repos not yet included
+        const allSorted = [...processedRepos].sort((a, b) => b._score - a._score);
+        for (const repo of allSorted) {
+            if (seenIds.has(repo.id)) continue;
+            selectedRepos.push(repo);
+            seenIds.add(repo.id);
+        }
+
+        // Final sort by score for display
+        selectedRepos.sort((a, b) => {
             if (a._pinned && !b._pinned) return -1;
             if (!a._pinned && b._pinned) return 1;
             return b._score - a._score;
         });
 
-        // Take top repos
-        const topRepos = processedRepos.slice(0, MAX_REPOS);
-
         // Clean up internal fields before saving
-        const cleanRepos = topRepos.map(({ _score, _commits, _pinned, ...repo }) => repo);
+        const cleanRepos = selectedRepos.map(({ _score, _commits, _pinned, ...repo }) => repo);
 
-        console.log('\nTop repositories:');
-        topRepos.forEach((repo, i) => {
-            console.log(`${i + 1}. ${repo.title} (score: ${repo._score.toFixed(1)}, commits: ${repo._commits})`);
+        console.log('\nSelected repositories:');
+        selectedRepos.forEach((repo, i) => {
+            console.log(`${i + 1}. [${repo.category}] ${repo.title} (score: ${repo._score.toFixed(1)}, commits: ${repo._commits})`);
         });
+
+        console.log('\nCategory breakdown:');
+        const categoryCounts = {};
+        for (const repo of selectedRepos) {
+            categoryCounts[repo.category] = (categoryCounts[repo.category] || 0) + 1;
+        }
+        for (const [cat, count] of Object.entries(categoryCounts)) {
+            console.log(`  ${cat}: ${count}`);
+        }
 
         // Write to file
         writeFileSync(OUTPUT_PATH, JSON.stringify(cleanRepos, null, 2));

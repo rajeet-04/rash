@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { EyeIcon, CodeBracketIcon, ArrowTopRightOnSquareIcon, StarIcon } from '@heroicons/react/24/outline'
 import reposData from '../../public/repos.json'
 
-// Type for repository data
 interface RepoData {
   id: string
   title: string
@@ -28,55 +27,24 @@ export default function Projects() {
   const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768)
-    }
-
+    const checkMobile = () => setIsMobile(window.innerWidth < 768)
     checkMobile()
     window.addEventListener('resize', checkMobile)
-
     return () => window.removeEventListener('resize', checkMobile)
   }, [])
 
-  // Manually force re-render after filtering to ensure proper layout calculation
-  const [forceUpdate, setForceUpdate] = useState(0)
-
-  useEffect(() => {
-    // Force a re-render after filter changes to ensure proper layout
-    setForceUpdate(prev => prev + 1)
-
-    // Dispatch events to help other components know that layout has changed
-    const notifyLayoutChange = () => {
-      // Use resize event as it's commonly listened to for layout changes
-      window.dispatchEvent(new Event('resize', { bubbles: true }))
-    }
-
-    // Schedule notifications at different intervals to catch all layout changes
-    const timer1 = setTimeout(notifyLayoutChange, 50)
-    const timer2 = setTimeout(notifyLayoutChange, 300)
-    const timer3 = setTimeout(notifyLayoutChange, 600)
-
-    return () => {
-      clearTimeout(timer1)
-      clearTimeout(timer2)
-      clearTimeout(timer3)
-    }
-  }, [selectedCategory])
-
-  // Load projects from JSON data
   const projects: RepoData[] = reposData as RepoData[]
 
-  // Get unique categories from the data
   const categorySet = new Set(projects.map(p => p.category))
   const categories = [
-    { id: 'all', name: 'All Projects', count: projects.length },
+    { id: 'all', name: 'All', count: projects.length },
     ...Array.from(categorySet).map(cat => ({
       id: cat,
       name: cat === 'ai' ? 'AI & ML' :
         cat === 'fullstack' ? 'Full Stack' :
-          cat === 'web' ? 'Web Apps' :
+          cat === 'web' ? 'Web' :
             cat === 'mobile' ? 'Mobile' :
-              cat === 'utility' ? 'Utilities' :
+              cat === 'utility' ? 'Tools' :
                 cat === 'research' ? 'Research' :
                   cat.charAt(0).toUpperCase() + cat.slice(1),
       count: projects.filter(p => p.category === cat).length
@@ -87,235 +55,193 @@ export default function Projects() {
     ? projects
     : projects.filter(project => project.category === selectedCategory)
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: isMobile ? 0.1 : 0.2,
-        delayChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: isMobile ? 20 : 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: isMobile ? 0.5 : 0.8,
-        ease: 'easeOut',
-      },
-    },
-  }
-
   return (
-    <section id="projects" className="py-12 md:py-20 px-4 md:px-6 bg-background min-h-screen w-full overflow-hidden transition-all duration-500 ease-out">
-      <div className="container mx-auto max-w-7xl w-full">
+    <section id="projects" className="py-20 px-4 md:px-6 min-h-screen">
+      <div className="container mx-auto max-w-6xl">
+        {/* Header */}
         <motion.div
-          key={`projects-wrapper-${selectedCategory}-${forceUpdate}`}
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible" // Use animate instead of whileInView to ensure visibility
-          transition={{ staggerChildren: 0.1, delayChildren: 0.05 }}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          <motion.div variants={itemVariants} className="text-center mb-16">
-            <motion.div
-              className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6"
-              whileHover={{ scale: 1.05 }}
-            >
-              <CodeBracketIcon className="w-4 h-4" />
-              Featured Work
-            </motion.div>
-            <h2 className="text-4xl md:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-primary to-primary/80 mb-6">
-              My Projects
-            </h2>
-            <div className="w-20 h-1 bg-gradient-to-r from-primary to-primary/80 mx-auto rounded-full mb-8" />
-            <p className="text-text-secondary text-lg max-w-3xl mx-auto leading-relaxed">
-              A curated collection of projects that demonstrate my expertise in full-stack development,
-              AI/ML, mobile applications, and innovative solutions to real-world problems.
-            </p>
-          </motion.div>
+          <div className="terminal-card inline-block mb-6">
+            <div className="terminal-header">
+              <div className="terminal-dot terminal-dot-red" />
+              <div className="terminal-dot terminal-dot-yellow" />
+              <div className="terminal-dot terminal-dot-green" />
+              <span className="terminal-title">projects.json</span>
+            </div>
+            <div className="terminal-body py-2 px-4">
+              <span className="text-[rgb(var(--primary))] text-sm font-mono">ls</span>
+              <span className="text-[rgb(var(--muted-foreground))] text-sm font-mono"> ~/projects/</span>
+            </div>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-display font-bold gradient-text mb-4">
+            My Projects
+          </h2>
+          <p className="text-[rgb(var(--muted-foreground))] max-w-2xl mx-auto">
+            A collection of projects showcasing my work in full-stack development,
+            AI/ML, mobile apps, and more.
+          </p>
+        </motion.div>
 
-          <motion.div variants={itemVariants} className="flex justify-center mb-16">
-            <div className="liquid-glass p-2 md:p-3 w-full max-w-4xl">
-              <div className="flex flex-wrap justify-center gap-2 md:gap-3">
-                {categories.map((category) => (
-                  <motion.button
-                    key={category.id}
-                    onClick={() => setSelectedCategory(category.id)}
-                    className={`group relative px-3 md:px-6 py-2 md:py-3 rounded-xl font-medium transition-all duration-300 text-sm md:text-base ${selectedCategory === category.id
-                      ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/25'
-                      : 'text-text-secondary hover:text-primary hover:bg-muted'
-                      }`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    <span className="relative z-10">{category.name}</span>
-                    {category.count > 0 && (
-                      <span className={`ml-1 md:ml-2 px-1.5 md:px-2 py-0.5 md:py-1 rounded-full text-xs ${selectedCategory === category.id
-                        ? 'bg-primary-foreground/20 text-primary-foreground'
-                        : 'bg-muted text-text-tertiary'
-                        }`}>
-                        {category.count}
+        {/* Category Filter */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="flex justify-center mb-12"
+        >
+          <div className="midnight-glass p-2 inline-flex flex-wrap justify-center gap-2">
+            {categories.map((category) => (
+              <motion.button
+                key={category.id}
+                onClick={() => setSelectedCategory(category.id)}
+                className={`px-4 py-2 rounded-xl font-medium text-sm transition-all duration-300 ${selectedCategory === category.id
+                    ? 'bg-[rgb(var(--primary))] text-[rgb(var(--primary-foreground))] neon-glow'
+                    : 'text-[rgb(var(--muted-foreground))] hover:text-[rgb(var(--foreground))] hover:bg-[rgb(var(--muted))]'
+                  }`}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                {category.name}
+                <span className={`ml-2 text-xs ${selectedCategory === category.id
+                    ? 'text-[rgb(var(--primary-foreground)_/_0.7)]'
+                    : 'text-[rgb(var(--muted-foreground))]'
+                  }`}>
+                  {category.count}
+                </span>
+              </motion.button>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Projects Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <AnimatePresence mode="popLayout">
+            {filteredProjects.map((project, index) => (
+              <motion.div
+                key={project.id}
+                layout
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.05,
+                  layout: { duration: 0.3 }
+                }}
+                className="group"
+              >
+                <div className="midnight-glass h-full overflow-hidden hover-lift">
+                  {/* Card Header - Terminal Style */}
+                  <div className="flex items-center gap-2 px-4 py-3 border-b border-[rgb(var(--border)_/_0.5)]">
+                    <div className="flex gap-1.5">
+                      <div className="w-3 h-3 rounded-full bg-red-500/80" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500/80" />
+                      <div className="w-3 h-3 rounded-full bg-green-500/80" />
+                    </div>
+                    <span className="text-xs font-mono text-[rgb(var(--muted-foreground))] ml-2 truncate">
+                      {project.id}
+                    </span>
+                    {project.featured && (
+                      <span className="ml-auto flex items-center gap-1 text-xs text-[rgb(var(--primary))]">
+                        <StarIcon className="w-3 h-3" />
+                        Featured
                       </span>
                     )}
-                    {selectedCategory === category.id && (
-                      <motion.div
-                        layoutId="categoryBackground"
-                        className="absolute inset-0 bg-primary rounded-xl -z-10"
-                        transition={{ type: 'spring', bounce: 0.15, duration: 0.4 }}
-                      />
-                    )}
-                  </motion.button>
-                ))}
-              </div>
-            </div>
-          </motion.div>
+                  </div>
 
-          <div
-            key={`grid-${selectedCategory}-${forceUpdate}`}
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 min-h-[420px] sm:min-h-[500px] md:min-h-[600px] transition-all duration-500"
-          >
-            <AnimatePresence mode="wait">
-              {filteredProjects.map((project, index) => (
-                <motion.div
-                  key={`${selectedCategory}-${project.id}-${forceUpdate}`}
-                  variants={itemVariants}
-                  // Use direct animation props that will always work
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, scale: 0.8, y: -20 }}
-                  transition={{
-                    delay: isMobile ? index * 0.02 : index * 0.05,
-                    ease: "easeOut"
-                  }}
-                  className="group relative liquid-glass overflow-hidden hover-lift hover:border-primary/50 w-full"
-                  whileHover={!isMobile ? { y: -4 } : {}}
-                >
-                  <div className="relative h-48 overflow-hidden bg-gradient-to-br from-primary/5 to-primary/10">
-                    {/* Project Preview Placeholder */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-6xl font-bold text-primary/20 opacity-50">
-                        {project.title.charAt(0)}
+                  {/* Card Body */}
+                  <div className="p-5">
+                    <div className="flex items-start justify-between mb-3">
+                      <h3 className="text-lg font-display font-semibold text-[rgb(var(--foreground))] group-hover:text-[rgb(var(--primary))] transition-colors">
+                        {project.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-[rgb(var(--muted-foreground))] text-sm">
+                        {project.stars > 0 && (
+                          <span className="flex items-center gap-1">
+                            <StarIcon className="w-4 h-4" />
+                            {project.stars}
+                          </span>
+                        )}
                       </div>
                     </div>
 
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                    <p className="text-sm text-[rgb(var(--muted-foreground))] mb-4 line-clamp-2">
+                      {project.description}
+                    </p>
 
-                    {/* Action Buttons */}
-                    {project.isPublic !== false && (
-                      <div className="absolute top-4 right-4 flex space-x-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                        <motion.a
-                          href={project.liveUrl}
-                          className="p-2.5 bg-background/90 backdrop-blur-sm rounded-lg text-text-secondary hover:bg-primary hover:text-primary-foreground transition-colors shadow-lg"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          title="View Live"
+                    {/* Tech Stack */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.slice(0, 3).map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 text-xs font-mono bg-[rgb(var(--muted))] text-[rgb(var(--primary))] rounded"
                         >
-                          <EyeIcon className="w-4 h-4" />
-                        </motion.a>
-                        <motion.a
-                          href={project.codeUrl}
-                          className="p-2.5 bg-background/90 backdrop-blur-sm rounded-lg text-text-secondary hover:bg-secondary hover:text-foreground transition-colors shadow-lg"
-                          whileHover={{ scale: 1.1 }}
-                          whileTap={{ scale: 0.9 }}
-                          title="View Code"
-                        >
-                          <CodeBracketIcon className="w-4 h-4" />
-                        </motion.a>
-                      </div>
-                    )}
-
-                    {/* Featured Badge */}
-                    {project.featured && (
-                      <div className="absolute top-4 left-4">
-                        <span className="inline-flex items-center gap-1 px-3 py-1.5 bg-gradient-to-r from-primary-600 to-primary-700 text-white text-xs font-semibold rounded-full shadow-lg">
-                          <StarIcon className="w-3 h-3 fill-current" />
-                          Featured
+                          {tech}
                         </span>
-                      </div>
-                    )}
+                      ))}
+                      {project.technologies.length > 3 && (
+                        <span className="px-2 py-1 text-xs text-[rgb(var(--muted-foreground))]">
+                          +{project.technologies.length - 3}
+                        </span>
+                      )}
+                    </div>
 
-                    {/* Status Badge */}
-                    <div className="absolute bottom-4 left-4">
-                      <span className="px-2.5 py-1 bg-background/90 backdrop-blur-sm text-text-secondary text-xs font-medium rounded-md">
+                    {/* Language & Status */}
+                    <div className="flex items-center justify-between text-xs text-[rgb(var(--muted-foreground))]">
+                      {project.language && (
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-[rgb(var(--primary))]" />
+                          {project.language}
+                        </div>
+                      )}
+                      <span className="px-2 py-0.5 bg-[rgb(var(--muted))] rounded text-[10px] uppercase tracking-wider">
                         {project.status}
                       </span>
                     </div>
                   </div>
 
-                  <div className="p-4 md:p-6">
-                    {/* Header */}
-                    <div className="flex flex-col sm:flex-row sm:items-start justify-between mb-3 gap-2">
-                      <h3 className="text-lg md:text-xl font-bold text-foreground group-hover:text-primary transition-colors leading-tight">
-                        {project.title}
-                      </h3>
-                      <div className="flex items-center gap-3 text-text-tertiary text-sm flex-shrink-0">
-                        {project.stars > 0 && (
-                          <div className="flex items-center gap-1">
-                            <StarIcon className="w-3 h-3" />
-                            <span>{project.stars}</span>
-                          </div>
-                        )}
-                        {project.language && (
-                          <div className="flex items-center gap-1">
-                            <div className="w-2 h-2 bg-primary rounded-full"></div>
-                            <span className="text-xs">{project.language}</span>
-                          </div>
-                        )}
-                      </div>
-                    </div>
-
-                    <p className="text-text-secondary text-sm mb-4 leading-relaxed line-clamp-3">
-                      {project.description}
-                    </p>
-
-                    {/* Technologies */}
-                    <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-5">
-                      {project.technologies.slice(0, 4).map((tech, techIndex) => (
-                        <span
-                          key={techIndex}
-                          className="px-2 md:px-2.5 py-1 bg-muted text-text-secondary text-xs font-medium rounded-md border border-border"
-                        >
-                          {tech}
-                        </span>
-                      ))}
-                      {project.technologies.length > 4 && (
-                        <span className="px-2 md:px-2.5 py-1 text-text-tertiary text-xs">
-                          +{project.technologies.length - 4} more
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Footer */}
-                    <div className="flex items-center justify-between">
-                      {project.isPublic !== false ? (
+                  {/* Card Footer - Actions */}
+                  <div className="flex items-center justify-between px-5 py-3 border-t border-[rgb(var(--border)_/_0.5)] bg-[rgb(var(--muted)_/_0.3)]">
+                    {project.isPublic ? (
+                      <>
                         <motion.a
                           href={project.liveUrl}
-                          className="inline-flex items-center text-primary hover:text-primary/80 transition-colors font-medium text-sm"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 text-sm text-[rgb(var(--primary))] hover:text-[rgb(var(--foreground))] transition-colors"
                           whileHover={{ x: 2 }}
                         >
-                          View Project
-                          <ArrowTopRightOnSquareIcon className="w-4 h-4 ml-1" />
+                          <EyeIcon className="w-4 h-4" />
+                          View
                         </motion.a>
-                      ) : (
-                        <div className="text-text-tertiary text-sm italic">Private Project</div>
-                      )}
-
-                      {project.forks > 0 && (
-                        <div className="text-text-tertiary text-xs">
-                          {project.forks} fork{project.forks !== 1 ? 's' : ''}
-                        </div>
-                      )}
-                    </div>
+                        <motion.a
+                          href={project.codeUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center gap-1.5 text-sm text-[rgb(var(--muted-foreground))] hover:text-[rgb(var(--foreground))] transition-colors"
+                          whileHover={{ x: 2 }}
+                        >
+                          <CodeBracketIcon className="w-4 h-4" />
+                          Code
+                        </motion.a>
+                      </>
+                    ) : (
+                      <span className="text-sm text-[rgb(var(--muted-foreground))] italic">
+                        Private Repository
+                      </span>
+                    )}
                   </div>
-                </motion.div>
-              ))}
-            </AnimatePresence>
-          </div>
-        </motion.div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
       </div>
     </section>
   )

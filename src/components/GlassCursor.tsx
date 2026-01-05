@@ -1,154 +1,116 @@
 'use client'
 
-import { useEffect, useState, useRef, useCallback } from 'react'
-import { motion, useSpring, useMotionValue, useTransform, AnimatePresence } from 'framer-motion'
+import { useEffect, useState, useRef, useCallback, useMemo } from 'react'
+import { motion, useSpring, useMotionValue, AnimatePresence, useAnimation } from 'framer-motion'
 
-interface Shockwave {
+interface Ripple {
     id: number
     x: number
     y: number
+    color: string
 }
 
-interface MagneticElement {
-    element: HTMLElement
-    rect: DOMRect
-    strength: number
+// Generate shades of a color for the washing effect
+function generateShades(baseColor: string): string[] {
+    // Parse RGB from "rgb(r, g, b)"
+    const match = baseColor.match(/rgb\((\d+),\s*(\d+),\s*(\d+)\)/)
+    if (!match) return [baseColor]
+
+    const r = parseInt(match[1])
+    const g = parseInt(match[2])
+    const b = parseInt(match[3])
+
+    // Create 5 shades: lighter -> base -> slightly different hue -> base -> lighter
+    return [
+        `rgb(${Math.min(r + 30, 255)}, ${Math.min(g + 30, 255)}, ${Math.min(b + 30, 255)})`,
+        baseColor,
+        `rgb(${Math.max(r - 20, 0)}, ${Math.min(g + 20, 255)}, ${Math.min(b + 10, 255)})`,
+        baseColor,
+        `rgb(${Math.min(r + 20, 255)}, ${Math.max(g - 10, 0)}, ${Math.min(b + 30, 255)})`,
+        baseColor,
+    ]
 }
 
 export default function GlassCursor() {
     const [isHovering, setIsHovering] = useState(false)
     const [isMobile, setIsMobile] = useState(false)
-    const [shockwaves, setShockwaves] = useState<Shockwave[]>([])
-    const [magneticTarget, setMagneticTarget] = useState<MagneticElement | null>(null)
-    const [depthLevel, setDepthLevel] = useState(0)
+    const [ripples, setRipples] = useState<Ripple[]>([])
+    const [colorIndex, setColorIndex] = useState(0)
+    const [isMoving, setIsMoving] = useState(false)
 
-    const velocityRef = useRef({ x: 0, y: 0 })
-    const lastPosRef = useRef({ x: 0, y: 0 })
-    const lastTimeRef = useRef(Date.now())
-    const shockwaveIdRef = useRef(0)
+    const rippleIdRef = useRef(0)
+    const lastMergeTime = useRef(0)
+    const moveTimeoutRef = useRef<NodeJS.Timeout | null>(null)
 
     const cursorX = useMotionValue(0)
     const cursorY = useMotionValue(0)
+    const controls = useAnimation()
 
-    // Velocity-based hue shift
-    const hueShift = useMotionValue(0)
-    const hueShiftSmooth = useSpring(hueShift, { damping: 20, stiffness: 100 })
-
-    // Curated neon palette for smoother hue travel
-    const primaryStops = ['#7DD3FC', '#60A5FA', '#C084FC', '#F97316']
-    const secondaryStops = ['#38BDF8', '#A78BFA', '#FACC15', '#FB7185']
-
-    // Transform hue to colors - ALL useTransform hooks at component top level
-    const primaryColor = useTransform(hueShiftSmooth, [0, 30, 60, 100], primaryStops)
-    const secondaryColor = useTransform(hueShiftSmooth, [0, 30, 60, 100], secondaryStops)
-
-    const springConfig = { damping: 25, stiffness: 400, mass: 0.5 }
-    const magneticSpringConfig = { damping: 15, stiffness: 150, mass: 0.8 }
-
+    const springConfig = { damping: 28, stiffness: 400, mass: 0.5 }
     const cursorXSpring = useSpring(cursorX, springConfig)
     const cursorYSpring = useSpring(cursorY, springConfig)
 
-    // Magnetic offset
-    const magneticOffsetX = useMotionValue(0)
-    const magneticOffsetY = useMotionValue(0)
-    const magneticOffsetXSpring = useSpring(magneticOffsetX, magneticSpringConfig)
-    const magneticOffsetYSpring = useSpring(magneticOffsetY, magneticSpringConfig)
+    // Trailing dot springs (slower - so it lags behind)
+    const trailConfig = { damping: 25, stiffness: 80, mass: 1.2 }
+    const trailXSpring = useSpring(cursorX, trailConfig)
+    const trailYSpring = useSpring(cursorY, trailConfig)
 
-    // Depth transforms
-    const depthMotionValue = useMotionValue(0)
-    const depthSpring = useSpring(depthMotionValue, { damping: 20, stiffness: 200 })
-    const depthScale = useTransform(depthSpring, [0, 1, 2, 3], [1, 1.2, 1.4, 1.6])
+    // Neon palette for the beat (main colors)
+    const beatColors = [
+        'rgb(0, 217, 255)',   // Cyan
+        'rgb(255, 0, 128)',   // Magenta
+        'rgb(52, 211, 153)',  // Emerald
+        'rgb(255, 183, 0)',   // Amber
+        'rgb(139, 92, 246)',  // Violet
+    ]
 
-    const depthRotateX = useMotionValue(0)
-    const depthRotateY = useMotionValue(0)
-    const depthRotateXSpring = useSpring(depthRotateX, { damping: 30, stiffness: 200 })
-    const depthRotateYSpring = useSpring(depthRotateY, { damping: 30, stiffness: 200 })
+    const currentColor = beatColors[colorIndex]
 
-    // Pre-computed gradient transforms - MUST be at top level
-    const haloGradient = useTransform(
-        [primaryColor, secondaryColor],
-        ([p, s]) => `radial-gradient(circle, ${p}8C 0%, ${s}59 38%, transparent 72%)`
-    )
-    const cursorFilter = useTransform(
-        [primaryColor, secondaryColor],
-        ([p, s]) => `drop-shadow(0 0 10px ${p}CC) drop-shadow(0 0 18px ${s}99)`
-    )
-    const blurLayer1Bg = useTransform(
-        [primaryColor, secondaryColor],
-        ([p, s]) => `radial-gradient(circle, ${p}36 0%, ${s}29 46%, transparent 72%)`
-    )
-    const blurLayer2Bg = useTransform(
-        [primaryColor, secondaryColor],
-        ([p, s]) => `radial-gradient(circle, ${p}29 0%, ${s}1F 46%, transparent 74%)`
-    )
-    const blurLayer3Bg = useTransform(
-        [primaryColor, secondaryColor],
-        ([p, s]) => `radial-gradient(circle, ${p}1A 0%, ${s}10 52%, transparent 76%)`
-    )
-    const shockwaveShadow = useTransform(
-        [primaryColor, secondaryColor],
-        ([p, s]) => `0 0 24px ${p}A0, 0 0 46px ${s}73`
-    )
+    // Generate shades for washing effect based on current main color
+    const colorShades = useMemo(() => generateShades(currentColor), [currentColor])
 
+    // Detect when trailing dot merges with main cursor (user stops moving)
     useEffect(() => {
-        depthMotionValue.set(depthLevel)
-    }, [depthLevel, depthMotionValue])
+        const checkMerge = () => {
+            const mainX = cursorXSpring.get()
+            const mainY = cursorYSpring.get()
+            const trailX = trailXSpring.get()
+            const trailY = trailYSpring.get()
 
-    const updateVelocity = useCallback((x: number, y: number) => {
-        const now = Date.now()
-        const dt = Math.max(now - lastTimeRef.current, 1)
-        const dx = x - lastPosRef.current.x
-        const dy = y - lastPosRef.current.y
+            const distance = Math.sqrt((mainX - trailX) ** 2 + (mainY - trailY) ** 2)
+            const now = Date.now()
 
-        velocityRef.current = { x: dx / dt * 1000, y: dy / dt * 1000 }
-        const speed = Math.sqrt(velocityRef.current.x ** 2 + velocityRef.current.y ** 2)
-        hueShift.set(Math.min(speed / 20, 100))
+            // If trail caught up (distance < 5px) and we were moving, trigger beat
+            if (distance < 5 && isMoving && (now - lastMergeTime.current > 200)) {
+                lastMergeTime.current = now
 
-        lastPosRef.current = { x, y }
-        lastTimeRef.current = now
-    }, [hueShift])
+                // Color change to next main color
+                setColorIndex((prev) => (prev + 1) % beatColors.length)
 
-    const findMagneticElements = useCallback((x: number, y: number): MagneticElement | null => {
-        const elements = document.querySelectorAll('a, button, [data-magnetic], .cursor-pointer')
-        let closest: MagneticElement | null = null
-        let closestDist = Infinity
+                // Beat pulse
+                controls.start({
+                    scale: [1, 1.5, 1],
+                    transition: { duration: 0.25, ease: "backOut" }
+                })
 
-        elements.forEach((el) => {
-            const element = el as HTMLElement
-            const rect = element.getBoundingClientRect()
-            const cx = rect.left + rect.width / 2
-            const cy = rect.top + rect.height / 2
-            const dist = Math.sqrt((x - cx) ** 2 + (y - cy) ** 2)
-            const radius = Math.max(rect.width, rect.height) * 1.5
-            const strength = parseFloat(element.getAttribute('data-magnetic') || '1')
-
-            if (dist < radius && dist < closestDist && strength > 0) {
-                closestDist = dist
-                closest = { element, rect, strength }
+                setIsMoving(false)
             }
-        })
-        return closest
-    }, [])
+        }
 
-    const calculateMagneticPull = useCallback((x: number, y: number, target: MagneticElement) => {
-        const { rect, strength } = target
-        const cx = rect.left + rect.width / 2
-        const cy = rect.top + rect.height / 2
-        const dx = cx - x
-        const dy = cy - y
-        const dist = Math.sqrt(dx ** 2 + dy ** 2)
-        const radius = Math.max(rect.width, rect.height) * 1.5
+        const unsubMain = cursorXSpring.on('change', checkMerge)
+        const unsubTrail = trailXSpring.on('change', checkMerge)
 
-        if (dist > radius) return { offsetX: 0, offsetY: 0 }
-        const pull = (1 - dist / radius) ** 2 * strength * 0.4
-        return { offsetX: dx * pull, offsetY: dy * pull }
-    }, [])
+        return () => {
+            unsubMain()
+            unsubTrail()
+        }
+    }, [cursorXSpring, cursorYSpring, trailXSpring, trailYSpring, isMoving, controls, beatColors.length])
 
-    const triggerShockwave = useCallback((x: number, y: number) => {
-        const id = ++shockwaveIdRef.current
-        setShockwaves((prev) => [...prev, { id, x, y }])
-        setTimeout(() => setShockwaves((prev) => prev.filter((sw) => sw.id !== id)), 600)
-    }, [])
+    const triggerRipple = useCallback((x: number, y: number) => {
+        const id = ++rippleIdRef.current
+        setRipples(prev => [...prev, { id, x, y, color: currentColor }])
+        setTimeout(() => setRipples(prev => prev.filter(r => r.id !== id)), 800)
+    }, [currentColor])
 
     useEffect(() => {
         const checkMobile = () => {
@@ -161,26 +123,15 @@ export default function GlassCursor() {
         if (isMobile) return
 
         const handleMouseMove = (e: MouseEvent) => {
-            const { clientX: x, clientY: y } = e
-            cursorX.set(x)
-            cursorY.set(y)
-            updateVelocity(x, y)
+            cursorX.set(e.clientX)
+            cursorY.set(e.clientY)
 
-            const magnetic = findMagneticElements(x, y)
-            setMagneticTarget(magnetic)
+            // Mark as moving
+            setIsMoving(true)
 
-            if (magnetic) {
-                const { offsetX, offsetY } = calculateMagneticPull(x, y, magnetic)
-                magneticOffsetX.set(offsetX)
-                magneticOffsetY.set(offsetY)
-                const { rect } = magnetic
-                depthRotateY.set(((x - rect.left) / rect.width - 0.5) * 15)
-                depthRotateX.set(-((y - rect.top) / rect.height - 0.5) * 15)
-            } else {
-                magneticOffsetX.set(0)
-                magneticOffsetY.set(0)
-                depthRotateX.set(0)
-                depthRotateY.set(0)
+            // Clear existing timeout
+            if (moveTimeoutRef.current) {
+                clearTimeout(moveTimeoutRef.current)
             }
         }
 
@@ -190,22 +141,14 @@ export default function GlassCursor() {
                 target.tagName === 'A' || target.tagName === 'BUTTON' ||
                 target.closest('a') || target.closest('button') ||
                 target.hasAttribute('data-magnetic') ||
-                target.style.cursor === 'pointer' || target.classList.contains('cursor-pointer')
+                target.classList.contains('cursor-pointer') ||
+                target.style.cursor === 'pointer'
 
-            if (isInteractive) {
-                setIsHovering(true)
-                const el = target.closest('[data-depth]') || target
-                const depth = parseInt((el as HTMLElement).getAttribute('data-depth') || '1')
-                setDepthLevel(Math.min(Math.max(depth, 1), 3))
-            }
+            if (isInteractive) setIsHovering(true)
         }
 
-        const handleMouseOut = () => {
-            setIsHovering(false)
-            setDepthLevel(0)
-        }
-
-        const handleClick = (e: MouseEvent) => triggerShockwave(e.clientX, e.clientY)
+        const handleMouseOut = () => setIsHovering(false)
+        const handleClick = (e: MouseEvent) => triggerRipple(e.clientX, e.clientY)
 
         window.addEventListener('mousemove', handleMouseMove)
         document.addEventListener('mouseover', handleMouseOver)
@@ -218,152 +161,136 @@ export default function GlassCursor() {
             document.removeEventListener('mouseout', handleMouseOut)
             window.removeEventListener('click', handleClick)
             document.documentElement.style.cursor = 'auto'
+            if (moveTimeoutRef.current) clearTimeout(moveTimeoutRef.current)
         }
-    }, [cursorX, cursorY, isMobile, updateVelocity, findMagneticElements, calculateMagneticPull,
-        magneticOffsetX, magneticOffsetY, depthRotateX, depthRotateY, triggerShockwave])
+    }, [cursorX, cursorY, isMobile, triggerRipple])
 
     if (isMobile) return null
 
     return (
         <>
-            {/* Shockwave Effects */}
+            {/* Click Ripple Effects */}
             <AnimatePresence>
-                {shockwaves.map((sw) => (
+                {ripples.map(ripple => (
                     <motion.div
-                        key={sw.id}
+                        key={ripple.id}
                         className="pointer-events-none fixed z-[9997]"
-                        style={{ left: sw.x, top: sw.y, x: '-50%', y: '-50%' }}
-                        initial={{ scale: 0, opacity: 0.8 }}
-                        animate={{ scale: 3, opacity: 0 }}
+                        style={{ left: ripple.x, top: ripple.y, x: '-50%', y: '-50%' }}
+                        initial={{ scale: 0, opacity: 0.6 }}
+                        animate={{ scale: 2.5, opacity: 0 }}
                         exit={{ opacity: 0 }}
-                        transition={{ duration: 0.6, ease: 'easeOut' }}
+                        transition={{ duration: 0.8, ease: 'easeOut' }}
                     >
-                        <motion.div
-                            className="rounded-full"
+                        <div
+                            className="w-16 h-16 rounded-full border-2"
                             style={{
-                                width: 60, height: 60,
-                                border: '2px solid',
-                                borderColor: primaryColor,
-                                boxShadow: shockwaveShadow,
+                                borderColor: ripple.color,
+                                boxShadow: `0 0 20px ${ripple.color.replace('rgb', 'rgba').replace(')', ', 0.4)')}`
                             }}
                         />
                     </motion.div>
                 ))}
             </AnimatePresence>
 
-            {/* Depth Blur Layer 3 (Farthest) */}
-            <motion.div
-                className="pointer-events-none fixed z-[9995]"
-                style={{ left: cursorXSpring, top: cursorYSpring, x: '-50%', y: '-50%' }}
-            >
-                <motion.div
-                    className="rounded-full"
-                    style={{ width: 140, height: 140, background: blurLayer3Bg, filter: 'blur(40px)' }}
-                    animate={{ scale: isHovering ? 1.6 : 1.2, opacity: depthLevel >= 3 ? 0.75 : 0.35 }}
-                    transition={{ type: 'spring', stiffness: 100, damping: 20 }}
-                />
-            </motion.div>
-
-            {/* Depth Blur Layer 2 (Middle) */}
+            {/* Outer Glow Ring with color wash */}
             <motion.div
                 className="pointer-events-none fixed z-[9996]"
-                style={{ left: cursorXSpring, top: cursorYSpring, x: '-50%', y: '-50%' }}
+                style={{ left: trailXSpring, top: trailYSpring, x: '-50%', y: '-50%' }}
             >
                 <motion.div
                     className="rounded-full"
-                    style={{ width: 100, height: 100, background: blurLayer2Bg, filter: 'blur(30px)' }}
-                    animate={{ scale: isHovering ? 1.4 : 1.1, opacity: depthLevel >= 2 ? 0.65 : 0.35 }}
-                    transition={{ type: 'spring', stiffness: 150, damping: 22 }}
+                    style={{
+                        width: 70,
+                        height: 70,
+                        filter: 'blur(20px)',
+                        opacity: 0.2
+                    }}
+                    animate={{
+                        backgroundColor: colorShades
+                    }}
+                    transition={{
+                        duration: 3,
+                        repeat: Infinity,
+                        ease: "linear"
+                    }}
                 />
             </motion.div>
 
-            {/* Depth Blur Layer 1 (Closest) */}
-            <motion.div
-                className="pointer-events-none fixed z-[9998]"
-                style={{ left: cursorXSpring, top: cursorYSpring, x: '-50%', y: '-50%' }}
-            >
-                <motion.div
-                    className="rounded-full"
-                    style={{ width: 80, height: 80, background: blurLayer1Bg, filter: 'blur(24px)' }}
-                    animate={{ scale: isHovering ? 1.25 : 1, opacity: isHovering ? 0.75 : 0.45 }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 25 }}
-                />
-            </motion.div>
-
-            {/* Main Cursor */}
+            {/* Main Cursor Dot */}
             <motion.div
                 className="pointer-events-none fixed z-[9999]"
                 style={{
-                    left: cursorXSpring, top: cursorYSpring,
-                    x: magneticOffsetXSpring, y: magneticOffsetYSpring,
-                    translateX: '-50%', translateY: '-50%',
-                    mixBlendMode: 'color-dodge',
+                    left: cursorXSpring,
+                    top: cursorYSpring,
+                    x: '-50%',
+                    y: '-50%'
                 }}
             >
                 <motion.div
                     className="relative"
-                    style={{ rotateX: depthRotateXSpring, rotateY: depthRotateYSpring, perspective: 1000 }}
-                    animate={{ scale: 1, rotate: isHovering ? -3 : 0 }}
-                    transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+                    animate={{ scale: isHovering ? 1.5 : 1 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 25 }}
                 >
-                    {/* Antigravity Halo */}
+                    {/* Dot Core - The beating heart with color washing */}
                     <motion.div
-                        className="absolute inset-0 -z-10 rounded-full"
-                        style={{ background: haloGradient, filter: 'blur(22px)', scale: depthScale }}
-                    />
-
-                    {/* Firefly-style pulse */}
-                    <motion.div
-                        className="absolute inset-0 flex items-center justify-center"
-                        animate={{ opacity: [0.35, 0.9, 0.5], scale: [0.95, 1.1, 0.98] }}
-                        transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut' }}
-                        style={{ mixBlendMode: 'screen' }}
+                        animate={controls}
+                        className="w-3.5 h-3.5 rounded-full relative overflow-hidden"
                     >
-                        <div
-                            style={{
-                                width: 22,
-                                height: 22,
-                                borderRadius: '50%',
-                                background: 'radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0.12) 55%, transparent 80%)',
-                                boxShadow: '0 0 18px rgba(255,255,255,0.28)',
+                        {/* Color wash layer - cycles through shades */}
+                        <motion.div
+                            className="absolute inset-0 rounded-full"
+                            animate={{
+                                backgroundColor: colorShades,
+                                boxShadow: colorShades.map(c =>
+                                    `0 0 15px ${c.replace('rgb', 'rgba').replace(')', ', 0.6)')}, 0 0 30px ${c.replace('rgb', 'rgba').replace(')', ', 0.3)')}`
+                                )
+                            }}
+                            transition={{
+                                duration: 2.5,
+                                repeat: Infinity,
+                                ease: "easeInOut"
                             }}
                         />
                     </motion.div>
 
-                    {/* Cursor SVG */}
-                    <motion.svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        width="24"
-                        height="24"
-                        style={{ filter: cursorFilter }}
-                    >
-                        <defs>
-                            <linearGradient id="cursorGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <motion.stop offset="0%" style={{ stopColor: primaryColor }} />
-                                <motion.stop offset="100%" style={{ stopColor: secondaryColor }} stopOpacity={0.85} />
-                            </linearGradient>
-                            <linearGradient id="cursorGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <motion.stop
-                                    offset="0%"
-                                    animate={{ stopColor: ['#E0E7FF', '#C7D2FE', '#E0E7FF'] }}
-                                    transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-                                    stopOpacity={0.9}
-                                />
-                                <stop offset="50%" stopColor="#FFFFFF" stopOpacity={0.22} />
-                                <motion.stop offset="100%" style={{ stopColor: secondaryColor }} stopOpacity={0.6} />
-                            </linearGradient>
-                            <filter id="magneticDistort" x="-20%" y="-20%" width="140%" height="140%">
-                                <feTurbulence type="fractalNoise" baseFrequency={magneticTarget ? 0.03 : 0.02} numOctaves={3} result="noise" />
-                                <feDisplacementMap in="SourceGraphic" in2="noise" xChannelSelector="R" yChannelSelector="G" scale={magneticTarget ? 2 : 0} />
-                            </filter>
-                        </defs>
-                        <g style={{ filter: magneticTarget ? 'url(#magneticDistort)' : 'none' }}>
-                            <path fill="url(#cursorGrad1)" d="M18.584 12.854L8.091 2.361C7.319 1.59 6 2.136 6 3.227v15.044c0 .996 1.103 1.596 1.939 1.054l3.1-2.008 1.911 3.72c.447.87 1.515 1.213 2.385.766.87-.447 1.213-1.514.766-2.384l-1.878-3.651 3.735-.797c.974-.208 1.33-1.413.626-2.117z" />
-                            <path fill="url(#cursorGrad2)" d="M7.234 2c-.63 0-1.234.489-1.234 1.227v15.044c0 .738.606 1.258 1.26 1.258.229 0 .463-.064.68-.204l3.1-2.008 1.911 3.72C13.264 21.649 13.884 22 14.527 22c.272 0 .549-.063.808-.196.87-.447 1.213-1.514.766-2.384l-1.878-3.651 3.735-.797c.974-.208 1.33-1.413.626-2.117L8.091 2.361C7.842 2.112 7.535 2 7.234 2z" />
-                        </g>
-                    </motion.svg>
+                    {/* Ring on hover with wash */}
+                    <motion.div
+                        className="absolute inset-[-10px] rounded-full border-2"
+                        initial={{ scale: 0.8, opacity: 0 }}
+                        animate={{
+                            scale: isHovering ? 1 : 0.8,
+                            opacity: isHovering ? 0.6 : 0,
+                            borderColor: colorShades
+                        }}
+                        transition={{
+                            scale: { type: 'spring', stiffness: 300, damping: 20 },
+                            borderColor: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+                        }}
+                    />
                 </motion.div>
+            </motion.div>
+
+            {/* Trailing Dot with wash */}
+            <motion.div
+                className="pointer-events-none fixed z-[9998]"
+                style={{
+                    left: trailXSpring,
+                    top: trailYSpring,
+                    x: '-50%',
+                    y: '-50%'
+                }}
+            >
+                <motion.div
+                    className="w-2 h-2 rounded-full opacity-60"
+                    animate={{
+                        scale: isHovering ? 0 : 1,
+                        backgroundColor: colorShades
+                    }}
+                    transition={{
+                        scale: { type: 'spring', stiffness: 200, damping: 25 },
+                        backgroundColor: { duration: 2.5, repeat: Infinity, ease: "easeInOut" }
+                    }}
+                />
             </motion.div>
         </>
     )

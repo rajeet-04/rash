@@ -1,5 +1,77 @@
 [
   {
+    "id": "JUKES",
+    "title": "JUKES",
+    "description": "A Kotlin project.",
+    "category": "mobile",
+    "technologies": [
+      "Kotlin"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/JUKES",
+    "codeUrl": "https://github.com/rajeet-04/JUKES",
+    "stars": 5,
+    "forks": 0,
+    "language": "Kotlin",
+    "lastUpdated": "2026-01-05T04:46:59Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "piik.me",
+    "title": "Piik.me",
+    "description": "A bit.ly like real-time UTM link generator & analytics provider",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://piik.me",
+    "codeUrl": "https://github.com/rajeet-04/piik.me",
+    "stars": 0,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2025-12-18T22:30:39Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "rash",
+    "title": "Rash",
+    "description": "WELCOME TO MY WEBSITE !",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://rajeet-04.github.io/rash/",
+    "codeUrl": "https://github.com/rajeet-04/rash",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-01-05T05:11:48Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "gistify",
+    "title": "Gistify",
+    "description": "An AI powered webpage summarizer",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://gistify-snowy.vercel.app/",
+    "codeUrl": "https://github.com/xthxr/gistify",
+    "stars": 2,
+    "forks": 6,
+    "language": "JavaScript",
+    "lastUpdated": "2025-09-06T13:57:31Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "BlindUnfold",
     "title": "BlindUnfold",
     "description": "A Realtime Vision for Visually Impaired Students",
@@ -36,6 +108,24 @@
     "status": "Active"
   },
   {
+    "id": "Payroll-AI-webapp",
+    "title": "Payroll AI Webapp",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://payroll-ai-webapp.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/Payroll-AI-webapp",
+    "stars": 1,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2025-12-10T18:44:17Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "registration_ggsc",
     "title": "Registration Ggsc",
     "description": "A JavaScript project.",
@@ -54,35 +144,55 @@
     "status": "Active"
   },
   {
-    "id": "ascii-art-view",
-    "title": "Ascii Art View",
-    "description": "A command-line tool that displays images as colorized ASCII art in the terminal.",
-    "category": "web",
-    "technologies": [],
-    "liveUrl": "https://github.com/rajeet-04/ascii-art-view",
-    "codeUrl": "https://github.com/rajeet-04/ascii-art-view",
-    "stars": 0,
-    "forks": 0,
-    "language": null,
-    "lastUpdated": "2025-10-17T14:27:05Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "GoogleGeminiUem",
-    "title": "GoogleGeminiUem",
+    "id": "OFFLINE_FILE_TRANSFER",
+    "title": "OFFLINE FILE TRANSFER",
     "description": "A JavaScript project.",
     "category": "web",
     "technologies": [
       "JavaScript"
     ],
-    "liveUrl": "https://google-gemini-uem.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/GoogleGeminiUem",
+    "liveUrl": "https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER",
+    "codeUrl": "https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER",
+    "stars": 1,
+    "forks": 2,
+    "language": "JavaScript",
+    "lastUpdated": "2025-10-31T14:44:27Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "musox_frontend_v2",
+    "title": "Musox Frontend V2",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "stars": 2,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2025-11-15T09:35:40Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "sync-video-backend",
+    "title": "Sync Video Backend",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/sync-video-backend",
+    "codeUrl": "https://github.com/rajeet-04/sync-video-backend",
     "stars": 0,
     "forks": 0,
     "language": "JavaScript",
-    "lastUpdated": "2025-11-16T14:54:41Z",
+    "lastUpdated": "2026-01-01T16:46:32Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -106,17 +216,195 @@
     "status": "Active"
   },
   {
-    "id": "gistify",
-    "title": "Gistify",
-    "description": "An AI powered webpage summarizer",
+    "id": "info-guide",
+    "title": "Info Guide",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://info-guide.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/info-guide",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2025-12-12T01:38:27Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "sync-video-frontend",
+    "title": "Sync Video Frontend",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://sync-video-frontend.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/sync-video-frontend",
+    "stars": 0,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2025-10-31T14:45:57Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "skills-introduction-to-github",
+    "title": "Skills Introduction To Github",
+    "description": "My clone repository",
     "category": "web",
     "technologies": [],
-    "liveUrl": "https://gistify-psi.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/gistify",
+    "liveUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
+    "codeUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
     "stars": 0,
     "forks": 0,
     "language": null,
-    "lastUpdated": "2025-05-24T16:23:14Z",
+    "lastUpdated": "2025-12-01T04:34:23Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "uni-grade-marking-system",
+    "title": "Uni Grade Marking System",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/uni-grade-marking-system",
+    "codeUrl": "https://github.com/rajeet-04/uni-grade-marking-system",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2025-11-04T19:21:42Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "ros-movement",
+    "title": "Ros Movement",
+    "description": "A Shell project.",
+    "category": "web",
+    "technologies": [
+      "Shell"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/ros-movement",
+    "codeUrl": "https://github.com/rajeet-04/ros-movement",
+    "stars": 0,
+    "forks": 0,
+    "language": "Shell",
+    "lastUpdated": "2025-10-14T08:54:01Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "hack",
+    "title": "Hack",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/hack",
+    "codeUrl": "https://github.com/rajeet-04/hack",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2025-10-31T14:40:01Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "ascii-art-view",
+    "title": "Ascii Art View",
+    "description": "A command-line tool that displays images as colorized ASCII art in the terminal.",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://github.com/rajeet-04/ascii-art-view",
+    "codeUrl": "https://github.com/rajeet-04/ascii-art-view",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2025-10-17T14:27:05Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "poster",
+    "title": "Poster",
+    "description": "A HTML project.",
+    "category": "web",
+    "technologies": [
+      "HTML"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/poster",
+    "codeUrl": "https://github.com/rajeet-04/poster",
+    "stars": 0,
+    "forks": 1,
+    "language": "HTML",
+    "lastUpdated": "2025-07-31T09:58:46Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "indiameme",
+    "title": "Indiameme",
+    "description": "A HTML project.",
+    "category": "web",
+    "technologies": [
+      "HTML"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/indiameme",
+    "codeUrl": "https://github.com/rajeet-04/indiameme",
+    "stars": 0,
+    "forks": 0,
+    "language": "HTML",
+    "lastUpdated": "2025-09-21T15:29:13Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "rag",
+    "title": "Rag",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/rag",
+    "codeUrl": "https://github.com/rajeet-04/rag",
+    "stars": 1,
+    "forks": 1,
+    "language": "Python",
+    "lastUpdated": "2025-01-22T21:20:47Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "vid",
+    "title": "Vid",
+    "description": "A Dockerfile project.",
+    "category": "web",
+    "technologies": [
+      "Dockerfile"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/vid",
+    "codeUrl": "https://github.com/rajeet-04/vid",
+    "stars": 0,
+    "forks": 0,
+    "language": "Dockerfile",
+    "lastUpdated": "2025-03-08T06:51:36Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

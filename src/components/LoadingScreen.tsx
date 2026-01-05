@@ -18,7 +18,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
     { label: 'Compiling components...', detail: 'Header • Hero • Projects • Contact', duration: 700 },
     { label: 'Applying theme configuration...', detail: 'Dark mode • Color schemes • Animations', duration: 500 },
     { label: 'Optimizing performance...', detail: 'Code splitting • Asset compression', duration: 400 },
-    { label: 'Portfolio ready!', detail: 'Welcome to RASH Portfolio', duration: 300 }
+    { label: 'Portfolio ready!', detail: 'Welcome to MEEK\'s Portfolio', duration: 300 }
   ]
 
   useEffect(() => {
@@ -81,7 +81,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
             transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
           >
             <div>const portfolio = {`{`}</div>
-            <div>&nbsp;&nbsp;name: 'RASH',</div>
+            <div>&nbsp;&nbsp;name: 'MEEK',</div>
             <div>&nbsp;&nbsp;type: 'Developer Portfolio',</div>
             <div>&nbsp;&nbsp;tech: ['React', 'Next.js', 'TypeScript'],</div>
             <div>&nbsp;&nbsp;status: 'loading...'</div>
@@ -172,7 +172,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                   <div className="relative w-24 h-24 mx-auto mb-8 rounded-2xl bg-gradient-to-br from-[#21262D] to-[#161B22] border border-[#30363D] shadow-2xl overflow-hidden">
                     <div className="absolute inset-0 bg-gradient-to-br from-[#58A6FF]/10 to-transparent" />
                     
-                    {/* RASH Text with Typewriter Effect */}
+                    {/* MEEK Text with Typewriter Effect */}
                     <div className="absolute inset-0 flex items-center justify-center">
                       <motion.span 
                         className="text-2xl font-bold text-[#F0F6FC] font-mono tracking-wider"
@@ -180,7 +180,7 @@ export default function LoadingScreen({ onComplete }: LoadingScreenProps) {
                         animate={{ opacity: 1 }}
                         transition={{ delay: 0.5, duration: 0.3 }}
                       >
-                        {'RASH'.split('').map((char, index) => (
+                        {'MEEK'.split('').map((char, index) => (
                           <motion.span
                             key={index}
                             className="inline-block"

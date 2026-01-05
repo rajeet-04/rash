@@ -15,7 +15,7 @@ export default function EntryScreen({ onComplete }: EntryScreenProps) {
   const textRef = useRef<HTMLDivElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
 
-  const targetText = 'RASH'
+  const targetText = 'MEEK'
   
   useEffect(() => {
     const timeline = gsap.timeline({

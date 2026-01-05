@@ -3,6 +3,25 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { EyeIcon, CodeBracketIcon, ArrowTopRightOnSquareIcon, StarIcon } from '@heroicons/react/24/outline'
+import reposData from '../../public/repos.json'
+
+// Type for repository data
+interface RepoData {
+  id: string
+  title: string
+  description: string
+  category: string
+  technologies: string[]
+  liveUrl: string
+  codeUrl: string
+  stars: number
+  forks: number
+  language: string
+  lastUpdated: string
+  isPublic: boolean
+  featured: boolean
+  status: string
+}
 
 export default function Projects() {
   const [selectedCategory, setSelectedCategory] = useState('all')
@@ -44,146 +63,25 @@ export default function Projects() {
     }
   }, [selectedCategory])
 
-  const projects = [
-    {
-      id: 'classroom-management',
-      title: 'Classroom Management System',
-      description: 'A comprehensive full-stack web application for managing university courses, assignments, and student submissions. Built with React frontend and Flask backend.',
-      image: '/classroom-preview.jpg',
-      category: 'fullstack',
-      technologies: ['React', 'Flask', 'SQLite', 'TailwindCSS', 'JWT', 'Celery'],
-      liveUrl: '#',
-      codeUrl: '#',
-      featured: true,
-      stars: 0,
-      forks: 0,
-      language: 'Python',
-      status: 'Private Repository',
-      isPublic: false
-    },
-    {
-      id: 'musox',
-      title: 'Musox',
-      description: 'Advanced music application with real-time features and modern UI design.',
-      image: '/musox-preview.jpg',
-      category: 'web',
-      technologies: ['Python', 'Flask', 'JavaScript'],
-      liveUrl: 'https://github.com/rajeet-04/musox',
-      codeUrl: 'https://github.com/rajeet-04/musox',
-      featured: true,
-      stars: 2,
-      forks: 1,
-      language: 'Python',
-      status: 'Active',
-      isPublic: true
-    },
-    {
-      id: 'e2eclipse',
-      title: 'E2Eclipse',
-      description: 'Modern Android application built with Kotlin for enhanced user experience.',
-      image: '/e2eclipse-preview.jpg',
-      category: 'mobile',
-      technologies: ['Kotlin', 'Android'],
-      liveUrl: 'https://github.com/rajeet-04/E2Eclipse',
-      codeUrl: 'https://github.com/rajeet-04/E2Eclipse',
-      featured: true,
-      stars: 3,
-      forks: 0,
-      language: 'Kotlin',
-      status: 'Active',
-      isPublic: true
-    },
-    {
-      id: 'gistify',
-      title: 'Gistify',
-      description: 'An AI powered webpage summarizer that helps users quickly understand web content.',
-      image: '/gistify-preview.jpg',
-      category: 'ai',
-      technologies: ['JavaScript', 'AI', 'Web APIs'],
-      liveUrl: 'https://gistify-psi.vercel.app',
-      codeUrl: 'https://github.com/rajeet-04/gistify',
-      featured: false,
-      stars: 0,
-      forks: 0,
-      language: 'JavaScript',
-      status: 'Live',
-      isPublic: true
-    },
-    {
-      id: 'rag',
-      title: 'RAG System',
-      description: 'Retrieval-Augmented Generation system for enhanced AI responses with context.',
-      image: '/rag-preview.jpg',
-      category: 'ai',
-      technologies: ['Python', 'AI', 'Machine Learning'],
-      liveUrl: 'https://github.com/rajeet-04/rag',
-      codeUrl: 'https://github.com/rajeet-04/rag',
-      featured: false,
-      stars: 1,
-      forks: 1,
-      language: 'Python',
-      status: 'Active',
-      isPublic: true
-    },
-    {
-      id: 'offline-file-transfer',
-      title: 'Offline File Transfer',
-      description: 'Peer-to-peer file transfer application for local network sharing.',
-      image: '/file-transfer-preview.jpg',
-      category: 'utility',
-      technologies: ['JavaScript', 'Node.js', 'WebRTC'],
-      liveUrl: 'https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER',
-      codeUrl: 'https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER',
-      featured: false,
-      stars: 1,
-      forks: 2,
-      language: 'JavaScript',
-      status: 'Active',
-      isPublic: true
-    },
-    {
-      id: 'sync-video',
-      title: 'Sync Video Platform',
-      description: 'Real-time video synchronization platform for watching content together.',
-      image: '/sync-video-preview.jpg',
-      category: 'web',
-      technologies: ['JavaScript', 'React', 'Socket.io', 'Node.js'],
-      liveUrl: 'https://github.com/rajeet-04/sync-video-frontend',
-      codeUrl: 'https://github.com/rajeet-04/sync-video-frontend',
-      featured: false,
-      stars: 0,
-      forks: 0,
-      language: 'JavaScript',
-      status: 'Live',
-      isPublic: true
-    },
-    {
-      id: 'dti',
-      title: 'DTI Analysis',
-      description: 'Data analysis and visualization tool for DTI research applications.',
-      image: '/dti-preview.jpg',
-      category: 'research',
-      technologies: ['Python', 'Data Science', 'Analysis'],
-      liveUrl: 'https://github.com/rajeet-04/dti',
-      codeUrl: 'https://github.com/rajeet-04/dti',
-      featured: false,
-      stars: 0,
-      forks: 0,
-      language: 'Python',
-      status: 'Research',
-      isPublic: true
-    }
-  ]
+  // Load projects from JSON data
+  const projects: RepoData[] = reposData as RepoData[]
 
+  // Get unique categories from the data
+  const categorySet = new Set(projects.map(p => p.category))
   const categories = [
     { id: 'all', name: 'All Projects', count: projects.length },
-    { id: 'fullstack', name: 'Full Stack', count: projects.filter(p => p.category === 'fullstack').length },
-    { id: 'web', name: 'Web Apps', count: projects.filter(p => p.category === 'web').length },
-    { id: 'ai', name: 'AI & ML', count: projects.filter(p => p.category === 'ai').length },
-    { id: 'mobile', name: 'Mobile', count: projects.filter(p => p.category === 'mobile').length },
-    { id: 'utility', name: 'Utilities', count: projects.filter(p => p.category === 'utility').length },
-    { id: 'research', name: 'Research', count: projects.filter(p => p.category === 'research').length },
-  ]
+    ...Array.from(categorySet).map(cat => ({
+      id: cat,
+      name: cat === 'ai' ? 'AI & ML' :
+        cat === 'fullstack' ? 'Full Stack' :
+          cat === 'web' ? 'Web Apps' :
+            cat === 'mobile' ? 'Mobile' :
+              cat === 'utility' ? 'Utilities' :
+                cat === 'research' ? 'Research' :
+                  cat.charAt(0).toUpperCase() + cat.slice(1),
+      count: projects.filter(p => p.category === cat).length
+    }))
+  ].filter(cat => cat.count > 0)
 
   const filteredProjects = selectedCategory === 'all'
     ? projects
@@ -376,9 +274,9 @@ export default function Projects() {
 
                     {/* Technologies */}
                     <div className="flex flex-wrap gap-1.5 md:gap-2 mb-4 md:mb-5">
-                      {project.technologies.slice(0, 4).map((tech, index) => (
+                      {project.technologies.slice(0, 4).map((tech, techIndex) => (
                         <span
-                          key={index}
+                          key={techIndex}
                           className="px-2 md:px-2.5 py-1 bg-muted text-text-secondary text-xs font-medium rounded-md border border-border"
                         >
                           {tech}

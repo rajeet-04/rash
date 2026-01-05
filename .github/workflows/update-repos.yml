@@ -1,0 +1,45 @@
+name: Update Repository Data
+
+on:
+  schedule:
+    # 12:00 AM IST = 6:30 PM UTC previous day
+    - cron: '30 18 * * *'
+  workflow_dispatch: # Allow manual trigger
+
+permissions:
+  contents: write
+
+jobs:
+  update-repos:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GH_PAT }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Fetch and score repositories
+        env:
+          GH_TOKEN: ${{ secrets.GH_PAT }}
+          GH_USERNAME: rajeet-04
+        run: node scripts/fetch-repos.mjs
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --quiet public/repos.json || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Commit and push changes
+        if: steps.git-check.outputs.changed == 'true'
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add public/repos.json
+          git commit -m "chore: update repository data [skip ci]"
+          git push

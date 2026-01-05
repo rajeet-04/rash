@@ -5,3 +5,6 @@ backup
 ./out/*
 
 .env.*
+
+./.next
+/out

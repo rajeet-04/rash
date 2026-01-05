@@ -1,0 +1,142 @@
+[
+  {
+    "id": "BlindUnfold",
+    "title": "BlindUnfold",
+    "description": "A Realtime Vision for Visually Impaired Students",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/BlindUnfold",
+    "codeUrl": "https://github.com/rajeet-04/BlindUnfold",
+    "stars": 2,
+    "forks": 2,
+    "language": "TypeScript",
+    "lastUpdated": "2025-12-31T12:19:10Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "GoogleGeminiUem",
+    "title": "GoogleGeminiUem",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://google-gemini-uem.vercel.app",
+    "codeUrl": "https://github.com/Mayank8159/GoogleGeminiUem",
+    "stars": 0,
+    "forks": 2,
+    "language": "JavaScript",
+    "lastUpdated": "2025-12-31T09:40:49Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "registration_ggsc",
+    "title": "Registration Ggsc",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://registration-ggsc.vercel.app",
+    "codeUrl": "https://github.com/Mayank8159/registration_ggsc",
+    "stars": 0,
+    "forks": 1,
+    "language": "JavaScript",
+    "lastUpdated": "2026-01-04T18:02:22Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "ascii-art-view",
+    "title": "Ascii Art View",
+    "description": "A command-line tool that displays images as colorized ASCII art in the terminal.",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://github.com/rajeet-04/ascii-art-view",
+    "codeUrl": "https://github.com/rajeet-04/ascii-art-view",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2025-10-17T14:27:05Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "GoogleGeminiUem",
+    "title": "GoogleGeminiUem",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://google-gemini-uem.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/GoogleGeminiUem",
+    "stars": 0,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2025-11-16T14:54:41Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "AI-traffic-system",
+    "title": "AI Traffic System",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/AI-traffic-system",
+    "codeUrl": "https://github.com/rajeet-04/AI-traffic-system",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2025-12-24T09:27:45Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "gistify",
+    "title": "Gistify",
+    "description": "An AI powered webpage summarizer",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://gistify-psi.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/gistify",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2025-05-24T16:23:14Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "dti",
+    "title": "Dti",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/dti",
+    "codeUrl": "https://github.com/rajeet-04/dti",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2025-04-04T12:49:48Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  }
+]

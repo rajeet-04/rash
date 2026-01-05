@@ -61,7 +61,7 @@ export default function Contact() {
     { name: 'GitHub', url: 'https://github.com/rajeet-04', icon: '⌨️' },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/rajeet', icon: '💼' },
     { name: 'Twitter', url: 'https://twitter.com/rajeet', icon: '🐦' },
-    { name: 'Email', url: 'mailto:rajeet@example.com', icon: '📧' },
+    { name: 'Email', url: 'mailto:rajeetash@hotmail.com', icon: '📧' },
   ]
 
   return (
@@ -228,8 +228,8 @@ export default function Contact() {
                 </div>
                 <h3 className="font-display font-semibold text-[rgb(var(--foreground))]">Email</h3>
               </div>
-              <a href="mailto:rajeet@example.com" className="text-[rgb(var(--primary))] text-sm hover:underline">
-                rajeet@example.com
+              <a href="mailto:rajeetash@hotmail.com" className="text-[rgb(var(--primary))] text-sm hover:underline">
+                rajeetash@hotmail.com
               </a>
             </div>
 

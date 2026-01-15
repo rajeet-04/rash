@@ -48,7 +48,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-01-13T18:53:57Z",
+    "lastUpdated": "2026-01-14T18:56:17Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -304,22 +304,6 @@
     "status": "Active"
   },
   {
-    "id": "ascii-art-view",
-    "title": "Ascii Art View",
-    "description": "A command-line tool that displays images as colorized ASCII art in the terminal.",
-    "category": "web",
-    "technologies": [],
-    "liveUrl": "https://github.com/rajeet-04/ascii-art-view",
-    "codeUrl": "https://github.com/rajeet-04/ascii-art-view",
-    "stars": 0,
-    "forks": 0,
-    "language": null,
-    "lastUpdated": "2025-10-17T14:27:05Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "poster",
     "title": "Poster",
     "description": "A HTML project.",
@@ -369,6 +353,22 @@
     "forks": 0,
     "language": "Shell",
     "lastUpdated": "2025-10-14T08:54:01Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "ascii-art-view",
+    "title": "Ascii Art View",
+    "description": "A command-line tool that displays images as colorized ASCII art in the terminal.",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://github.com/rajeet-04/ascii-art-view",
+    "codeUrl": "https://github.com/rajeet-04/ascii-art-view",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2025-10-17T14:27:05Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

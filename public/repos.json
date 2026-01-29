@@ -48,7 +48,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-01-27T22:23:49Z",
+    "lastUpdated": "2026-01-28T18:59:06Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -126,24 +126,6 @@
     "status": "Active"
   },
   {
-    "id": "OFFLINE_FILE_TRANSFER",
-    "title": "OFFLINE FILE TRANSFER",
-    "description": "A JavaScript project.",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER",
-    "codeUrl": "https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER",
-    "stars": 1,
-    "forks": 2,
-    "language": "JavaScript",
-    "lastUpdated": "2025-10-31T14:44:27Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "musox_frontend_v2",
     "title": "Musox Frontend V2",
     "description": "A JavaScript project.",
@@ -198,19 +180,19 @@
     "status": "Active"
   },
   {
-    "id": "sync-video-frontend",
-    "title": "Sync Video Frontend",
+    "id": "OFFLINE_FILE_TRANSFER",
+    "title": "OFFLINE FILE TRANSFER",
     "description": "A JavaScript project.",
     "category": "web",
     "technologies": [
       "JavaScript"
     ],
-    "liveUrl": "https://sync-video-frontend.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/sync-video-frontend",
-    "stars": 0,
-    "forks": 0,
+    "liveUrl": "https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER",
+    "codeUrl": "https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER",
+    "stars": 1,
+    "forks": 2,
     "language": "JavaScript",
-    "lastUpdated": "2025-10-31T14:45:57Z",
+    "lastUpdated": "2025-10-31T14:44:27Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -268,24 +250,6 @@
     "status": "Active"
   },
   {
-    "id": "hack",
-    "title": "Hack",
-    "description": "A Python project.",
-    "category": "ai",
-    "technologies": [
-      "Python"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/hack",
-    "codeUrl": "https://github.com/rajeet-04/hack",
-    "stars": 0,
-    "forks": 0,
-    "language": "Python",
-    "lastUpdated": "2025-10-31T14:40:01Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "info-guide",
     "title": "Info Guide",
     "description": "A TypeScript project.",
@@ -322,6 +286,24 @@
     "status": "Active"
   },
   {
+    "id": "sync-video-frontend",
+    "title": "Sync Video Frontend",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://sync-video-frontend.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/sync-video-frontend",
+    "stars": 0,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2025-10-31T14:45:57Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "ros-movement",
     "title": "Ros Movement",
     "description": "A Shell project.",
@@ -335,6 +317,24 @@
     "forks": 0,
     "language": "Shell",
     "lastUpdated": "2025-10-14T08:54:01Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "hack",
+    "title": "Hack",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/hack",
+    "codeUrl": "https://github.com/rajeet-04/hack",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2025-10-31T14:40:01Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

@@ -1,23 +1,5 @@
 [
   {
-    "id": "JUKES",
-    "title": "JUKES",
-    "description": "A Kotlin project.",
-    "category": "mobile",
-    "technologies": [
-      "Kotlin"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/JUKES",
-    "codeUrl": "https://github.com/rajeet-04/JUKES",
-    "stars": 5,
-    "forks": 0,
-    "language": "Kotlin",
-    "lastUpdated": "2026-01-05T04:46:59Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "piik.me",
     "title": "Piik.me",
     "description": "A bit.ly like real-time UTM link generator & analytics provider",
@@ -30,7 +12,25 @@
     "stars": 0,
     "forks": 0,
     "language": "JavaScript",
-    "lastUpdated": "2025-12-18T22:30:39Z",
+    "lastUpdated": "2026-01-28T16:34:34Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "JUKES",
+    "title": "JUKES",
+    "description": "A Kotlin project.",
+    "category": "mobile",
+    "technologies": [
+      "Kotlin"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/JUKES",
+    "codeUrl": "https://github.com/rajeet-04/JUKES",
+    "stars": 5,
+    "forks": 0,
+    "language": "Kotlin",
+    "lastUpdated": "2026-01-26T10:24:13Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -48,7 +48,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-01-05T05:11:48Z",
+    "lastUpdated": "2026-02-01T18:59:14Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -108,6 +108,42 @@
     "status": "Active"
   },
   {
+    "id": "registration_ggsc",
+    "title": "Registration Ggsc",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://registration-ggsc.vercel.app",
+    "codeUrl": "https://github.com/Mayank8159/registration_ggsc",
+    "stars": 0,
+    "forks": 1,
+    "language": "JavaScript",
+    "lastUpdated": "2026-02-01T17:31:01Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "musox_frontend_v2",
+    "title": "Musox Frontend V2",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "stars": 2,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2025-11-15T09:35:40Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "Payroll-AI-webapp",
     "title": "Payroll AI Webapp",
     "description": "A TypeScript project.",
@@ -121,24 +157,6 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2025-12-10T18:44:17Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "registration_ggsc",
-    "title": "Registration Ggsc",
-    "description": "A JavaScript project.",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://registration-ggsc.vercel.app",
-    "codeUrl": "https://github.com/Mayank8159/registration_ggsc",
-    "stars": 0,
-    "forks": 1,
-    "language": "JavaScript",
-    "lastUpdated": "2026-01-04T18:02:22Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -162,19 +180,17 @@
     "status": "Active"
   },
   {
-    "id": "musox_frontend_v2",
-    "title": "Musox Frontend V2",
-    "description": "A JavaScript project.",
+    "id": "skills-introduction-to-github",
+    "title": "Skills Introduction To Github",
+    "description": "My clone repository",
     "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
-    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
-    "stars": 2,
+    "technologies": [],
+    "liveUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
+    "codeUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
+    "stars": 0,
     "forks": 0,
-    "language": "JavaScript",
-    "lastUpdated": "2025-11-15T09:35:40Z",
+    "language": null,
+    "lastUpdated": "2025-12-01T04:34:23Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -234,6 +250,24 @@
     "status": "Active"
   },
   {
+    "id": "indiameme",
+    "title": "Indiameme",
+    "description": "A HTML project.",
+    "category": "web",
+    "technologies": [
+      "HTML"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/indiameme",
+    "codeUrl": "https://github.com/rajeet-04/indiameme",
+    "stars": 0,
+    "forks": 0,
+    "language": "HTML",
+    "lastUpdated": "2025-09-21T15:29:13Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "sync-video-frontend",
     "title": "Sync Video Frontend",
     "description": "A JavaScript project.",
@@ -247,22 +281,6 @@
     "forks": 0,
     "language": "JavaScript",
     "lastUpdated": "2025-10-31T14:45:57Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "skills-introduction-to-github",
-    "title": "Skills Introduction To Github",
-    "description": "My clone repository",
-    "category": "web",
-    "technologies": [],
-    "liveUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
-    "codeUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
-    "stars": 0,
-    "forks": 0,
-    "language": null,
-    "lastUpdated": "2025-12-01T04:34:23Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -356,42 +374,6 @@
     "status": "Active"
   },
   {
-    "id": "indiameme",
-    "title": "Indiameme",
-    "description": "A HTML project.",
-    "category": "web",
-    "technologies": [
-      "HTML"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/indiameme",
-    "codeUrl": "https://github.com/rajeet-04/indiameme",
-    "stars": 0,
-    "forks": 0,
-    "language": "HTML",
-    "lastUpdated": "2025-09-21T15:29:13Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "rag",
-    "title": "Rag",
-    "description": "A Python project.",
-    "category": "ai",
-    "technologies": [
-      "Python"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/rag",
-    "codeUrl": "https://github.com/rajeet-04/rag",
-    "stars": 1,
-    "forks": 1,
-    "language": "Python",
-    "lastUpdated": "2025-01-22T21:20:47Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "vid",
     "title": "Vid",
     "description": "A Dockerfile project.",
@@ -423,6 +405,24 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2025-04-04T12:49:48Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "rag",
+    "title": "Rag",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/rag",
+    "codeUrl": "https://github.com/rajeet-04/rag",
+    "stars": 1,
+    "forks": 1,
+    "language": "Python",
+    "lastUpdated": "2025-01-22T21:20:47Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

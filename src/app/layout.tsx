@@ -3,6 +3,9 @@ import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://rajeet-04.github.io/rash'
+  ),
   title: 'RASH | Portfolio - Creative Developer & Designer',
   description: 'Portfolio of Rajeet Ash — creative developer and designer crafting full-stack web, AI/ML, mobile, and cloud experiences with TypeScript, Next.js, and modern UI/UX.',
   keywords: [

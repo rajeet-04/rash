@@ -1,5 +1,23 @@
 [
   {
+    "id": "piik.me",
+    "title": "Piik.me",
+    "description": "A bit.ly like real-time UTM link generator & analytics provider",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://piik.me",
+    "codeUrl": "https://github.com/rajeet-04/piik.me",
+    "stars": 0,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2026-01-28T16:34:34Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "JUKES",
     "title": "JUKES",
     "description": "A Kotlin project.",
@@ -30,7 +48,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-02-08T19:01:15Z",
+    "lastUpdated": "2026-02-09T19:44:17Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -144,6 +162,24 @@
     "status": "Active"
   },
   {
+    "id": "OFFLINE_FILE_TRANSFER",
+    "title": "OFFLINE FILE TRANSFER",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER",
+    "codeUrl": "https://github.com/rajeet-04/OFFLINE_FILE_TRANSFER",
+    "stars": 1,
+    "forks": 2,
+    "language": "JavaScript",
+    "lastUpdated": "2025-10-31T14:44:27Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "skills-introduction-to-github",
     "title": "Skills Introduction To Github",
     "description": "My clone repository",
@@ -155,6 +191,42 @@
     "forks": 0,
     "language": null,
     "lastUpdated": "2025-12-01T04:34:23Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "sync-video-backend",
+    "title": "Sync Video Backend",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/sync-video-backend",
+    "codeUrl": "https://github.com/rajeet-04/sync-video-backend",
+    "stars": 0,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2026-01-01T16:46:32Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "AI-traffic-system",
+    "title": "AI Traffic System",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/AI-traffic-system",
+    "codeUrl": "https://github.com/rajeet-04/AI-traffic-system",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2025-12-24T09:27:45Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -173,6 +245,24 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2025-12-12T01:38:27Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "indiameme",
+    "title": "Indiameme",
+    "description": "A HTML project.",
+    "category": "web",
+    "technologies": [
+      "HTML"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/indiameme",
+    "codeUrl": "https://github.com/rajeet-04/indiameme",
+    "stars": 0,
+    "forks": 0,
+    "language": "HTML",
+    "lastUpdated": "2025-09-21T15:29:13Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -209,6 +299,24 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2025-11-04T19:21:42Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "ros-movement",
+    "title": "Ros Movement",
+    "description": "A Shell project.",
+    "category": "web",
+    "technologies": [
+      "Shell"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/ros-movement",
+    "codeUrl": "https://github.com/rajeet-04/ros-movement",
+    "stars": 0,
+    "forks": 0,
+    "language": "Shell",
+    "lastUpdated": "2025-10-14T08:54:01Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -279,6 +387,24 @@
     "forks": 0,
     "language": "Dockerfile",
     "lastUpdated": "2025-03-08T06:51:36Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "dti",
+    "title": "Dti",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/dti",
+    "codeUrl": "https://github.com/rajeet-04/dti",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2025-04-04T12:49:48Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

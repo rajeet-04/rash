@@ -48,7 +48,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-02-11T19:31:56Z",
+    "lastUpdated": "2026-02-12T19:32:20Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -126,24 +126,6 @@
     "status": "Active"
   },
   {
-    "id": "musox_frontend_v2",
-    "title": "Musox Frontend V2",
-    "description": "A JavaScript project.",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
-    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
-    "stars": 2,
-    "forks": 0,
-    "language": "JavaScript",
-    "lastUpdated": "2025-11-15T09:35:40Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "Payroll-AI-webapp",
     "title": "Payroll AI Webapp",
     "description": "A TypeScript project.",
@@ -175,6 +157,24 @@
     "forks": 2,
     "language": "JavaScript",
     "lastUpdated": "2025-10-31T14:44:27Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "musox_frontend_v2",
+    "title": "Musox Frontend V2",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "stars": 2,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2025-11-15T09:35:40Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

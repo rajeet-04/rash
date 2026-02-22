@@ -5,6 +5,7 @@ import { motion } from 'framer-motion'
 import FloatingNav from './FloatingNav'
 import GlassCursor from './GlassCursor'
 import FireflyBackground from './FireflyBackground'
+import DynamicBackground from './DynamicBackground'
 import Hero from './Hero'
 import About from './About'
 import Projects from './Projects'
@@ -78,6 +79,9 @@ export default function MainPortfolio() {
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
+
+      {/* Dynamic Vector Background (lowest layer — scroll-sensitive) */}
+      <DynamicBackground />
 
       {/* Glass Cursor */}
       <GlassCursor />

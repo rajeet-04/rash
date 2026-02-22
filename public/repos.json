@@ -1,5 +1,23 @@
 [
   {
+    "id": "JUKES",
+    "title": "JUKES",
+    "description": "A Kotlin project.",
+    "category": "mobile",
+    "technologies": [
+      "Kotlin"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/JUKES",
+    "codeUrl": "https://github.com/rajeet-04/JUKES",
+    "stars": 6,
+    "forks": 0,
+    "language": "Kotlin",
+    "lastUpdated": "2026-02-19T19:15:53Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "piik.me",
     "title": "Piik.me",
     "description": "A bit.ly like real-time UTM link generator & analytics provider",
@@ -18,24 +36,6 @@
     "status": "Active"
   },
   {
-    "id": "JUKES",
-    "title": "JUKES",
-    "description": "A Kotlin project.",
-    "category": "mobile",
-    "technologies": [
-      "Kotlin"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/JUKES",
-    "codeUrl": "https://github.com/rajeet-04/JUKES",
-    "stars": 5,
-    "forks": 0,
-    "language": "Kotlin",
-    "lastUpdated": "2026-01-26T10:24:13Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "rash",
     "title": "Rash",
     "description": "WELCOME TO MY WEBSITE !",
@@ -48,7 +48,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-02-01T18:59:14Z",
+    "lastUpdated": "2026-02-20T19:10:47Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -72,6 +72,24 @@
     "status": "Active"
   },
   {
+    "id": "GoogleGeminiUem",
+    "title": "GoogleGeminiUem",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://ggscuemk.tech",
+    "codeUrl": "https://github.com/Mayank8159/GoogleGeminiUem",
+    "stars": 0,
+    "forks": 2,
+    "language": "JavaScript",
+    "lastUpdated": "2026-02-09T18:01:12Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "BlindUnfold",
     "title": "BlindUnfold",
     "description": "A Realtime Vision for Visually Impaired Students",
@@ -90,24 +108,6 @@
     "status": "Active"
   },
   {
-    "id": "GoogleGeminiUem",
-    "title": "GoogleGeminiUem",
-    "description": "A JavaScript project.",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://google-gemini-uem.vercel.app",
-    "codeUrl": "https://github.com/Mayank8159/GoogleGeminiUem",
-    "stars": 0,
-    "forks": 2,
-    "language": "JavaScript",
-    "lastUpdated": "2025-12-31T09:40:49Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "registration_ggsc",
     "title": "Registration Ggsc",
     "description": "A JavaScript project.",
@@ -120,25 +120,25 @@
     "stars": 0,
     "forks": 1,
     "language": "JavaScript",
-    "lastUpdated": "2026-02-01T17:31:01Z",
+    "lastUpdated": "2026-02-08T09:08:49Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
   },
   {
-    "id": "musox_frontend_v2",
-    "title": "Musox Frontend V2",
-    "description": "A JavaScript project.",
+    "id": "info-guide",
+    "title": "Info Guide",
+    "description": "A TypeScript project.",
     "category": "web",
     "technologies": [
-      "JavaScript"
+      "TypeScript"
     ],
-    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
-    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
-    "stars": 2,
+    "liveUrl": "https://info-guide.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/info-guide",
+    "stars": 0,
     "forks": 0,
-    "language": "JavaScript",
-    "lastUpdated": "2025-11-15T09:35:40Z",
+    "language": "TypeScript",
+    "lastUpdated": "2026-02-17T06:15:30Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -175,6 +175,24 @@
     "forks": 2,
     "language": "JavaScript",
     "lastUpdated": "2025-10-31T14:44:27Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "musox_frontend_v2",
+    "title": "Musox Frontend V2",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "stars": 2,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2025-11-15T09:35:40Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -227,24 +245,6 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2025-12-24T09:27:45Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "info-guide",
-    "title": "Info Guide",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://info-guide.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/info-guide",
-    "stars": 0,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2025-12-12T01:38:27Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

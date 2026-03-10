@@ -30,7 +30,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-03-08T18:56:21Z",
+    "lastUpdated": "2026-03-09T19:13:39Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -108,24 +108,6 @@
     "status": "Active"
   },
   {
-    "id": "registration_ggsc",
-    "title": "Registration Ggsc",
-    "description": "A JavaScript project.",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://registration-ggsc.vercel.app",
-    "codeUrl": "https://github.com/Mayank8159/registration_ggsc",
-    "stars": 0,
-    "forks": 1,
-    "language": "JavaScript",
-    "lastUpdated": "2026-02-08T09:08:49Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "gistify",
     "title": "Gistify",
     "description": "An AI powered webpage summarizer",
@@ -162,19 +144,51 @@
     "status": "Active"
   },
   {
-    "id": "Payroll-AI-webapp",
-    "title": "Payroll AI Webapp",
-    "description": "A TypeScript project.",
+    "id": "OmniRom",
+    "title": "OmniRom",
+    "description": "A code project.",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://github.com/rajeet-04/OmniRom",
+    "codeUrl": "https://github.com/rajeet-04/OmniRom",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-03-10T06:44:14Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "registration_ggsc",
+    "title": "Registration Ggsc",
+    "description": "A JavaScript project.",
     "category": "web",
     "technologies": [
-      "TypeScript"
+      "JavaScript"
     ],
-    "liveUrl": "https://payroll-ai-webapp.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/Payroll-AI-webapp",
-    "stars": 1,
+    "liveUrl": "https://registration-ggsc.vercel.app",
+    "codeUrl": "https://github.com/Mayank8159/registration_ggsc",
+    "stars": 0,
+    "forks": 1,
+    "language": "JavaScript",
+    "lastUpdated": "2026-02-08T09:08:49Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "SpotiFLAC-Next",
+    "title": "SpotiFLAC Next",
+    "description": "Get Spotify tracks in true FLAC from Tidal, Qobuz, Amazon Music & Deezer — no account required.",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://github.com/rajeet-04/SpotiFLAC-Next",
+    "codeUrl": "https://github.com/rajeet-04/SpotiFLAC-Next",
+    "stars": 0,
     "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2025-12-10T18:44:17Z",
+    "language": null,
+    "lastUpdated": "2026-03-10T08:21:28Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -247,6 +261,24 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2025-12-24T09:27:45Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "Payroll-AI-webapp",
+    "title": "Payroll AI Webapp",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://payroll-ai-webapp.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/Payroll-AI-webapp",
+    "stars": 1,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2025-12-10T18:44:17Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

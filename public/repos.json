@@ -30,7 +30,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-03-09T19:13:39Z",
+    "lastUpdated": "2026-03-10T19:12:10Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -66,7 +66,25 @@
     "stars": 0,
     "forks": 1,
     "language": "TypeScript",
-    "lastUpdated": "2026-03-01T08:58:53Z",
+    "lastUpdated": "2026-03-11T01:51:55Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "BizChat",
+    "title": "BizChat",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/BizChat",
+    "codeUrl": "https://github.com/rajeet-04/BizChat",
+    "stars": 0,
+    "forks": 1,
+    "language": "TypeScript",
+    "lastUpdated": "2026-03-11T13:28:21Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

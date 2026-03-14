@@ -30,7 +30,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-03-12T19:22:54Z",
+    "lastUpdated": "2026-03-13T19:06:41Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -154,7 +154,7 @@
     "stars": 0,
     "forks": 0,
     "language": null,
-    "lastUpdated": "2026-03-10T06:44:14Z",
+    "lastUpdated": "2026-03-14T09:46:11Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -173,22 +173,6 @@
     "forks": 1,
     "language": "JavaScript",
     "lastUpdated": "2026-02-08T09:08:49Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "SpotiFLAC-Next",
-    "title": "SpotiFLAC Next",
-    "description": "Get Spotify tracks in true FLAC from Tidal, Qobuz, Amazon Music & Deezer — no account required.",
-    "category": "web",
-    "technologies": [],
-    "liveUrl": "https://github.com/rajeet-04/SpotiFLAC-Next",
-    "codeUrl": "https://github.com/rajeet-04/SpotiFLAC-Next",
-    "stars": 0,
-    "forks": 0,
-    "language": null,
-    "lastUpdated": "2026-03-10T08:21:28Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

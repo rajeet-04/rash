@@ -30,7 +30,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-03-13T19:06:41Z",
+    "lastUpdated": "2026-03-14T19:02:07Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -108,6 +108,22 @@
     "status": "Active"
   },
   {
+    "id": "OmniRom",
+    "title": "OmniRom",
+    "description": "A code project.",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://github.com/rajeet-04/OmniRom",
+    "codeUrl": "https://github.com/rajeet-04/OmniRom",
+    "stars": 1,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-03-14T09:46:11Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "gistify",
     "title": "Gistify",
     "description": "An AI powered webpage summarizer",
@@ -139,22 +155,6 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2026-02-17T06:15:30Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "OmniRom",
-    "title": "OmniRom",
-    "description": "A code project.",
-    "category": "web",
-    "technologies": [],
-    "liveUrl": "https://github.com/rajeet-04/OmniRom",
-    "codeUrl": "https://github.com/rajeet-04/OmniRom",
-    "stars": 0,
-    "forks": 0,
-    "language": null,
-    "lastUpdated": "2026-03-14T09:46:11Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

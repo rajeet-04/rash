@@ -30,7 +30,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-03-18T19:28:33Z",
+    "lastUpdated": "2026-03-19T19:27:15Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -288,24 +288,6 @@
     "status": "Active"
   },
   {
-    "id": "indiameme",
-    "title": "Indiameme",
-    "description": "A HTML project.",
-    "category": "web",
-    "technologies": [
-      "HTML"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/indiameme",
-    "codeUrl": "https://github.com/rajeet-04/indiameme",
-    "stars": 0,
-    "forks": 0,
-    "language": "HTML",
-    "lastUpdated": "2025-09-21T15:29:13Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "sync-video-frontend",
     "title": "Sync Video Frontend",
     "description": "A JavaScript project.",
@@ -405,6 +387,24 @@
     "forks": 1,
     "language": "HTML",
     "lastUpdated": "2025-07-31T09:58:46Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "indiameme",
+    "title": "Indiameme",
+    "description": "A HTML project.",
+    "category": "web",
+    "technologies": [
+      "HTML"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/indiameme",
+    "codeUrl": "https://github.com/rajeet-04/indiameme",
+    "stars": 0,
+    "forks": 0,
+    "language": "HTML",
+    "lastUpdated": "2025-09-21T15:29:13Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

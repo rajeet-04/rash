@@ -30,7 +30,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-03-26T19:35:56Z",
+    "lastUpdated": "2026-03-27T19:24:59Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -121,6 +121,24 @@
     "forks": 2,
     "language": "TypeScript",
     "lastUpdated": "2025-12-31T12:19:10Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "AI-INTERVIEW-SYSTEM",
+    "title": "AI INTERVIEW SYSTEM",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/AI-INTERVIEW-SYSTEM",
+    "codeUrl": "https://github.com/rajeet-04/AI-INTERVIEW-SYSTEM",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2026-03-28T11:17:58Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

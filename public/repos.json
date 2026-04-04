@@ -30,7 +30,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-04-02T19:28:18Z",
+    "lastUpdated": "2026-04-03T19:09:54Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -482,24 +482,6 @@
     "status": "Active"
   },
   {
-    "id": "dti",
-    "title": "Dti",
-    "description": "A Python project.",
-    "category": "ai",
-    "technologies": [
-      "Python"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/dti",
-    "codeUrl": "https://github.com/rajeet-04/dti",
-    "stars": 0,
-    "forks": 0,
-    "language": "Python",
-    "lastUpdated": "2025-04-04T12:49:48Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "vid",
     "title": "Vid",
     "description": "A Dockerfile project.",
@@ -513,6 +495,24 @@
     "forks": 0,
     "language": "Dockerfile",
     "lastUpdated": "2025-03-08T06:51:36Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "dti",
+    "title": "Dti",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/dti",
+    "codeUrl": "https://github.com/rajeet-04/dti",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2025-04-04T12:49:48Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

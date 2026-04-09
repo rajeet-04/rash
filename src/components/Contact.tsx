@@ -60,7 +60,7 @@ export default function Contact() {
   const socialLinks = [
     { name: 'GitHub', url: 'https://github.com/rajeet-04', icon: '⌨️' },
     { name: 'LinkedIn', url: 'https://linkedin.com/in/rajeet', icon: '💼' },
-    { name: 'Twitter', url: 'https://twitter.com/rajeet', icon: '🐦' },
+    { name: 'Twitter', url: 'https://x.com/RajeetAsh', icon: '🐦' },
     { name: 'Email', url: 'mailto:rajeetash@hotmail.com', icon: '📧' },
   ]
 

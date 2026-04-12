@@ -2,7 +2,7 @@
   {
     "id": "JUKES",
     "title": "JUKES",
-    "description": "A Kotlin project.",
+    "description": "JUKE is a premium Android music app built with Jetpack Compose. It bridges Spotify search and YouTube Music recommendations for an infinite listening experience. Key features: dual-source high-quality downloads, instant streaming with LRU caching, synced lyrics, and a stunning Material 3 UI with glassmorphic aesthetics.",
     "category": "mobile",
     "technologies": [
       "Kotlin"
@@ -12,7 +12,7 @@
     "stars": 6,
     "forks": 0,
     "language": "Kotlin",
-    "lastUpdated": "2026-03-18T14:17:44Z",
+    "lastUpdated": "2026-04-12T08:38:06Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -30,7 +30,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-04-10T19:25:52Z",
+    "lastUpdated": "2026-04-11T19:09:45Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -376,24 +376,6 @@
     "status": "Active"
   },
   {
-    "id": "ros-movement",
-    "title": "Ros Movement",
-    "description": "A Shell project.",
-    "category": "web",
-    "technologies": [
-      "Shell"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/ros-movement",
-    "codeUrl": "https://github.com/rajeet-04/ros-movement",
-    "stars": 0,
-    "forks": 0,
-    "language": "Shell",
-    "lastUpdated": "2025-10-14T08:54:01Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "AI-traffic-system",
     "title": "AI Traffic System",
     "description": "A Python project.",
@@ -477,6 +459,24 @@
     "forks": 0,
     "language": "HTML",
     "lastUpdated": "2025-09-21T15:29:13Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "ros-movement",
+    "title": "Ros Movement",
+    "description": "A Shell project.",
+    "category": "web",
+    "technologies": [
+      "Shell"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/ros-movement",
+    "codeUrl": "https://github.com/rajeet-04/ros-movement",
+    "stars": 0,
+    "forks": 0,
+    "language": "Shell",
+    "lastUpdated": "2025-10-14T08:54:01Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

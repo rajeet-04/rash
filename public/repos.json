@@ -30,7 +30,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-05-09T19:39:25Z",
+    "lastUpdated": "2026-05-10T19:39:19Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -180,24 +180,6 @@
     "status": "Active"
   },
   {
-    "id": "pre-cita",
-    "title": "Pre Cita",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://pre-cita.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/pre-cita",
-    "stars": 0,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2026-04-11T00:06:26Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "BlindUnfold",
     "title": "BlindUnfold",
     "description": "A Realtime Vision for Visually Impaired Students",
@@ -247,6 +229,24 @@
     "forks": 0,
     "language": "JavaScript",
     "lastUpdated": "2025-11-15T09:35:40Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "pre-cita",
+    "title": "Pre Cita",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://pre-cita.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/pre-cita",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-04-11T00:06:26Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

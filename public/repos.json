@@ -48,7 +48,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-05-21T20:17:54Z",
+    "lastUpdated": "2026-05-22T20:16:48Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -191,6 +191,24 @@
     "forks": 0,
     "language": null,
     "lastUpdated": "2026-05-19T04:42:53Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "TIDE_BACKEND",
+    "title": "TIDE BACKEND",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/TIDE_BACKEND",
+    "codeUrl": "https://github.com/rajeet-04/TIDE_BACKEND",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2026-05-23T18:29:45Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

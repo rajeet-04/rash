@@ -1,5 +1,21 @@
 [
   {
+    "id": "vexa",
+    "title": "Vexa",
+    "description": "Open-source meeting transcription API for Google Meet, Microsoft Teams & Zoom. Auto-join bots, real-time WebSocket transcripts, MCP server for AI agents. Self-host or use hosted SaaS.",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://vexa.ai",
+    "codeUrl": "https://github.com/rajeet-04/vexa",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-05-25T12:30:13Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "JUKES",
     "title": "JUKES",
     "description": "JUKE is a premium Android music app built with Jetpack Compose. It bridges Spotify search and YouTube Music recommendations for an infinite listening experience. Key features: dual-source high-quality downloads, instant streaming with LRU caching, synced lyrics, and a stunning Material 3 UI with glassmorphic aesthetics.",
@@ -48,7 +64,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-05-23T19:43:18Z",
+    "lastUpdated": "2026-05-24T19:45:59Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

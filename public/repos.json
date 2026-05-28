@@ -1,5 +1,21 @@
 [
   {
+    "id": "jellyfin",
+    "title": "Jellyfin",
+    "description": "The Free Software Media System - Server Backend & API",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://jellyfin.org",
+    "codeUrl": "https://github.com/rajeet-04/jellyfin",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-05-28T10:37:47Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "vexa",
     "title": "Vexa",
     "description": "Open-source meeting transcription API for Google Meet, Microsoft Teams & Zoom. Auto-join bots, real-time WebSocket transcripts, MCP server for AI agents. Self-host or use hosted SaaS.",
@@ -64,7 +80,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-05-26T20:28:54Z",
+    "lastUpdated": "2026-05-27T20:32:09Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

@@ -80,7 +80,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-05-28T20:40:51Z",
+    "lastUpdated": "2026-05-29T20:41:26Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -171,6 +171,24 @@
     "forks": 6,
     "language": "JavaScript",
     "lastUpdated": "2025-09-06T13:57:31Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "Hopper",
+    "title": "Hopper",
+    "description": "A Kotlin project.",
+    "category": "mobile",
+    "technologies": [
+      "Kotlin"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/Hopper",
+    "codeUrl": "https://github.com/rajeet-04/Hopper",
+    "stars": 0,
+    "forks": 0,
+    "language": "Kotlin",
+    "lastUpdated": "2026-05-30T12:54:22Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

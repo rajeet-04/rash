@@ -80,7 +80,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-06-06T19:51:52Z",
+    "lastUpdated": "2026-06-07T19:53:04Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -372,24 +372,6 @@
     "status": "Active"
   },
   {
-    "id": "Payroll-AI-webapp",
-    "title": "Payroll AI Webapp",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://payroll-ai-webapp.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/Payroll-AI-webapp",
-    "stars": 1,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2025-12-10T18:44:17Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "sync-video-backend",
     "title": "Sync Video Backend",
     "description": "A JavaScript project.",
@@ -457,6 +439,24 @@
     "forks": 1,
     "language": "JavaScript",
     "lastUpdated": "2025-10-31T14:44:27Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "Payroll-AI-webapp",
+    "title": "Payroll AI Webapp",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://payroll-ai-webapp.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/Payroll-AI-webapp",
+    "stars": 1,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2025-12-10T18:44:17Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

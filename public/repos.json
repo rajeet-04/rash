@@ -50,6 +50,24 @@
     "status": "Active"
   },
   {
+    "id": "rash",
+    "title": "Rash",
+    "description": "WELCOME TO MY WEBSITE !",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://rajeet-04.github.io/rash/",
+    "codeUrl": "https://github.com/rajeet-04/rash",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-06-17T20:34:18Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "piik.me",
     "title": "Piik.me",
     "description": "A bit.ly like real-time UTM link generator & analytics provider",
@@ -63,42 +81,6 @@
     "forks": 0,
     "language": "JavaScript",
     "lastUpdated": "2026-05-19T04:42:00Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "rash",
-    "title": "Rash",
-    "description": "WELCOME TO MY WEBSITE !",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://rajeet-04.github.io/rash/",
-    "codeUrl": "https://github.com/rajeet-04/rash",
-    "stars": 0,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2026-06-16T21:24:16Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "RESCURE",
-    "title": "RESCURE",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://rescure.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/RESCURE",
-    "stars": 0,
-    "forks": 1,
-    "language": "TypeScript",
-    "lastUpdated": "2026-05-19T04:42:35Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -122,24 +104,6 @@
     "status": "Active"
   },
   {
-    "id": "musox_frontend_v2",
-    "title": "Musox Frontend V2",
-    "description": "A JavaScript project.",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
-    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
-    "stars": 2,
-    "forks": 0,
-    "language": "JavaScript",
-    "lastUpdated": "2026-05-19T04:41:52Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "BizzChat",
     "title": "BizzChat",
     "description": "A TypeScript project.",
@@ -153,6 +117,24 @@
     "forks": 1,
     "language": "TypeScript",
     "lastUpdated": "2026-06-04T02:12:55Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "RESCURE",
+    "title": "RESCURE",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://rescure.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/RESCURE",
+    "stars": 0,
+    "forks": 1,
+    "language": "TypeScript",
+    "lastUpdated": "2026-05-19T04:42:35Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -212,6 +194,24 @@
     "status": "Active"
   },
   {
+    "id": "musox_frontend_v2",
+    "title": "Musox Frontend V2",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "stars": 2,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2026-05-19T04:41:52Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "rag",
     "title": "Rag",
     "description": "A Python project.",
@@ -243,22 +243,6 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-06-01T18:46:09Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "skills-introduction-to-github",
-    "title": "Skills Introduction To Github",
-    "description": "My clone repository",
-    "category": "web",
-    "technologies": [],
-    "liveUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
-    "codeUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
-    "stars": 0,
-    "forks": 0,
-    "language": null,
-    "lastUpdated": "2026-05-19T04:42:53Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -318,6 +302,22 @@
     "status": "Active"
   },
   {
+    "id": "skills-introduction-to-github",
+    "title": "Skills Introduction To Github",
+    "description": "My clone repository",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
+    "codeUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-05-19T04:42:53Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "pre-cita",
     "title": "Pre Cita",
     "description": "A TypeScript project.",
@@ -356,17 +356,17 @@
   {
     "id": "registration_ggsc",
     "title": "Registration Ggsc",
-    "description": "A HTML project.",
+    "description": "A JavaScript project.",
     "category": "web",
     "technologies": [
-      "HTML"
+      "JavaScript"
     ],
     "liveUrl": "https://registration-ggsc.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/registration_ggsc",
+    "codeUrl": "https://github.com/Mayank8159/registration_ggsc",
     "stars": 0,
-    "forks": 0,
-    "language": "HTML",
-    "lastUpdated": "2026-05-19T04:42:44Z",
+    "forks": 1,
+    "language": "JavaScript",
+    "lastUpdated": "2026-02-08T09:08:49Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

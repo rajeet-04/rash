@@ -62,7 +62,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-06-20T20:02:57Z",
+    "lastUpdated": "2026-06-21T20:10:48Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -408,24 +408,6 @@
     "status": "Active"
   },
   {
-    "id": "AI-traffic-system",
-    "title": "AI Traffic System",
-    "description": "A Python project.",
-    "category": "ai",
-    "technologies": [
-      "Python"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/AI-traffic-system",
-    "codeUrl": "https://github.com/rajeet-04/AI-traffic-system",
-    "stars": 0,
-    "forks": 0,
-    "language": "Python",
-    "lastUpdated": "2025-12-24T09:27:45Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "OFFLINE_FILE_TRANSFER",
     "title": "OFFLINE FILE TRANSFER",
     "description": "A JavaScript project.",
@@ -529,6 +511,24 @@
     "forks": 0,
     "language": "Shell",
     "lastUpdated": "2025-10-14T08:54:01Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "AI-traffic-system",
+    "title": "AI Traffic System",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/AI-traffic-system",
+    "codeUrl": "https://github.com/rajeet-04/AI-traffic-system",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2025-12-24T09:27:45Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

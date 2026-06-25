@@ -62,7 +62,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-06-23T20:30:39Z",
+    "lastUpdated": "2026-06-24T20:15:53Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -336,24 +336,6 @@
     "status": "Active"
   },
   {
-    "id": "uni-grade-marking-system",
-    "title": "Uni Grade Marking System",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/uni-grade-marking-system",
-    "codeUrl": "https://github.com/rajeet-04/uni-grade-marking-system",
-    "stars": 0,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2026-03-27T02:53:42Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "registration_ggsc",
     "title": "Registration Ggsc",
     "description": "A JavaScript project.",
@@ -403,6 +385,24 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2026-02-17T06:15:30Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "uni-grade-marking-system",
+    "title": "Uni Grade Marking System",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/uni-grade-marking-system",
+    "codeUrl": "https://github.com/rajeet-04/uni-grade-marking-system",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-03-27T02:53:42Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

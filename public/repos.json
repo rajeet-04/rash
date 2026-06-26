@@ -62,7 +62,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-06-24T20:15:53Z",
+    "lastUpdated": "2026-06-25T20:29:13Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -248,24 +248,6 @@
     "status": "Active"
   },
   {
-    "id": "AI-INTERVIEW-SYSTEM",
-    "title": "AI INTERVIEW SYSTEM",
-    "description": "A Python project.",
-    "category": "ai",
-    "technologies": [
-      "Python"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/AI-INTERVIEW-SYSTEM",
-    "codeUrl": "https://github.com/rajeet-04/AI-INTERVIEW-SYSTEM",
-    "stars": 0,
-    "forks": 0,
-    "language": "Python",
-    "lastUpdated": "2026-03-28T11:17:58Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "OmniRom",
     "title": "OmniRom",
     "description": "A Python project.",
@@ -331,6 +313,24 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2026-04-11T00:06:26Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "AI-INTERVIEW-SYSTEM",
+    "title": "AI INTERVIEW SYSTEM",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/AI-INTERVIEW-SYSTEM",
+    "codeUrl": "https://github.com/rajeet-04/AI-INTERVIEW-SYSTEM",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2026-03-28T11:17:58Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

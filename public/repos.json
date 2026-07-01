@@ -62,7 +62,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-06-29T20:21:27Z",
+    "lastUpdated": "2026-06-30T20:26:44Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -158,24 +158,6 @@
     "status": "Active"
   },
   {
-    "id": "Hopper",
-    "title": "Hopper",
-    "description": "A Kotlin project.",
-    "category": "mobile",
-    "technologies": [
-      "Kotlin"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/Hopper",
-    "codeUrl": "https://github.com/rajeet-04/Hopper",
-    "stars": 0,
-    "forks": 0,
-    "language": "Kotlin",
-    "lastUpdated": "2026-06-01T08:46:45Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "musox_frontend_v2",
     "title": "Musox Frontend V2",
     "description": "A JavaScript project.",
@@ -243,6 +225,24 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-04-13T22:28:08Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "Hopper",
+    "title": "Hopper",
+    "description": "A Kotlin project.",
+    "category": "mobile",
+    "technologies": [
+      "Kotlin"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/Hopper",
+    "codeUrl": "https://github.com/rajeet-04/Hopper",
+    "stars": 0,
+    "forks": 0,
+    "language": "Kotlin",
+    "lastUpdated": "2026-06-01T08:46:45Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

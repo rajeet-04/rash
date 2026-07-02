@@ -62,7 +62,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-06-30T20:26:44Z",
+    "lastUpdated": "2026-07-01T20:21:32Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -81,6 +81,24 @@
     "forks": 0,
     "language": "JavaScript",
     "lastUpdated": "2026-05-19T04:42:00Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "IoT",
+    "title": "IoT",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://io-t-beige.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/IoT",
+    "stars": 0,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2026-07-02T12:14:32Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

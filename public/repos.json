@@ -62,7 +62,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-07-02T19:59:36Z",
+    "lastUpdated": "2026-07-03T19:56:24Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -99,24 +99,6 @@
     "forks": 0,
     "language": "JavaScript",
     "lastUpdated": "2026-07-02T12:14:32Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "BizzChat",
-    "title": "BizzChat",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://bizz-chat-frontend.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/BizzChat",
-    "stars": 0,
-    "forks": 1,
-    "language": "TypeScript",
-    "lastUpdated": "2026-06-04T02:12:55Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -243,6 +225,24 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-04-13T22:28:08Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "BizzChat",
+    "title": "BizzChat",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://bizz-chat-frontend.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/BizzChat",
+    "stars": 0,
+    "forks": 1,
+    "language": "TypeScript",
+    "lastUpdated": "2026-06-04T02:12:55Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

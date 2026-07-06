@@ -6,13 +6,27 @@ import { CalendarIcon, MapPinIcon, AcademicCapIcon, BriefcaseIcon } from '@heroi
 export default function Experience() {
   const experiences = [
     {
-      type: 'education',
-      title: 'B.Tech in Computer Science Engineering',
-      organization: 'IEM Newtown (UEM Kolkata)',
+      type: 'internship',
+      title: 'Software Engineer',
+      organization: 'Tautomatic.ai',
+      location: 'Remote-USA',
+      period: 'May 2026 - Present',
+      description: 'Working as a Software Engineer intern focusing on Full Stack, AI backend, DevOps, CI/CD pipelines, containerization, and self-healing services.',
+      highlights: ['Full Stack', 'AI backend', 'Devops', 'CI/CD pipelines', 'container and self healing services', 'Software Infrastructure', 'Software Design', 'Software Industry']
+    },
+    {
+      type: 'publication',
+      title: 'Real-Time Power System Monitoring (BE-PS Algorithm)',
+      organization: 'IEEE AICARE 2025 Conference',
+      period: 'Nov 2025',
       location: 'Kolkata, India',
-      period: '2023 - Present',
-      description: 'Pursuing B.Tech in CSE with focus on AI/ML and full-stack development.',
-      highlights: ['Dean\'s List', 'Tech Club Lead', 'Hackathon Winner']
+      description: 'Authored and presented a research paper introducing the BE-PS (Binary Entropy-Poly Split) algorithm. This entropy-guided sorting method is designed to optimize data processing for renewable energy grids, significantly outperforming traditional algorithms like Quicksort and std::sort.',
+      highlights: [
+        'Developed the BE-PS algorithm, achieving 2x-3x faster execution than optimized C++ libraries on clustered datasets.',
+        'Presented at the 1st International Conference on AI for Computing, Astronomy, and Renewable Energy (AICARE 2025).',
+        'Applied information-theoretic principles (Shannon Entropy) to optimize real-time harmonic distortion (THD) monitoring.',
+        'Benchmarked performance against standard algorithms using real-world solar generation data.'
+      ],
     },
     {
       type: 'work',
@@ -33,19 +47,14 @@ export default function Experience() {
       highlights: ['50+ Commits', 'Multiple PRs', 'Community Building']
     },
     {
-      title: 'Real-Time Power System Monitoring (BE-PS Algorithm)',
-      organization: 'IEEE AICARE 2025 Conference',
-      period: 'Nov 2025',
+      type: 'education',
+      title: 'B.Tech in Computer Science Engineering',
+      organization: 'IEM Newtown (UEM Kolkata)',
       location: 'Kolkata, India',
-      type: 'publication',
-      description: 'Authored and presented a research paper introducing the BE-PS (Binary Entropy-Poly Split) algorithm. This entropy-guided sorting method is designed to optimize data processing for renewable energy grids, significantly outperforming traditional algorithms like Quicksort and std::sort.',
-      highlights: [
-        'Developed the BE-PS algorithm, achieving 2x-3x faster execution than optimized C++ libraries on clustered datasets.',
-        'Presented at the 1st International Conference on AI for Computing, Astronomy, and Renewable Energy (AICARE 2025).',
-        'Applied information-theoretic principles (Shannon Entropy) to optimize real-time harmonic distortion (THD) monitoring.',
-        'Benchmarked performance against standard algorithms using real-world solar generation data.'
-      ],
-    },
+      period: '2023 - Present',
+      description: 'Pursuing B.Tech in CSE with focus on AI/ML and full-stack development.',
+      highlights: ['Dean\'s List', 'Tech Club Lead', 'Hackathon Winner']
+    }
   ]
 
   return (
@@ -101,7 +110,7 @@ export default function Experience() {
                 <div className="midnight-glass p-6 hover-lift">
                   {/* Type Badge */}
                   <div className="flex items-center gap-2 mb-3">
-                    <div className={`p-1.5 rounded-lg ${exp.type === 'education' ? 'bg-purple-500/10 text-purple-400' : 'bg-cyan-500/10 text-cyan-400'}`}>
+                    <div className={`p-1.5 rounded-lg ${exp.type === 'education' ? 'bg-purple-500/10 text-purple-400' : exp.type === 'internship' ? 'bg-green-500/10 text-green-400' : exp.type === 'publication' ? 'bg-amber-500/10 text-amber-400' : 'bg-cyan-500/10 text-cyan-400'}`}>
                       {exp.type === 'education' ? (
                         <AcademicCapIcon className="w-4 h-4" />
                       ) : (

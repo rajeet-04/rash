@@ -62,7 +62,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-07-11T19:39:34Z",
+    "lastUpdated": "2026-07-12T19:36:44Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -88,17 +88,17 @@
   {
     "id": "IoT",
     "title": "IoT",
-    "description": "A JavaScript project.",
+    "description": "A TypeScript project.",
     "category": "web",
     "technologies": [
-      "JavaScript"
+      "TypeScript"
     ],
     "liveUrl": "https://io-t-beige.vercel.app",
     "codeUrl": "https://github.com/rajeet-04/IoT",
     "stars": 0,
     "forks": 0,
-    "language": "JavaScript",
-    "lastUpdated": "2026-07-02T12:14:32Z",
+    "language": "TypeScript",
+    "lastUpdated": "2026-07-13T07:44:38Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -212,24 +212,6 @@
     "status": "Active"
   },
   {
-    "id": "OmniRom",
-    "title": "OmniRom",
-    "description": "A Python project.",
-    "category": "ai",
-    "technologies": [
-      "Python"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/OmniRom",
-    "codeUrl": "https://github.com/rajeet-04/OmniRom",
-    "stars": 1,
-    "forks": 0,
-    "language": "Python",
-    "lastUpdated": "2026-04-13T22:28:08Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "BizzChat",
     "title": "BizzChat",
     "description": "A TypeScript project.",
@@ -313,6 +295,24 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-03-28T11:17:58Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "OmniRom",
+    "title": "OmniRom",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/OmniRom",
+    "codeUrl": "https://github.com/rajeet-04/OmniRom",
+    "stars": 1,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2026-04-13T22:28:08Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

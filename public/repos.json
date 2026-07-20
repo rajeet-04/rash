@@ -62,7 +62,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-07-18T19:39:41Z",
+    "lastUpdated": "2026-07-19T19:39:01Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -117,24 +117,6 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2026-07-17T08:09:26Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "TIDE_BACKEND",
-    "title": "TIDE BACKEND",
-    "description": "A Python project.",
-    "category": "ai",
-    "technologies": [
-      "Python"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/TIDE_BACKEND",
-    "codeUrl": "https://github.com/rajeet-04/TIDE_BACKEND",
-    "stars": 1,
-    "forks": 0,
-    "language": "Python",
-    "lastUpdated": "2026-06-19T20:42:18Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -207,6 +189,24 @@
     "forks": 0,
     "language": "JavaScript",
     "lastUpdated": "2026-05-19T04:42:02Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "TIDE_BACKEND",
+    "title": "TIDE BACKEND",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/TIDE_BACKEND",
+    "codeUrl": "https://github.com/rajeet-04/TIDE_BACKEND",
+    "stars": 1,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2026-06-19T20:42:18Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

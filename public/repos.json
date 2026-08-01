@@ -42,7 +42,7 @@
     "stars": 0,
     "forks": 0,
     "language": null,
-    "lastUpdated": "2026-07-31T19:31:16Z",
+    "lastUpdated": "2026-08-01T11:41:12Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -78,7 +78,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-07-30T19:59:43Z",
+    "lastUpdated": "2026-07-31T20:00:06Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -597,24 +597,6 @@
     "forks": 0,
     "language": "Dockerfile",
     "lastUpdated": "2025-03-08T06:51:36Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "poster",
-    "title": "Poster",
-    "description": "A HTML project.",
-    "category": "web",
-    "technologies": [
-      "HTML"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/poster",
-    "codeUrl": "https://github.com/rajeet-04/poster",
-    "stars": 0,
-    "forks": 0,
-    "language": "HTML",
-    "lastUpdated": "2025-07-31T09:58:46Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

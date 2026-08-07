@@ -78,7 +78,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-08-05T20:05:14Z",
+    "lastUpdated": "2026-08-07T00:22:00Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -334,24 +334,6 @@
     "status": "Active"
   },
   {
-    "id": "registration_ggsc",
-    "title": "Registration Ggsc",
-    "description": "A JavaScript project.",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://registration-ggsc.vercel.app",
-    "codeUrl": "https://github.com/Mayank8159/registration_ggsc",
-    "stars": 0,
-    "forks": 1,
-    "language": "JavaScript",
-    "lastUpdated": "2026-02-08T09:08:49Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "pre-cita",
     "title": "Pre Cita",
     "description": "A TypeScript project.",
@@ -419,6 +401,24 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2026-03-27T02:53:42Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "registration_ggsc",
+    "title": "Registration Ggsc",
+    "description": "A HTML project.",
+    "category": "web",
+    "technologies": [
+      "HTML"
+    ],
+    "liveUrl": "https://registration-ggsc.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/registration_ggsc",
+    "stars": 0,
+    "forks": 0,
+    "language": "HTML",
+    "lastUpdated": "2026-05-19T04:42:44Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

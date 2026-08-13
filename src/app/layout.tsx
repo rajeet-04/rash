@@ -2,16 +2,13 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 import { ThemeProvider } from '@/components/ThemeProvider'
 
+const siteDescription = 'Rajeet Ash is a software engineer building AI systems, developer tools, and digital products across TypeScript, Python, Kotlin, and cloud infrastructure.'
+
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://rajeet-04.github.io/rash'
-  ),
-  title: 'RASH | Portfolio - Creative Developer & Designer',
-  description: 'Portfolio of Rajeet Ash — creative developer and designer crafting full-stack web, AI/ML, mobile, and cloud experiences with TypeScript, Next.js, and modern UI/UX.',
-  keywords: [
-    'Rajeet Ash', 'RASH', 'portfolio', 'software engineer', 'full stack developer', 'AI engineer',
-    'Next.js', 'TypeScript', 'React', 'UI designer', 'UX designer', 'cloud', 'mobile', 'web',
-  ],
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'https://rajeet-04.github.io/rash'),
+  title: 'Rajeet Ash — Software Engineer & Builder',
+  description: siteDescription,
+  keywords: ['Rajeet Ash', 'RASH', 'software engineer', 'AI systems', 'developer tools', 'TypeScript', 'Python', 'Kotlin', 'portfolio'],
   authors: [{ name: 'Rajeet Ash' }],
   creator: 'Rajeet Ash',
   publisher: 'Rajeet Ash',
@@ -29,29 +26,22 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: '/' },
   icons: {
-    icon: './r.png',
-    shortcut: './r.png',
-    apple: './r.png',
+    icon: '/r.png',
+    shortcut: '/r.png',
+    apple: '/r.png',
   },
   openGraph: {
-    title: 'RASH | Portfolio - Creative Developer & Designer',
-    description: 'Creative developer blending design, AI/ML, and full-stack engineering to ship bold digital products.',
+    title: 'Rajeet Ash — Software Engineer & Builder',
+    description: siteDescription,
     type: 'website',
     locale: 'en_US',
-    siteName: 'RASH Portfolio',
-    images: [
-      {
-        url: '/r.png',
-        width: 512,
-        height: 512,
-        alt: 'RASH logo',
-      },
-    ],
+    siteName: 'Rajeet Ash Portfolio',
+    images: [{ url: '/r.png', width: 512, height: 512, alt: 'RASH logo' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'RASH | Creative Developer & Designer',
-    description: 'Explore the work of Rajeet Ash: full-stack, AI/ML, mobile, and thoughtful UX.',
+    title: 'Rajeet Ash — Software Engineer & Builder',
+    description: siteDescription,
     images: ['/r.png'],
   },
 }
@@ -59,27 +49,22 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  themeColor: '#ff3333',
+  themeColor: '#070c18',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="./r.png" type="image/png" />
-        <link rel="shortcut icon" href="./r.png" type="image/png" />
-        <link rel="apple-touch-icon" href="./r.png" />
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/r.png" type="image/png" />
+        <link rel="shortcut icon" href="/r.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/r.png" />
       </head>
       <body className="antialiased">
-        <ThemeProvider>
-          {children}
-        </ThemeProvider>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   )

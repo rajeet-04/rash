@@ -1,223 +1,105 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { ArrowDownIcon } from '@heroicons/react/24/outline'
+import { motion } from 'framer-motion'
+import { ArrowDownIcon, ArrowTopRightOnSquareIcon, CheckCircleIcon } from '@heroicons/react/24/outline'
+
+const focusAreas = [
+  { label: 'AI systems', value: '███████' },
+  { label: 'Full-stack', value: '██████' },
+  { label: 'Mobile', value: '████' },
+  { label: 'Research', value: '█████' },
+]
 
 export default function Hero() {
-  const heroRef = useRef<HTMLElement>(null)
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0)
-  const [displayedText, setDisplayedText] = useState('')
-  const [isTyping, setIsTyping] = useState(true)
-
-  const roles = [
-    "Full Stack Developer",
-    "AI/ML Engineer",
-    "Mobile App Developer",
-    "UI/UX Designer",
-    "Cloud Architect",
-    "Open Source Contributor"
-  ]
-
-  // Typing effect for roles
-  useEffect(() => {
-    const currentRole = roles[currentRoleIndex]
-
-    if (isTyping) {
-      if (displayedText.length < currentRole.length) {
-        const timeout = setTimeout(() => {
-          setDisplayedText(currentRole.slice(0, displayedText.length + 1))
-        }, 80)
-        return () => clearTimeout(timeout)
-      } else {
-        const timeout = setTimeout(() => setIsTyping(false), 2000)
-        return () => clearTimeout(timeout)
-      }
-    } else {
-      if (displayedText.length > 0) {
-        const timeout = setTimeout(() => {
-          setDisplayedText(displayedText.slice(0, -1))
-        }, 40)
-        return () => clearTimeout(timeout)
-      } else {
-        setCurrentRoleIndex((prev) => (prev + 1) % roles.length)
-        setIsTyping(true)
-      }
-    }
-  }, [displayedText, isTyping, currentRoleIndex, roles])
-
-  const handleScrollToNext = () => {
-    document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <section
-      id="home"
-      ref={heroRef}
-      className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-24"
-    >
-      {/* Background elements */}
-      <div className="absolute inset-0 grid-bg" />
+    <section id="home" className="relative overflow-hidden pb-24 pt-20 sm:pb-32 sm:pt-28">
+      <div className="container-shell grid items-center gap-14 lg:grid-cols-[minmax(0,1.05fr)_minmax(340px,0.75fr)] lg:gap-20">
+        <motion.div initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.55 }}>
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-[rgb(var(--success)_/_0.28)] bg-[rgb(var(--success)_/_0.08)] px-3 py-1.5 text-sm font-medium text-[rgb(var(--success))]">
+            <span className="h-2 w-2 animate-pulse rounded-full bg-[rgb(var(--success))]" />
+            Available for meaningful work
+          </div>
 
-      {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-[rgb(var(--primary))] rounded-full blur-[150px] opacity-[0.08]" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-[rgb(var(--accent-secondary))] rounded-full blur-[120px] opacity-[0.06]" />
+          <p className="eyebrow">Software engineer · builder · researcher</p>
+          <h1 className="mt-5 max-w-4xl font-display text-[clamp(3.25rem,9vw,7.4rem)] font-semibold leading-[0.9] tracking-[-0.075em] text-[rgb(var(--text))]">
+            Rajeet <span className="text-[rgb(var(--accent))]">Ash.</span>
+          </h1>
+          <p className="mt-8 max-w-2xl font-display text-[clamp(1.55rem,3vw,2.45rem)] font-medium leading-tight tracking-[-0.04em] text-[rgb(var(--text-muted))]">
+            I build AI systems, developer tools, and digital products that are useful beyond the demo.
+          </p>
+          <p className="mt-6 max-w-xl text-base leading-7 text-[rgb(var(--text-muted))] sm:text-lg">
+            I work across TypeScript, Python, Kotlin, and cloud infrastructure to turn complex ideas into reliable software and clear user experiences.
+          </p>
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 md:px-6">
-        {/* Terminal-style intro */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mb-8"
-        >
-          <div className="terminal-card max-w-2xl mx-auto md:mx-0">
-            <div className="terminal-header">
-              <div className="terminal-dot terminal-dot-red" />
-              <div className="terminal-dot terminal-dot-yellow" />
-              <div className="terminal-dot terminal-dot-green" />
-              <span className="terminal-title">rajeet@portfolio ~ $</span>
-            </div>
-            <div className="terminal-body">
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.5 }}
-                className="text-[rgb(var(--muted-foreground))] text-sm md:text-base"
-              >
-                <span className="text-[rgb(var(--primary))]">$</span> whoami
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1 }}
-                className="text-[rgb(var(--foreground))] text-sm md:text-base mt-2"
-              >
-                → Rajeet Ash
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 1.5 }}
-                className="text-[rgb(var(--muted-foreground))] text-sm md:text-base mt-4"
-              >
-                <span className="text-[rgb(var(--primary))]">$</span> cat role.txt
-              </motion.div>
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2 }}
-                className="text-[rgb(var(--primary))] text-sm md:text-base mt-2"
-              >
-                → {displayedText}<span className="typing-cursor" />
-              </motion.div>
-            </div>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <a href="#work" className="button-primary">
+              View selected work
+              <ArrowDownIcon className="h-4 w-4" />
+            </a>
+            <a href="https://github.com/rajeet-04" target="_blank" rel="noopener noreferrer" className="button-secondary">
+              GitHub
+              <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+            </a>
+            <a href="#contact" className="button-ghost">
+              Let&apos;s talk <span aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <div className="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-[rgb(var(--text-subtle))]">
+            <span className="inline-flex items-center gap-2"><CheckCircleIcon className="h-4 w-4 text-[rgb(var(--accent))]" /> Kolkata · UTC+5:30</span>
+            <span className="inline-flex items-center gap-2"><CheckCircleIcon className="h-4 w-4 text-[rgb(var(--accent))]" /> TypeScript · Python · Kotlin</span>
           </div>
         </motion.div>
 
-        {/* Main content */}
-        <div className="text-center md:text-left">
-          {/* Status badge */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.8 }}
-            className="mb-6"
-          >
-            <span className="inline-flex items-center gap-2 px-4 py-2 midnight-glass text-sm font-medium">
-              <span className="w-2 h-2 bg-emerald-400 rounded-full animate-pulse" />
-              <span className="text-[rgb(var(--foreground))]">Available for work</span>
-            </span>
-          </motion.div>
-
-          {/* Main heading */}
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
-            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-display font-bold mb-6"
-          >
-            <span className="text-[rgb(var(--foreground))]">Hi, I'm </span>
-            <span className="gradient-text-animated">Rajeet</span>
-          </motion.h1>
-
-          {/* Subtitle */}
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.2 }}
-            className="text-xl sm:text-2xl md:text-3xl font-display font-medium text-[rgb(var(--muted-foreground))] mb-8"
-          >
-            Creative Developer & <span className="text-[rgb(var(--primary))]">Tech Innovator</span>
-          </motion.h2>
-
-          {/* Bio */}
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.4 }}
-            className="text-base md:text-lg text-[rgb(var(--muted-foreground))] max-w-2xl mx-auto md:mx-0 mb-10 leading-relaxed"
-          >
-            A 21-year-old B.Tech student at <span className="text-[rgb(var(--foreground))] font-medium">IEM Newtown</span>,
-            passionate about blending creativity with technology. I create digital experiences that
-            captivate and inspire users.
-          </motion.p>
-
-          {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.6 }}
-            className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start"
-          >
-            <motion.button
-              onClick={() => document.querySelector('#projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-primary"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              <span className="flex items-center justify-center gap-2">
-                View My Work
-                <motion.span
-                  animate={{ x: [0, 4, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  →
-                </motion.span>
-              </span>
-            </motion.button>
-
-            <motion.button
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="btn-secondary"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              Get In Touch
-            </motion.button>
-          </motion.div>
-        </div>
-
-        {/* Scroll indicator */}
-        <motion.button
-          onClick={handleScrollToNext}
-          className="absolute bottom-8 left-1/2 -translate-x-1/2 group"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2.5, duration: 0.8 }}
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 0.65, delay: 0.12 }}
+          className="surface relative overflow-hidden rounded-2xl p-5 sm:p-7"
         >
-          <div className="flex flex-col items-center gap-3 text-[rgb(var(--muted-foreground))] hover:text-[rgb(var(--primary))] transition-colors">
-            <span className="text-sm font-medium tracking-wide">Scroll to explore</span>
-            <motion.div
-              className="w-10 h-10 rounded-full midnight-glass flex items-center justify-center"
-              animate={{ y: [0, 4, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <ArrowDownIcon className="w-5 h-5" />
-            </motion.div>
+          <div className="absolute -right-20 -top-20 h-56 w-56 rounded-full bg-[rgb(var(--accent)_/_0.12)] blur-3xl" />
+          <div className="relative">
+            <div className="flex items-center justify-between border-b border-[rgb(var(--line)_/_0.7)] pb-4">
+              <div>
+                <p className="mono-label text-[rgb(var(--accent))]">SYSTEM SNAPSHOT</p>
+                <p className="mt-1 text-sm text-[rgb(var(--text-muted))]">What I&apos;m building around</p>
+              </div>
+              <span className="rounded-md border border-[rgb(var(--accent)_/_0.35)] px-2 py-1 font-mono text-[0.65rem] text-[rgb(var(--accent))]">v2026.08</span>
+            </div>
+
+            <div className="mt-7 space-y-5">
+              {focusAreas.map((area, index) => (
+                <div key={area.label}>
+                  <div className="mb-2 flex items-center justify-between text-sm">
+                    <span className="text-[rgb(var(--text-muted))]">{area.label}</span>
+                    <span className={index % 2 === 0 ? 'font-mono text-[rgb(var(--accent))]' : 'font-mono text-[rgb(var(--violet))]'}>{area.value}</span>
+                  </div>
+                  <div className="h-1.5 overflow-hidden rounded-full bg-[rgb(var(--line)_/_0.65)]">
+                    <div className={index % 2 === 0 ? 'h-full rounded-full bg-[rgb(var(--accent))]' : 'h-full rounded-full bg-[rgb(var(--violet))]'} style={{ width: `${[92, 78, 56, 68][index]}%` }} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-8 grid grid-cols-2 gap-3 border-t border-[rgb(var(--line)_/_0.7)] pt-5">
+              <div className="surface-soft rounded-xl p-3">
+                <p className="mono-label">CURRENTLY</p>
+                <p className="mt-1 text-sm font-semibold text-[rgb(var(--text))]">Shipping at Tautomatic.ai</p>
+              </div>
+              <div className="surface-soft rounded-xl p-3">
+                <p className="mono-label">RECENT SIGNAL</p>
+                <p className="mt-1 text-sm font-semibold text-[rgb(var(--text))]">IEEE AICARE 2025</p>
+              </div>
+            </div>
           </div>
-        </motion.button>
+        </motion.div>
       </div>
+
+      <a href="#work" className="container-shell mt-20 flex items-center gap-3 text-sm text-[rgb(var(--text-subtle))] transition-colors hover:text-[rgb(var(--accent))]" aria-label="Scroll to selected work">
+        <span className="h-px w-10 bg-[rgb(var(--line))]" />
+        Scroll to explore
+        <ArrowDownIcon className="h-4 w-4" />
+      </a>
     </section>
   )
 }

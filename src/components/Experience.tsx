@@ -1,163 +1,110 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CalendarIcon, MapPinIcon, AcademicCapIcon, BriefcaseIcon } from '@heroicons/react/24/outline'
+import { ArrowTopRightOnSquareIcon, CalendarIcon, MapPinIcon } from '@heroicons/react/24/outline'
+
+const experiences = [
+  {
+    type: 'CURRENT ROLE',
+    title: 'Software Engineer Intern',
+    organization: 'Tautomatic.ai',
+    period: 'May 2026 — Present',
+    location: 'Remote · USA',
+    description: 'Building full-stack and AI backend infrastructure with DevOps, CI/CD pipelines, containerization, and self-healing services.',
+    highlights: ['Full-stack', 'AI backend', 'CI/CD', 'Containers'],
+  },
+  {
+    type: 'RESEARCH',
+    title: 'Real-Time Power System Monitoring',
+    organization: 'IEEE AICARE 2025 Conference',
+    period: 'November 2025',
+    location: 'Kolkata, India',
+    description: 'Authored and presented research introducing the BE-PS algorithm, using entropy-guided sorting to improve data processing for renewable energy grids and harmonic distortion monitoring.',
+    highlights: ['BE-PS algorithm', 'Shannon entropy', 'Solar data', 'Publication'],
+    link: 'https://github.com/rajeet-04',
+  },
+  {
+    type: 'PRODUCT WORK',
+    title: 'Freelance Developer',
+    organization: 'Self-employed',
+    period: '2024 — Present',
+    location: 'Remote',
+    description: 'Building web and mobile applications for clients and turning ideas into focused, usable products.',
+    highlights: ['10+ projects', 'React / Next.js', 'Kotlin / Android'],
+  },
+  {
+    type: 'OPEN SOURCE',
+    title: 'Contributor & Maintainer',
+    organization: 'GitHub',
+    period: '2023 — Present',
+    location: 'Remote',
+    description: 'Contributing to open-source projects and maintaining an evolving portfolio of experiments, tools, and product builds.',
+    highlights: ['50+ commits', 'Multiple PRs', 'Community'],
+    link: 'https://github.com/rajeet-04',
+  },
+  {
+    type: 'EDUCATION',
+    title: 'B.Tech in Computer Science Engineering',
+    organization: 'IEM Newtown · UEM Kolkata',
+    period: '2023 — Present',
+    location: 'Kolkata, India',
+    description: 'Studying computer science with a focus on AI/ML, full-stack development, and the systems that make software useful at scale.',
+    highlights: ['Dean’s List', 'Tech Club Lead', 'Hackathon winner'],
+  },
+]
 
 export default function Experience() {
-  const experiences = [
-    {
-      type: 'internship',
-      title: 'Software Engineer',
-      organization: 'Tautomatic.ai',
-      location: 'Remote-USA',
-      period: 'May 2026 - Present',
-      description: 'Working as a Software Engineer intern focusing on Full Stack, AI backend, DevOps, CI/CD pipelines, containerization, and self-healing services.',
-      highlights: ['Full Stack', 'AI backend', 'Devops', 'CI/CD pipelines', 'container and self healing services', 'Software Infrastructure', 'Software Design', 'Software Industry']
-    },
-    {
-      type: 'publication',
-      title: 'Real-Time Power System Monitoring (BE-PS Algorithm)',
-      organization: 'IEEE AICARE 2025 Conference',
-      period: 'Nov 2025',
-      location: 'Kolkata, India',
-      description: 'Authored and presented a research paper introducing the BE-PS (Binary Entropy-Poly Split) algorithm. This entropy-guided sorting method is designed to optimize data processing for renewable energy grids, significantly outperforming traditional algorithms like Quicksort and std::sort.',
-      highlights: [
-        'Developed the BE-PS algorithm, achieving 2x-3x faster execution than optimized C++ libraries on clustered datasets.',
-        'Presented at the 1st International Conference on AI for Computing, Astronomy, and Renewable Energy (AICARE 2025).',
-        'Applied information-theoretic principles (Shannon Entropy) to optimize real-time harmonic distortion (THD) monitoring.',
-        'Benchmarked performance against standard algorithms using real-world solar generation data.'
-      ],
-    },
-    {
-      type: 'work',
-      title: 'Freelance Developer',
-      organization: 'Self-Employed',
-      location: 'Remote',
-      period: '2024 - Present',
-      description: 'Building web and mobile applications for clients worldwide.',
-      highlights: ['10+ Projects', 'React/Next.js', 'Kotlin/Android']
-    },
-    {
-      type: 'work',
-      title: 'Open Source Contributor',
-      organization: 'GitHub',
-      location: 'Remote',
-      period: '2023 - Present',
-      description: 'Contributing to various open-source projects and maintaining my own.',
-      highlights: ['50+ Commits', 'Multiple PRs', 'Community Building']
-    },
-    {
-      type: 'education',
-      title: 'B.Tech in Computer Science Engineering',
-      organization: 'IEM Newtown (UEM Kolkata)',
-      location: 'Kolkata, India',
-      period: '2023 - Present',
-      description: 'Pursuing B.Tech in CSE with focus on AI/ML and full-stack development.',
-      highlights: ['Dean\'s List', 'Tech Club Lead', 'Hackathon Winner']
-    }
-  ]
-
   return (
-    <section id="experience" className="py-20 px-4 md:px-6">
-      <div className="container mx-auto max-w-4xl">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mb-12"
-        >
-          <div className="terminal-card inline-block mb-6">
-            <div className="terminal-header">
-              <div className="terminal-dot terminal-dot-red" />
-              <div className="terminal-dot terminal-dot-yellow" />
-              <div className="terminal-dot terminal-dot-green" />
-              <span className="terminal-title">experience.log</span>
-            </div>
-            <div className="terminal-body py-2 px-4">
-              <span className="text-[rgb(var(--primary))] text-sm font-mono">git</span>
-              <span className="text-[rgb(var(--muted-foreground))] text-sm font-mono"> log --oneline</span>
-            </div>
-          </div>
-          <h2 className="text-4xl md:text-5xl font-display font-bold gradient-text mb-4">
-            Experience
-          </h2>
-          <p className="text-[rgb(var(--muted-foreground))] max-w-xl mx-auto">
-            My journey in tech - education, work, and contributions.
-          </p>
+    <section id="experience" className="border-y border-[rgb(var(--line)_/_0.5)] py-24 sm:py-32">
+      <div className="container-shell grid gap-14 lg:grid-cols-[0.7fr_1.3fr] lg:gap-24">
+        <motion.div initial={{ opacity: 0, x: -18 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, amount: 0.2 }} className="lg:sticky lg:top-28 lg:self-start">
+          <p className="eyebrow">03 / experience & proof</p>
+          <h2 className="section-title">The trail behind the work.</h2>
+          <p className="section-copy">Engineering, research, product work, and open-source contributions across software systems and user-facing products.</p>
+          <a href="https://github.com/rajeet-04" target="_blank" rel="noopener noreferrer" className="link-arrow mt-7">
+            Follow the trail on GitHub <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+          </a>
         </motion.div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[rgb(var(--primary))] via-[rgb(var(--border))] to-[rgb(var(--border))]" />
-
-          {experiences.map((exp, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className={`relative flex items-start gap-6 mb-8 ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                }`}
-            >
-              {/* Timeline Dot */}
-              <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-[rgb(var(--primary))] ring-4 ring-[rgb(var(--background))] z-10" />
-
-              {/* Content Card */}
-              <div className={`ml-10 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? 'md:mr-auto md:pr-8' : 'md:ml-auto md:pl-8'}`}>
-                <div className="midnight-glass p-6 hover-lift">
-                  {/* Type Badge */}
-                  <div className="flex items-center gap-2 mb-3">
-                    <div className={`p-1.5 rounded-lg ${exp.type === 'education' ? 'bg-purple-500/10 text-purple-400' : exp.type === 'internship' ? 'bg-green-500/10 text-green-400' : exp.type === 'publication' ? 'bg-amber-500/10 text-amber-400' : 'bg-cyan-500/10 text-cyan-400'}`}>
-                      {exp.type === 'education' ? (
-                        <AcademicCapIcon className="w-4 h-4" />
-                      ) : (
-                        <BriefcaseIcon className="w-4 h-4" />
-                      )}
-                    </div>
-                    <span className="text-xs font-mono uppercase tracking-wider text-[rgb(var(--muted-foreground))]">
-                      {exp.type}
-                    </span>
+        <div className="relative pl-7 sm:pl-10">
+          <div className="timeline-line" />
+          <div className="space-y-8">
+            {experiences.map((experience, index) => (
+              <motion.article
+                key={`${experience.title}-${experience.period}`}
+                initial={{ opacity: 0, x: 18 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.16 }}
+                transition={{ duration: 0.45, delay: index * 0.06 }}
+                className="relative flex gap-4"
+              >
+                <div className="timeline-dot absolute -left-[1.75rem] sm:-left-[2.5rem]" />
+                <div className="surface-soft w-full rounded-2xl p-5 sm:p-7">
+                  <div className="flex flex-wrap items-start justify-between gap-3">
+                    <p className="mono-label text-[rgb(var(--accent))]">{experience.type}</p>
+                    <span className="mono-label">{String(index + 1).padStart(2, '0')}</span>
                   </div>
-
-                  <h3 className="text-lg font-display font-semibold text-[rgb(var(--foreground))] mb-1">
-                    {exp.title}
-                  </h3>
-                  <p className="text-[rgb(var(--primary))] font-medium text-sm mb-2">
-                    {exp.organization}
-                  </p>
-
-                  <div className="flex flex-wrap gap-3 text-xs text-[rgb(var(--muted-foreground))] mb-3">
-                    <span className="flex items-center gap-1">
-                      <MapPinIcon className="w-3 h-3" />
-                      {exp.location}
-                    </span>
-                    <span className="flex items-center gap-1">
-                      <CalendarIcon className="w-3 h-3" />
-                      {exp.period}
-                    </span>
+                  <h3 className="mt-3 font-display text-2xl font-semibold tracking-[-0.04em] text-[rgb(var(--text))]">{experience.title}</h3>
+                  <p className="mt-1 font-medium text-[rgb(var(--accent))]">{experience.organization}</p>
+                  <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-xs text-[rgb(var(--text-subtle))]">
+                    <span className="inline-flex items-center gap-1.5"><CalendarIcon className="h-3.5 w-3.5" /> {experience.period}</span>
+                    <span className="inline-flex items-center gap-1.5"><MapPinIcon className="h-3.5 w-3.5" /> {experience.location}</span>
                   </div>
-
-                  <p className="text-sm text-[rgb(var(--muted-foreground))] mb-4">
-                    {exp.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {exp.highlights.map((highlight, i) => (
-                      <span
-                        key={i}
-                        className="px-2 py-1 text-xs font-mono bg-[rgb(var(--muted))] text-[rgb(var(--foreground))] rounded"
-                      >
-                        {highlight}
-                      </span>
+                  <p className="mt-4 text-sm leading-7 text-[rgb(var(--text-muted))]">{experience.description}</p>
+                  <div className="mt-5 flex flex-wrap items-center gap-2">
+                    {experience.highlights.map((highlight) => (
+                      <span key={highlight} className="rounded-md border border-[rgb(var(--line)_/_0.7)] bg-[rgb(var(--bg)_/_0.45)] px-2.5 py-1.5 font-mono text-[0.68rem] text-[rgb(var(--text-muted))]">{highlight}</span>
                     ))}
+                    {experience.link && (
+                      <a href={experience.link} target="_blank" rel="noopener noreferrer" className="ml-auto inline-flex items-center gap-1 text-xs font-semibold text-[rgb(var(--accent))] hover:text-[rgb(var(--text))]">
+                        Evidence <ArrowTopRightOnSquareIcon className="h-3.5 w-3.5" />
+                      </a>
+                    )}
                   </div>
                 </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.article>
+            ))}
+          </div>
         </div>
       </div>
     </section>

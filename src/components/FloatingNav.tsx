@@ -1,173 +1,106 @@
 'use client'
 
-import { useState, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import {
-    HomeIcon,
-    UserIcon,
-    BriefcaseIcon,
-    CodeBracketIcon,
-    EnvelopeIcon,
-    MoonIcon,
-    SunIcon,
-    EyeIcon,
-} from '@heroicons/react/24/outline'
+import { useEffect, useState } from 'react'
+import { motion } from 'framer-motion'
+import { ArrowTopRightOnSquareIcon, MoonIcon, SunIcon } from '@heroicons/react/24/outline'
 import { useTheme } from 'next-themes'
 
+const navItems = [
+  { id: 'work', label: 'Work' },
+  { id: 'about', label: 'About' },
+  { id: 'experience', label: 'Experience' },
+  { id: 'contact', label: 'Contact' },
+]
+
 export default function FloatingNav() {
-    const [activeSection, setActiveSection] = useState('home')
-    const [isVisible, setIsVisible] = useState(true)
-    const [lastScrollY, setLastScrollY] = useState(0)
-    const [highContrast, setHighContrast] = useState(false)
-    const { theme, setTheme, resolvedTheme } = useTheme()
-    const [mounted, setMounted] = useState(false)
+  const [activeSection, setActiveSection] = useState('work')
+  const [mounted, setMounted] = useState(false)
+  const { resolvedTheme, setTheme } = useTheme()
 
-    useEffect(() => {
-        setMounted(true)
-        // Check if high contrast is saved
-        const savedContrast = localStorage.getItem('high-contrast')
-        if (savedContrast === 'true') {
-            setHighContrast(true)
-            document.documentElement.classList.add('high-contrast')
-        }
-    }, [])
+  useEffect(() => {
+    setMounted(true)
 
-    const navItems = [
-        { id: 'home', icon: HomeIcon, label: 'Home' },
-        { id: 'about', icon: UserIcon, label: 'About' },
-        { id: 'projects', icon: CodeBracketIcon, label: 'Projects' },
-        { id: 'experience', icon: BriefcaseIcon, label: 'Experience' },
-        { id: 'contact', icon: EnvelopeIcon, label: 'Contact' },
-    ]
+    const sections = navItems
+      .map((item) => document.getElementById(item.id))
+      .filter((section): section is HTMLElement => Boolean(section))
 
-    useEffect(() => {
-        const handleScroll = () => {
-            const currentScrollY = window.scrollY
-
-            if (currentScrollY > lastScrollY && currentScrollY > 100) {
-                setIsVisible(false)
-            } else {
-                setIsVisible(true)
-            }
-            setLastScrollY(currentScrollY)
-
-            const sections = navItems.map(item => document.getElementById(item.id))
-            const scrollPosition = window.scrollY + window.innerHeight / 3
-
-            for (let i = sections.length - 1; i >= 0; i--) {
-                const section = sections[i]
-                if (section && section.offsetTop <= scrollPosition) {
-                    setActiveSection(navItems[i].id)
-                    break
-                }
-            }
-        }
-
-        window.addEventListener('scroll', handleScroll, { passive: true })
-        return () => window.removeEventListener('scroll', handleScroll)
-    }, [lastScrollY, navItems])
-
-    const scrollToSection = (sectionId: string) => {
-        const section = document.getElementById(sectionId)
-        section?.scrollIntoView({ behavior: 'smooth' })
-    }
-
-    const toggleTheme = () => {
-        setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')
-    }
-
-    const toggleHighContrast = () => {
-        const newValue = !highContrast
-        setHighContrast(newValue)
-        localStorage.setItem('high-contrast', String(newValue))
-
-        if (newValue) {
-            document.documentElement.classList.add('high-contrast')
-        } else {
-            document.documentElement.classList.remove('high-contrast')
-        }
-    }
-
-    return (
-        <AnimatePresence>
-            {isVisible && (
-                <motion.nav
-                    initial={{ y: 100, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    exit={{ y: 100, opacity: 0 }}
-                    transition={{ duration: 0.3, ease: 'easeOut' }}
-                    className="fixed bottom-6 left-0 right-0 z-50 flex justify-center px-4"
-                >
-                    <div className="midnight-glass-strong px-2 py-2 flex items-center gap-1">
-                        {/* Navigation Items */}
-                        {navItems.map((item) => (
-                            <motion.button
-                                key={item.id}
-                                onClick={() => scrollToSection(item.id)}
-                                className={`relative p-3 rounded-xl transition-all duration-300 group ${activeSection === item.id
-                                        ? 'text-[rgb(var(--primary))]'
-                                        : 'text-[rgb(var(--muted-foreground))] hover:text-[rgb(var(--foreground))]'
-                                    }`}
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.95 }}
-                                aria-label={item.label}
-                            >
-                                {activeSection === item.id && (
-                                    <motion.div
-                                        layoutId="activeNav"
-                                        className="absolute inset-0 bg-[rgb(var(--primary)_/_0.15)] rounded-xl"
-                                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                                    />
-                                )}
-                                <item.icon className="w-5 h-5 relative z-10" />
-
-                                {/* Tooltip */}
-                                <span className="absolute -top-10 left-1/2 -translate-x-1/2 px-2 py-1 bg-[rgb(var(--secondary))] text-[rgb(var(--foreground))] text-xs font-medium rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none whitespace-nowrap border border-[rgb(var(--border))]">
-                                    {item.label}
-                                </span>
-                            </motion.button>
-                        ))}
-
-                        {/* Divider */}
-                        <div className="w-px h-6 bg-[rgb(var(--border))] mx-1" />
-
-                        {/* High Contrast Toggle */}
-                        {mounted && (
-                            <motion.button
-                                onClick={toggleHighContrast}
-                                className={`p-3 rounded-xl transition-colors ${highContrast
-                                        ? 'text-[rgb(var(--primary))] bg-[rgb(var(--primary)_/_0.1)]'
-                                        : 'text-[rgb(var(--muted-foreground))] hover:text-[rgb(var(--foreground))]'
-                                    }`}
-                                whileHover={{ scale: 1.1 }}
-                                whileTap={{ scale: 0.95 }}
-                                aria-label="Toggle high contrast mode"
-                                title="High Contrast"
-                            >
-                                <EyeIcon className="w-5 h-5" />
-                            </motion.button>
-                        )}
-
-                        {/* Theme Toggle */}
-                        {mounted && (
-                            <motion.button
-                                onClick={toggleTheme}
-                                className="p-3 rounded-xl text-[rgb(var(--muted-foreground))] hover:text-[rgb(var(--primary))] transition-colors"
-                                whileHover={{ scale: 1.1, rotate: 180 }}
-                                whileTap={{ scale: 0.95 }}
-                                transition={{ duration: 0.3 }}
-                                aria-label="Toggle dark mode"
-                            >
-                                {resolvedTheme === 'dark' ? (
-                                    <SunIcon className="w-5 h-5" />
-                                ) : (
-                                    <MoonIcon className="w-5 h-5" />
-                                )}
-                            </motion.button>
-                        )}
-                    </div>
-                </motion.nav>
-            )}
-        </AnimatePresence>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)
+        if (visible[0]?.target.id) setActiveSection(visible[0].target.id)
+      },
+      { rootMargin: '-20% 0px -60% 0px', threshold: [0.1, 0.35, 0.65] },
     )
+
+    sections.forEach((section) => observer.observe(section))
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <header className="sticky top-0 z-40 border-b border-[rgb(var(--line)_/_0.65)] bg-[rgb(var(--bg)_/_0.82)] backdrop-blur-xl">
+      <div className="container-shell flex min-h-[4.7rem] items-center justify-between gap-5">
+        <a href="#home" className="group flex items-center gap-3" aria-label="Rajeet Ash home">
+          <span className="flex h-9 w-9 items-center justify-center rounded-lg border border-[rgb(var(--accent)_/_0.55)] bg-[rgb(var(--accent)_/_0.08)] font-mono text-sm font-bold text-[rgb(var(--accent))] transition-transform group-hover:-rotate-6">
+            R/
+          </span>
+          <span className="hidden text-sm font-semibold tracking-[0.02em] text-[rgb(var(--text))] sm:block">Rajeet Ash</span>
+        </a>
+
+        <nav className="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={`rounded-lg px-3 py-2 text-sm transition-colors ${activeSection === item.id
+                ? 'bg-[rgb(var(--accent)_/_0.1)] text-[rgb(var(--accent))]'
+                : 'text-[rgb(var(--text-muted))] hover:text-[rgb(var(--text))]'
+                }`}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex items-center gap-2">
+          <a
+            href="https://github.com/rajeet-04"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden items-center gap-2 rounded-lg border border-[rgb(var(--line))] px-3 py-2 text-sm font-semibold text-[rgb(var(--text-muted))] transition-colors hover:border-[rgb(var(--accent)_/_0.6)] hover:text-[rgb(var(--accent))] sm:inline-flex"
+          >
+            GitHub
+            <ArrowTopRightOnSquareIcon className="h-4 w-4" />
+          </a>
+          {mounted && (
+            <motion.button
+              type="button"
+              onClick={() => setTheme(resolvedTheme === 'dark' ? 'light' : 'dark')}
+              whileTap={{ scale: 0.94 }}
+              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[rgb(var(--line))] text-[rgb(var(--text-muted))] transition-colors hover:border-[rgb(var(--accent)_/_0.6)] hover:text-[rgb(var(--accent))]"
+              aria-label="Toggle color theme"
+            >
+              {resolvedTheme === 'dark' ? <SunIcon className="h-4 w-4" /> : <MoonIcon className="h-4 w-4" />}
+            </motion.button>
+          )}
+        </div>
+      </div>
+
+      <nav className="container-shell flex gap-1 overflow-x-auto pb-3 md:hidden" aria-label="Mobile navigation">
+        {navItems.map((item) => (
+          <a
+            key={item.id}
+            href={`#${item.id}`}
+            className={`whitespace-nowrap rounded-full px-3 py-1.5 text-xs font-medium transition-colors ${activeSection === item.id
+              ? 'bg-[rgb(var(--accent)_/_0.14)] text-[rgb(var(--accent))]'
+              : 'text-[rgb(var(--text-subtle))] hover:text-[rgb(var(--text))]'
+              }`}
+          >
+            {item.label}
+          </a>
+        ))}
+      </nav>
+    </header>
+  )
 }

@@ -78,7 +78,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-08-14T19:26:31Z",
+    "lastUpdated": "2026-08-15T18:54:35Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -115,24 +115,6 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-07-19T07:52:33Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "IoT",
-    "title": "IoT",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://io-t-beige.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/IoT",
-    "stars": 0,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2026-07-17T08:09:26Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -187,6 +169,24 @@
     "forks": 0,
     "language": "JavaScript",
     "lastUpdated": "2026-05-19T04:41:52Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "IoT",
+    "title": "IoT",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://io-t-beige.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/IoT",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-07-17T08:09:26Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -388,24 +388,6 @@
     "status": "Active"
   },
   {
-    "id": "info-guide",
-    "title": "Info Guide",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://info-guide.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/info-guide",
-    "stars": 0,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2026-02-17T06:15:30Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "uni-grade-marking-system",
     "title": "Uni Grade Marking System",
     "description": "A TypeScript project.",
@@ -527,6 +509,24 @@
     "forks": 0,
     "language": "JavaScript",
     "lastUpdated": "2026-01-01T16:46:32Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "info-guide",
+    "title": "Info Guide",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://info-guide.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/info-guide",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-02-17T06:15:30Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

@@ -48,6 +48,24 @@
     "status": "Active"
   },
   {
+    "id": "leetcode-company-wise-problems",
+    "title": "Leetcode Company Wise Problems",
+    "description": "Lists of company wise questions. Every csv file in the companies directory corresponds to a list of questions on leetcode for a specific company based on the leetcode company tags. Updated as of 20 June, 2025",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://leet-progress-eta.vercel.app/",
+    "codeUrl": "https://github.com/rajeet-04/leetcode-company-wise-problems",
+    "stars": 1,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-08-19T13:36:14Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "JUKES",
     "title": "JUKES",
     "description": "JUKE is a premium Android music app built with Jetpack Compose. It bridges Spotify search and YouTube Music recommendations for an infinite listening experience. Key features: dual-source high-quality downloads, instant streaming with LRU caching, synced lyrics, and a stunning Material 3 UI with glassmorphic aesthetics.",
@@ -78,7 +96,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-08-17T19:06:14Z",
+    "lastUpdated": "2026-08-18T19:05:49Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -223,24 +241,6 @@
     "forks": 0,
     "language": "Kotlin",
     "lastUpdated": "2026-06-01T08:46:45Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "leetcode-company-wise-problems",
-    "title": "Leetcode Company Wise Problems",
-    "description": "Lists of company wise questions. Every csv file in the companies directory corresponds to a list of questions on leetcode for a specific company based on the leetcode company tags. Updated as of 20 June, 2025",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://leet-progress-eta.vercel.app/",
-    "codeUrl": "https://github.com/rajeet-04/leetcode-company-wise-problems",
-    "stars": 1,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2026-08-18T18:33:35Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://rajeet-04.github.io/rash/sitemap.xml
+Sitemap: https://portfolio.rajeet.in/sitemap.xml

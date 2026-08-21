@@ -4,7 +4,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || 'https://rajeet-04.github.io/rash'
+    process.env.NEXT_PUBLIC_SITE_URL || 'https://portfolio.rajeet.in'
   ),
   title: 'RASH | Portfolio - Creative Developer & Designer',
   description: 'Portfolio of Rajeet Ash — creative developer and designer crafting full-stack web, AI/ML, mobile, and cloud experiences with TypeScript, Next.js, and modern UI/UX.',
@@ -29,9 +29,9 @@ export const metadata: Metadata = {
   },
   alternates: { canonical: '/' },
   icons: {
-    icon: './r.png',
-    shortcut: './r.png',
-    apple: './r.png',
+    icon: '/r.png',
+    shortcut: '/r.png',
+    apple: '/r.png',
   },
   openGraph: {
     title: 'RASH | Portfolio - Creative Developer & Designer',
@@ -72,9 +72,9 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="icon" href="./r.png" type="image/png" />
-        <link rel="shortcut icon" href="./r.png" type="image/png" />
-        <link rel="apple-touch-icon" href="./r.png" />
+        <link rel="icon" href="/r.png" type="image/png" />
+        <link rel="shortcut icon" href="/r.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/r.png" />
       </head>
       <body className="antialiased">
         <ThemeProvider>

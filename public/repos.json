@@ -44,7 +44,7 @@
     "stars": 2,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-08-23T03:59:11Z",
+    "lastUpdated": "2026-08-24T04:03:38Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -84,6 +84,24 @@
     "status": "Active"
   },
   {
+    "id": "rash",
+    "title": "Rash",
+    "description": "WELCOME TO MY WEBSITE !",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://rajeet-04.github.io/rash/",
+    "codeUrl": "https://github.com/rajeet-04/rash",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-08-23T18:55:32Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "JUKES",
     "title": "JUKES",
     "description": "JUKE is a premium Android music app built with Jetpack Compose. It bridges Spotify search and YouTube Music recommendations for an infinite listening experience. Key features: dual-source high-quality downloads, instant streaming with LRU caching, synced lyrics, and a stunning Material 3 UI with glassmorphic aesthetics.",
@@ -97,24 +115,6 @@
     "forks": 0,
     "language": "Kotlin",
     "lastUpdated": "2026-05-25T20:40:32Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "rash",
-    "title": "Rash",
-    "description": "WELCOME TO MY WEBSITE !",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://rajeet-04.github.io/rash/",
-    "codeUrl": "https://github.com/rajeet-04/rash",
-    "stars": 0,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2026-08-22T18:55:53Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

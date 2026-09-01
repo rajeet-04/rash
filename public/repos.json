@@ -44,7 +44,7 @@
     "stars": 3,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-08-31T09:41:05Z",
+    "lastUpdated": "2026-09-01T08:36:33Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -66,6 +66,24 @@
     "status": "Active"
   },
   {
+    "id": "rash",
+    "title": "Rash",
+    "description": "WELCOME TO MY WEBSITE !",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://rajeet-04.github.io/rash/",
+    "codeUrl": "https://github.com/rajeet-04/rash",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-08-31T22:57:26Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "INTENTFENCE",
     "title": "INTENTFENCE",
     "description": "A Python project.",
@@ -79,24 +97,6 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-08-23T07:37:46Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "rash",
-    "title": "Rash",
-    "description": "WELCOME TO MY WEBSITE !",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://rajeet-04.github.io/rash/",
-    "codeUrl": "https://github.com/rajeet-04/rash",
-    "stars": 0,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2026-08-30T21:20:01Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

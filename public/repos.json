@@ -44,23 +44,7 @@
     "stars": 3,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-09-01T08:36:33Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "TinyColor",
-    "title": "TinyColor",
-    "description": "Fast, small color manipulation and conversion for JavaScript",
-    "category": "web",
-    "technologies": [],
-    "liveUrl": "https://bgrins.github.io/TinyColor/",
-    "codeUrl": "https://github.com/rajeet-04/TinyColor",
-    "stars": 1,
-    "forks": 0,
-    "language": null,
-    "lastUpdated": "2026-08-03T17:14:03Z",
+    "lastUpdated": "2026-09-02T07:52:48Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -78,7 +62,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-08-31T22:57:26Z",
+    "lastUpdated": "2026-09-02T08:12:51Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -97,6 +81,22 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-08-23T07:37:46Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "TinyColor",
+    "title": "TinyColor",
+    "description": "Fast, small color manipulation and conversion for JavaScript",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://bgrins.github.io/TinyColor/",
+    "codeUrl": "https://github.com/rajeet-04/TinyColor",
+    "stars": 1,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-08-03T17:14:03Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -210,24 +210,6 @@
     "status": "Active"
   },
   {
-    "id": "BizzChat",
-    "title": "BizzChat",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://bizz-chat-frontend.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/BizzChat",
-    "stars": 0,
-    "forks": 1,
-    "language": "TypeScript",
-    "lastUpdated": "2026-06-04T02:12:55Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "RESCURE",
     "title": "RESCURE",
     "description": "A TypeScript project.",
@@ -331,6 +313,24 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-04-13T22:28:08Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "BizzChat",
+    "title": "BizzChat",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://bizz-chat-frontend.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/BizzChat",
+    "stars": 0,
+    "forks": 1,
+    "language": "TypeScript",
+    "lastUpdated": "2026-06-04T02:12:55Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

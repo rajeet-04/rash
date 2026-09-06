@@ -44,7 +44,7 @@
     "stars": 3,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-09-05T07:38:15Z",
+    "lastUpdated": "2026-09-06T07:53:38Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -62,7 +62,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-09-04T20:54:09Z",
+    "lastUpdated": "2026-09-05T20:32:55Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -169,24 +169,6 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-07-19T07:52:33Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "gistify",
-    "title": "Gistify",
-    "description": "An AI powered webpage summarizer",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://gistify-snowy.vercel.app/",
-    "codeUrl": "https://github.com/xthxr/gistify",
-    "stars": 2,
-    "forks": 6,
-    "language": "JavaScript",
-    "lastUpdated": "2025-09-06T13:57:31Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -419,6 +401,22 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2026-03-27T02:53:42Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "gistify",
+    "title": "Gistify",
+    "description": "An AI powered webpage summarizer",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://gistify-psi.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/gistify",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-04-07T05:19:07Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

@@ -44,7 +44,7 @@
     "stars": 3,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-09-21T08:52:45Z",
+    "lastUpdated": "2026-09-22T08:29:46Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -80,7 +80,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-09-20T20:57:46Z",
+    "lastUpdated": "2026-09-21T22:05:31Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -210,6 +210,22 @@
     "status": "Active"
   },
   {
+    "id": "shayari",
+    "title": "Shayari",
+    "description": "A code project.",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://github.com/rajeet-04/shayari",
+    "codeUrl": "https://github.com/rajeet-04/shayari",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-09-22T18:04:15Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "RESCURE",
     "title": "RESCURE",
     "description": "A TypeScript project.",
@@ -241,24 +257,6 @@
     "forks": 0,
     "language": "JavaScript",
     "lastUpdated": "2026-05-19T04:41:52Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "rag",
-    "title": "Rag",
-    "description": "A Python project.",
-    "category": "ai",
-    "technologies": [
-      "Python"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/rag",
-    "codeUrl": "https://github.com/rajeet-04/rag",
-    "stars": 1,
-    "forks": 1,
-    "language": "Python",
-    "lastUpdated": "2026-03-26T11:27:56Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -435,6 +433,24 @@
     "forks": 0,
     "language": null,
     "lastUpdated": "2026-04-07T05:19:07Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "rag",
+    "title": "Rag",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/rag",
+    "codeUrl": "https://github.com/rajeet-04/rag",
+    "stars": 1,
+    "forks": 1,
+    "language": "Python",
+    "lastUpdated": "2026-03-26T11:27:56Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

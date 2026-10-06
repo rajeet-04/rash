@@ -44,7 +44,7 @@
     "stars": 3,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-10-04T09:43:53Z",
+    "lastUpdated": "2026-10-05T10:21:28Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -53,16 +53,16 @@
     "id": "youtube-music-alexa-skill",
     "title": "Youtube Music Alexa Skill",
     "description": "Self-hosted YouTube Music integration for Alexa/Echo with voice playback, recommendation-based radio, playlists, audio streaming proxy, and web remote control.",
-    "category": "web",
+    "category": "ai",
     "technologies": [
-      "JavaScript"
+      "Python"
     ],
     "liveUrl": "https://github.com/rajeet-04/youtube-music-alexa-skill",
     "codeUrl": "https://github.com/rajeet-04/youtube-music-alexa-skill",
     "stars": 0,
     "forks": 0,
-    "language": "JavaScript",
-    "lastUpdated": "2026-10-04T15:02:56Z",
+    "language": "Python",
+    "lastUpdated": "2026-10-05T18:34:45Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -96,9 +96,9 @@
     "liveUrl": "https://github.com/rajeet-04/JUKES",
     "codeUrl": "https://github.com/rajeet-04/JUKES",
     "stars": 6,
-    "forks": 1,
+    "forks": 0,
     "language": "Kotlin",
-    "lastUpdated": "2026-10-04T09:59:44Z",
+    "lastUpdated": "2026-10-05T19:30:02Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -116,7 +116,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-10-03T21:37:58Z",
+    "lastUpdated": "2026-10-04T21:44:10Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -186,7 +186,7 @@
     "stars": 1,
     "forks": 0,
     "language": "Python",
-    "lastUpdated": "2026-10-04T18:40:26Z",
+    "lastUpdated": "2026-10-05T22:02:57Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

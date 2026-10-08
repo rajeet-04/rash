@@ -44,7 +44,7 @@
     "stars": 3,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-10-07T10:12:10Z",
+    "lastUpdated": "2026-10-08T10:30:47Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -98,7 +98,7 @@
     "stars": 6,
     "forks": 0,
     "language": "Kotlin",
-    "lastUpdated": "2026-10-07T11:51:43Z",
+    "lastUpdated": "2026-10-08T04:16:44Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -116,7 +116,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-10-06T22:43:35Z",
+    "lastUpdated": "2026-10-07T23:13:48Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -186,7 +186,7 @@
     "stars": 1,
     "forks": 0,
     "language": "Python",
-    "lastUpdated": "2026-10-07T20:39:57Z",
+    "lastUpdated": "2026-10-08T20:43:51Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -406,24 +406,6 @@
     "status": "Active"
   },
   {
-    "id": "pre-cita",
-    "title": "Pre Cita",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://pre-cita.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/pre-cita",
-    "stars": 0,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2026-04-11T00:06:26Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "BlindUnfold",
     "title": "BlindUnfold",
     "description": "A Realtime Vision for Visually Impaired Students",
@@ -581,6 +563,24 @@
     "forks": 0,
     "language": "JavaScript",
     "lastUpdated": "2026-01-01T16:46:32Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "pre-cita",
+    "title": "Pre Cita",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://pre-cita.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/pre-cita",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-04-11T00:06:26Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

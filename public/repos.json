@@ -44,7 +44,7 @@
     "stars": 3,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-10-11T09:57:01Z",
+    "lastUpdated": "2026-10-12T10:43:18Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -68,24 +68,6 @@
     "status": "Active"
   },
   {
-    "id": "biovolt-meta",
-    "title": "Biovolt Meta",
-    "description": "BioVolt meta repository",
-    "category": "ai",
-    "technologies": [
-      "Python"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/biovolt-meta",
-    "codeUrl": "https://github.com/rajeet-04/biovolt-meta",
-    "stars": 0,
-    "forks": 0,
-    "language": "Python",
-    "lastUpdated": "2026-09-12T22:32:36Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "JUKES",
     "title": "JUKES",
     "description": "JUKE is a premium Android music app built with Jetpack Compose. It bridges Spotify search and YouTube Music recommendations for an infinite listening experience. Key features: dual-source high-quality downloads, instant streaming with LRU caching, synced lyrics, and a stunning Material 3 UI with glassmorphic aesthetics.",
@@ -98,7 +80,7 @@
     "stars": 6,
     "forks": 0,
     "language": "Kotlin",
-    "lastUpdated": "2026-10-11T06:32:38Z",
+    "lastUpdated": "2026-10-12T06:45:16Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -116,7 +98,25 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-10-10T21:54:54Z",
+    "lastUpdated": "2026-10-11T22:12:57Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "biovolt-meta",
+    "title": "Biovolt Meta",
+    "description": "BioVolt meta repository",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/biovolt-meta",
+    "codeUrl": "https://github.com/rajeet-04/biovolt-meta",
+    "stars": 0,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2026-09-12T22:32:36Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -186,7 +186,7 @@
     "stars": 1,
     "forks": 0,
     "language": "Python",
-    "lastUpdated": "2026-10-11T19:35:29Z",
+    "lastUpdated": "2026-10-12T22:31:43Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

@@ -44,7 +44,7 @@
     "stars": 4,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-10-27T08:55:29Z",
+    "lastUpdated": "2026-10-28T09:35:30Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -80,7 +80,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-10-26T22:48:29Z",
+    "lastUpdated": "2026-10-27T22:27:56Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -122,6 +122,22 @@
     "status": "Active"
   },
   {
+    "id": "TinyColor",
+    "title": "TinyColor",
+    "description": "Fast, small color manipulation and conversion for JavaScript",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://bgrins.github.io/TinyColor/",
+    "codeUrl": "https://github.com/rajeet-04/TinyColor",
+    "stars": 1,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-08-03T17:14:03Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "INTENTFENCE",
     "title": "INTENTFENCE",
     "description": "A Python project.",
@@ -140,17 +156,19 @@
     "status": "Active"
   },
   {
-    "id": "TinyColor",
-    "title": "TinyColor",
-    "description": "Fast, small color manipulation and conversion for JavaScript",
-    "category": "web",
-    "technologies": [],
-    "liveUrl": "https://bgrins.github.io/TinyColor/",
-    "codeUrl": "https://github.com/rajeet-04/TinyColor",
-    "stars": 1,
+    "id": "TIDE_BACKEND",
+    "title": "TIDE BACKEND",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/TIDE_BACKEND",
+    "codeUrl": "https://github.com/rajeet-04/TIDE_BACKEND",
+    "stars": 2,
     "forks": 0,
-    "language": null,
-    "lastUpdated": "2026-08-03T17:14:03Z",
+    "language": "Python",
+    "lastUpdated": "2026-10-28T20:17:56Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -169,24 +187,6 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-09-30T18:40:30Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "TIDE_BACKEND",
-    "title": "TIDE BACKEND",
-    "description": "A Python project.",
-    "category": "ai",
-    "technologies": [
-      "Python"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/TIDE_BACKEND",
-    "codeUrl": "https://github.com/rajeet-04/TIDE_BACKEND",
-    "stars": 1,
-    "forks": 0,
-    "language": "Python",
-    "lastUpdated": "2026-10-27T20:07:46Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

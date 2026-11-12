@@ -32,6 +32,24 @@
     "status": "Active"
   },
   {
+    "id": "JUKES",
+    "title": "JUKES",
+    "description": "JUKE is a premium Android music app built with Jetpack Compose. It bridges Spotify search and YouTube Music recommendations for an infinite listening experience. Key features: dual-source high-quality downloads, instant streaming with LRU caching, synced lyrics, and a stunning Material 3 UI with glassmorphic aesthetics.",
+    "category": "mobile",
+    "technologies": [
+      "Kotlin"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/JUKES",
+    "codeUrl": "https://github.com/rajeet-04/JUKES",
+    "stars": 6,
+    "forks": 0,
+    "language": "Kotlin",
+    "lastUpdated": "2026-11-11T15:51:53Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "leetcode-company-wise-problems",
     "title": "Leetcode Company Wise Problems",
     "description": "Lists of company wise questions. Every csv file in the companies directory corresponds to a list of questions on leetcode for a specific company based on the leetcode company tags. Updated as of 20 June, 2025",
@@ -44,7 +62,7 @@
     "stars": 4,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-11-10T11:05:38Z",
+    "lastUpdated": "2026-11-11T10:51:22Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -80,25 +98,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-11-10T01:41:31Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "JUKES",
-    "title": "JUKES",
-    "description": "JUKE is a premium Android music app built with Jetpack Compose. It bridges Spotify search and YouTube Music recommendations for an infinite listening experience. Key features: dual-source high-quality downloads, instant streaming with LRU caching, synced lyrics, and a stunning Material 3 UI with glassmorphic aesthetics.",
-    "category": "mobile",
-    "technologies": [
-      "Kotlin"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/JUKES",
-    "codeUrl": "https://github.com/rajeet-04/JUKES",
-    "stars": 6,
-    "forks": 0,
-    "language": "Kotlin",
-    "lastUpdated": "2026-11-10T11:24:15Z",
+    "lastUpdated": "2026-11-10T23:37:10Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -168,7 +168,7 @@
     "stars": 2,
     "forks": 0,
     "language": "Python",
-    "lastUpdated": "2026-11-10T21:23:52Z",
+    "lastUpdated": "2026-11-11T22:07:25Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

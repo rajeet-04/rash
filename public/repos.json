@@ -44,7 +44,7 @@
     "stars": 6,
     "forks": 0,
     "language": "Kotlin",
-    "lastUpdated": "2026-11-12T19:34:56Z",
+    "lastUpdated": "2026-11-13T14:01:48Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -62,7 +62,7 @@
     "stars": 4,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-11-12T10:59:35Z",
+    "lastUpdated": "2026-11-13T10:54:09Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -80,7 +80,7 @@
     "stars": 0,
     "forks": 0,
     "language": "Python",
-    "lastUpdated": "2026-11-12T19:19:35Z",
+    "lastUpdated": "2026-11-13T14:02:54Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -98,7 +98,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-11-12T00:54:15Z",
+    "lastUpdated": "2026-11-12T23:44:01Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -168,7 +168,7 @@
     "stars": 2,
     "forks": 0,
     "language": "Python",
-    "lastUpdated": "2026-11-12T22:00:02Z",
+    "lastUpdated": "2026-11-13T21:35:33Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -241,6 +241,24 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2026-09-29T13:31:56Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "ringquad",
+    "title": "Ringquad",
+    "description": "A Python project.",
+    "category": "ai",
+    "technologies": [
+      "Python"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/ringquad",
+    "codeUrl": "https://github.com/rajeet-04/ringquad",
+    "stars": 1,
+    "forks": 0,
+    "language": "Python",
+    "lastUpdated": "2026-11-13T18:46:53Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

@@ -62,7 +62,7 @@
     "stars": 4,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-11-14T10:18:27Z",
+    "lastUpdated": "2026-11-15T10:46:43Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -98,7 +98,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-11-13T23:45:40Z",
+    "lastUpdated": "2026-11-14T22:38:35Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -168,25 +168,7 @@
     "stars": 2,
     "forks": 0,
     "language": "Python",
-    "lastUpdated": "2026-11-14T20:09:26Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "piik.me",
-    "title": "Piik.me",
-    "description": "A bit.ly like real-time UTM link generator & analytics provider",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://piik.me",
-    "codeUrl": "https://github.com/rajeet-04/piik.me",
-    "stars": 0,
-    "forks": 0,
-    "language": "JavaScript",
-    "lastUpdated": "2026-05-19T04:42:00Z",
+    "lastUpdated": "2026-11-15T20:28:15Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -282,6 +264,24 @@
     "status": "Active"
   },
   {
+    "id": "piik.me",
+    "title": "Piik.me",
+    "description": "A bit.ly like real-time UTM link generator & analytics provider",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://piik.me",
+    "codeUrl": "https://github.com/rajeet-04/piik.me",
+    "stars": 0,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2026-05-19T04:42:00Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "GRAG-AI",
     "title": "GRAG AI",
     "description": "A Python project.",
@@ -300,42 +300,6 @@
     "status": "Active"
   },
   {
-    "id": "RESCURE",
-    "title": "RESCURE",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://rescure.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/RESCURE",
-    "stars": 0,
-    "forks": 1,
-    "language": "TypeScript",
-    "lastUpdated": "2026-05-19T04:42:35Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "musox_frontend_v2",
-    "title": "Musox Frontend V2",
-    "description": "A JavaScript project.",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
-    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
-    "stars": 2,
-    "forks": 0,
-    "language": "JavaScript",
-    "lastUpdated": "2026-05-19T04:41:52Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "IoT",
     "title": "IoT",
     "description": "A TypeScript project.",
@@ -349,24 +313,6 @@
     "forks": 0,
     "language": "TypeScript",
     "lastUpdated": "2026-07-17T08:09:26Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "GoogleGeminiUem",
-    "title": "GoogleGeminiUem",
-    "description": "A JavaScript project.",
-    "category": "web",
-    "technologies": [
-      "JavaScript"
-    ],
-    "liveUrl": "https://google-gemini-uem.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/GoogleGeminiUem",
-    "stars": 0,
-    "forks": 0,
-    "language": "JavaScript",
-    "lastUpdated": "2026-05-19T04:42:02Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -408,22 +354,6 @@
     "status": "Active"
   },
   {
-    "id": "skills-introduction-to-github",
-    "title": "Skills Introduction To Github",
-    "description": "My clone repository",
-    "category": "web",
-    "technologies": [],
-    "liveUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
-    "codeUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
-    "stars": 0,
-    "forks": 0,
-    "language": null,
-    "lastUpdated": "2026-05-19T04:42:53Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
     "id": "BlindUnfold",
     "title": "BlindUnfold",
     "description": "A Realtime Vision for Visually Impaired Students",
@@ -437,6 +367,42 @@
     "forks": 2,
     "language": "TypeScript",
     "lastUpdated": "2025-12-31T12:19:10Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "RESCURE",
+    "title": "RESCURE",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://rescure.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/RESCURE",
+    "stars": 0,
+    "forks": 1,
+    "language": "TypeScript",
+    "lastUpdated": "2026-05-19T04:42:35Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "musox_frontend_v2",
+    "title": "Musox Frontend V2",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "codeUrl": "https://github.com/rajeet-04/musox_frontend_v2",
+    "stars": 2,
+    "forks": 0,
+    "language": "JavaScript",
+    "lastUpdated": "2026-05-19T04:41:52Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -460,19 +426,19 @@
     "status": "Active"
   },
   {
-    "id": "registration_ggsc",
-    "title": "Registration Ggsc",
-    "description": "A HTML project.",
+    "id": "GoogleGeminiUem",
+    "title": "GoogleGeminiUem",
+    "description": "A JavaScript project.",
     "category": "web",
     "technologies": [
-      "HTML"
+      "JavaScript"
     ],
-    "liveUrl": "https://registration-ggsc.vercel.app",
-    "codeUrl": "https://github.com/rajeet-04/registration_ggsc",
+    "liveUrl": "https://google-gemini-uem.vercel.app",
+    "codeUrl": "https://github.com/rajeet-04/GoogleGeminiUem",
     "stars": 0,
     "forks": 0,
-    "language": "HTML",
-    "lastUpdated": "2026-05-19T04:42:44Z",
+    "language": "JavaScript",
+    "lastUpdated": "2026-05-19T04:42:02Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -514,6 +480,24 @@
     "status": "Active"
   },
   {
+    "id": "registration_ggsc",
+    "title": "Registration Ggsc",
+    "description": "A JavaScript project.",
+    "category": "web",
+    "technologies": [
+      "JavaScript"
+    ],
+    "liveUrl": "https://registration-ggsc.vercel.app",
+    "codeUrl": "https://github.com/Mayank8159/registration_ggsc",
+    "stars": 0,
+    "forks": 1,
+    "language": "JavaScript",
+    "lastUpdated": "2026-02-08T09:08:49Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "Payroll-AI-webapp",
     "title": "Payroll AI Webapp",
     "description": "A TypeScript project.",
@@ -545,6 +529,22 @@
     "forks": 6,
     "language": "JavaScript",
     "lastUpdated": "2025-09-06T13:57:31Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "skills-introduction-to-github",
+    "title": "Skills Introduction To Github",
+    "description": "My clone repository",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
+    "codeUrl": "https://github.com/rajeet-04/skills-introduction-to-github",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-05-19T04:42:53Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"

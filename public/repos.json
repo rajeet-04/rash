@@ -16,6 +16,22 @@
     "status": "Active"
   },
   {
+    "id": "deepseek-harness",
+    "title": "Deepseek Harness",
+    "description": "DeepSeek Harness: Everything is a Plugin.",
+    "category": "web",
+    "technologies": [],
+    "liveUrl": "https://deepseek.com/harness",
+    "codeUrl": "https://github.com/rajeet-04/deepseek-harness",
+    "stars": 0,
+    "forks": 0,
+    "language": null,
+    "lastUpdated": "2026-11-24T10:51:20Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
     "id": "vexa",
     "title": "Vexa",
     "description": "Open-source meeting transcription API for Google Meet, Microsoft Teams & Zoom. Auto-join bots, real-time WebSocket transcripts, MCP server for AI agents. Self-host or use hosted SaaS.",
@@ -62,7 +78,7 @@
     "stars": 4,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-11-23T12:26:28Z",
+    "lastUpdated": "2026-11-24T13:36:54Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -98,7 +114,7 @@
     "stars": 0,
     "forks": 0,
     "language": "TypeScript",
-    "lastUpdated": "2026-11-22T23:42:43Z",
+    "lastUpdated": "2026-11-24T04:00:29Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -168,7 +184,7 @@
     "stars": 2,
     "forks": 0,
     "language": "Python",
-    "lastUpdated": "2026-11-24T02:23:20Z",
+    "lastUpdated": "2026-11-25T00:03:38Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -187,24 +203,6 @@
     "forks": 0,
     "language": "Python",
     "lastUpdated": "2026-09-30T18:40:30Z",
-    "isPublic": true,
-    "featured": false,
-    "status": "Active"
-  },
-  {
-    "id": "SIH162",
-    "title": "SIH162",
-    "description": "A TypeScript project.",
-    "category": "web",
-    "technologies": [
-      "TypeScript"
-    ],
-    "liveUrl": "https://github.com/rajeet-04/SIH162",
-    "codeUrl": "https://github.com/rajeet-04/SIH162",
-    "stars": 0,
-    "forks": 0,
-    "language": "TypeScript",
-    "lastUpdated": "2026-10-25T23:40:04Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -240,7 +238,7 @@
     "stars": 1,
     "forks": 0,
     "language": "Python",
-    "lastUpdated": "2026-11-13T18:46:53Z",
+    "lastUpdated": "2026-11-24T15:28:32Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
@@ -259,6 +257,24 @@
     "forks": 0,
     "language": "Rust",
     "lastUpdated": "2026-11-08T08:02:29Z",
+    "isPublic": true,
+    "featured": false,
+    "status": "Active"
+  },
+  {
+    "id": "SIH162",
+    "title": "SIH162",
+    "description": "A TypeScript project.",
+    "category": "web",
+    "technologies": [
+      "TypeScript"
+    ],
+    "liveUrl": "https://github.com/rajeet-04/SIH162",
+    "codeUrl": "https://github.com/rajeet-04/SIH162",
+    "stars": 0,
+    "forks": 0,
+    "language": "TypeScript",
+    "lastUpdated": "2026-10-25T23:40:04Z",
     "isPublic": true,
     "featured": false,
     "status": "Active"
